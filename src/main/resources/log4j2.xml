@@ -30,7 +30,7 @@
 	</Appenders>
 
 	<Loggers>
-		<AsyncLogger name="com.pf7.smdb.SMDB_pf7" level="trace" additivity="false">
+		<AsyncLogger name="com.pf7.smdb.base" level="trace" additivity="false">
 			<AppenderRef ref="ConsoleAppender"/>
 			<AppenderRef ref="RollingRandomAccessFileAppender"/>
 		</AsyncLogger>

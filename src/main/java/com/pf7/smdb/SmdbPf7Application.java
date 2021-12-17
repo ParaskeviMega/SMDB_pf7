@@ -1,4 +1,4 @@
-package com.pf7.smdb.SMDB_pf7;
+package com.pf7.smdb;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
