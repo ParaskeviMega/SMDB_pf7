@@ -10,7 +10,7 @@ public class SmdbPf7Application {
 	private static final Logger logger = LoggerFactory.getLogger(SmdbPf7Application.class);
 
 	public static void main(String[] args) {
-		//SpringApplication.run(SmdbPf7Application.class, args);
-		logger.info("Hello");
+		SpringApplication.run(SmdbPf7Application.class, args);
+		//logger.info("Hello");
 	}
 }

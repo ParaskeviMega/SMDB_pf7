@@ -1,6 +1,6 @@
 spring:
   application:
-    name: PF E-Shop Demo app
+    name: SMDB_7
   data:
     jpa:
       repositories:

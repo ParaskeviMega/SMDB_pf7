@@ -15,13 +15,10 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@Entity
-@Table(name = "Movies",indexes = {@Index(columnList = "rating,title")})
-@SequenceGenerator(name = "idGenerator", sequenceName = "MOVIES_SEQ", initialValue = 1, allocationSize = 1)
 public class Movie extends BaseModel {
 
     @NotNull(message = "Title cannot be null.")
-    @Column(length = 50,nullable = false)
+    @Column(length = 50, nullable = false)
     private String title;
 
     @NotNull(message = "Description cannot be null.")
@@ -29,7 +26,7 @@ public class Movie extends BaseModel {
     private String description;
 
     @NotNull(message = "Year cannot be null.")
-    @Column(length = 4,nullable = false)
+    @Column(length = 4, nullable = false)
     private Integer year;
 
     @NotNull(message = "Genre cannot be null.")
@@ -38,12 +35,12 @@ public class Movie extends BaseModel {
     private Genre genre;
 
     @NotNull(message = "Rating cannot be null.")
-    @Column(precision = 1,scale=1,nullable = false)
+    @Column(precision = 1, scale=1, nullable = false)
     @Min(1)
     @Max(5)
     private Float rating;
 
     @NotNull
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "MovieBaseModel")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
     private Set<Person> peopleSet;
 }
