@@ -26,11 +26,10 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
 	@Override
 	public void run(String... args) throws Exception {
 		//@formatter:off
-		Set<PersonRole> example = new HashSet<>();
-		example.add(PersonRole.ACTOR);
+		//Set<PersonRole> example = Set.of(PersonRole.ACTOR, PersonRole.PRODUCER);
 
 		List<Person> Persons = List.of(
-				Person.builder().name("Dimitris").surname("Linarakis").bio("").born("1998").personRoles(example).build());
+				Person.builder().name("Dimitris").surname("Linarakis").bio("").born("1998").personRoles(Set.of(PersonRole.ACTOR, PersonRole.PRODUCER)).build());
 
 		//logger.info("Created {} Persons.", PersonService.createAll(Persons).size());
 
