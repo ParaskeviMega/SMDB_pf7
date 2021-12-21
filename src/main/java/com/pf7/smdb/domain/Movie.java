@@ -15,6 +15,8 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@MappedSuperclass
+@SequenceGenerator(name = "idGenerator", sequenceName = "MOVIES_SEQ", allocationSize = 1)
 public class Movie extends BaseModel {
 
     @NotNull(message = "Title cannot be null.")
@@ -35,7 +37,7 @@ public class Movie extends BaseModel {
     private Genre genre;
 
     @NotNull(message = "Rating cannot be null.")
-    @Column(precision = 1, scale=1, nullable = false)
+    @Column(precision = 1, scale = 1, nullable = false)
     @Min(1)
     @Max(5)
     private Float rating;

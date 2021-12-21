@@ -12801,3 +12801,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 2021-12-21 18:23:21.736 DEBUG MFRDELL - [ing housekeeper] [c.z.h.p.HikariPool                 ] : smdbConnectionPooling - Fill pool skipped, pool is at sufficient level.
 2021-12-21 18:23:48.269 DEBUG MFRDELL - [nnection closer] [c.z.h.p.PoolBase                   ] : smdbConnectionPooling - Closing connection conn53: url=jdbc:h2:file:~/smdb_pf7 user=SA: (connection has passed maxLifetime)
 2021-12-21 18:23:48.294 DEBUG MFRDELL - [onnection adder] [c.z.h.p.HikariPool                 ] : smdbConnectionPooling - Added connection conn54: url=jdbc:h2:file:~/smdb_pf7 user=SA
+2021-12-21 18:23:51.742 DEBUG MFRDELL - [ing housekeeper] [c.z.h.p.HikariPool                 ] : smdbConnectionPooling - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 18:23:51.742 DEBUG MFRDELL - [ing housekeeper] [c.z.h.p.HikariPool                 ] : smdbConnectionPooling - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 18:23:51.742 DEBUG MFRDELL - [ing housekeeper] [c.z.h.p.HikariPool                 ] : smdbConnectionPooling - Fill pool skipped, pool is at sufficient level.
