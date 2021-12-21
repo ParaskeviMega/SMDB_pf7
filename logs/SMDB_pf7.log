@@ -1,2 +1,1207 @@
 2021-12-20 13:16:50.442  INFO DESKTOP-K9HJ7U1 - [           main] [c.p.s.SmdbPf7Application           ] : Hello
 2021-12-20 13:19:57.702  INFO DESKTOP-K9HJ7U1 - [           main] [c.p.s.SmdbPf7Application           ] : Hello
+2021-12-21 13:34:59.720  INFO LAPTOP-9USMPILF - [kground-preinit] [o.h.v.i.u.Version                  ] : HV000001: Hibernate Validator 6.2.0.Final
+2021-12-21 13:34:59.742  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : Starting SmdbPf7Application using Java 17.0.1 on LAPTOP-9USMPILF with PID 16960 (C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes started by jimar in C:\Users\jimar\IdeaProjects\SMDB_pf7)
+2021-12-21 13:34:59.745  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : No active profile set, falling back to default profiles: default
+2021-12-21 13:35:00.223  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-12-21 13:35:00.286  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Finished Spring Data repository scanning in 54 ms. Found 3 JPA repository interfaces.
+2021-12-21 13:35:00.621  INFO LAPTOP-9USMPILF - [           main] [o.s.b.w.e.t.TomcatWebServer        ] : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 13:35:00.627  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Initializing ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:35:00.628  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Starting service [Tomcat]
+2021-12-21 13:35:00.628  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardEngine             ] : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 13:35:00.721  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.C.[.[.[/]                  ] : Initializing Spring embedded WebApplicationContext
+2021-12-21 13:35:00.721  INFO LAPTOP-9USMPILF - [           main] [.ServletWebServerApplicationContext] : Root WebApplicationContext: initialization completed in 947 ms
+2021-12-21 13:35:00.732 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : Driver class org.h2.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@e5c649
+
+2021-12-21 13:35:00.743 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : eshopConnectionPooling - configuration:
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : allowPoolSuspension................................false
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : autoCommit................................false
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : catalog................................none
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionInitSql................................none
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTestQuery................................"select 1 from dual;"
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTimeout................................10000
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSource................................none
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceClassName................................none
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceJNDI................................none
+2021-12-21 13:35:00.744 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceProperties................................{password=<masked>, prepStmtCacheSqlLimit=2048, cachePrepStmts=true, prepStmtCacheSize=250}
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : driverClassName................................"org.h2.Driver"
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : exceptionOverrideClassName................................none
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckProperties................................{}
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckRegistry................................none
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : idleTimeout................................30000
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : initializationFailTimeout................................1
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : isolateInternalQueries................................false
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : jdbcUrl................................jdbc:h2:file:~/smdb;IFEXISTS=FALSE;AUTO_SERVER=TRUE;
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : keepaliveTime................................0
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : leakDetectionThreshold................................0
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maxLifetime................................60000
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maximumPoolSize................................10
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricRegistry................................none
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricsTrackerFactory................................none
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : minimumIdle................................1
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : password................................<masked>
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : poolName................................"eshopConnectionPooling"
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : readOnly................................false
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : registerMbeans................................false
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : scheduledExecutor................................none
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : schema................................none
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : threadFactory................................internal
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : transactionIsolation................................"TRANSACTION_READ_COMMITTED"
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : username................................"sa"
+2021-12-21 13:35:00.745 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : validationTimeout................................5000
+2021-12-21 13:35:00.745  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Starting...
+2021-12-21 13:35:00.911 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Added connection conn1: url=jdbc:h2:file:~/smdb user=SA
+2021-12-21 13:35:00.913  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Start completed.
+2021-12-21 13:35:00.923 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:35:00.923  INFO LAPTOP-9USMPILF - [           main] [.s.b.a.h.H2ConsoleAutoConfiguration] : H2 console available at '/h2AdminConsole'. Database available at 'jdbc:h2:file:~/smdb'
+2021-12-21 13:35:01.001  INFO LAPTOP-9USMPILF - [         task-1] [o.h.j.i.u.LogHelper                ] : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-21 13:35:01.026 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:35:01.027 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:35:01.027 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Fill pool skipped, pool is at sufficient level.
+2021-12-21 13:35:01.033  INFO LAPTOP-9USMPILF - [         task-1] [o.h.Version                        ] : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-21 13:35:01.132  INFO LAPTOP-9USMPILF - [         task-1] [o.h.a.c.Version                    ] : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-21 13:35:01.141 DEBUG LAPTOP-9USMPILF - [           main] [.m.m.a.RequestMappingHandlerAdapter] : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-12-21 13:35:01.222 DEBUG LAPTOP-9USMPILF - [           main] [.m.m.a.RequestMappingHandlerMapping] : 2 mappings in 'requestMappingHandlerMapping'
+2021-12-21 13:35:01.242 DEBUG LAPTOP-9USMPILF - [           main] [o.s.w.s.h.SimpleUrlHandlerMapping  ] : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2021-12-21 13:35:01.247 DEBUG LAPTOP-9USMPILF - [           main] [a.ExceptionHandlerExceptionResolver] : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-12-21 13:35:01.250  INFO LAPTOP-9USMPILF - [         task-1] [o.h.d.Dialect                      ] : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-12-21 13:35:01.266 DEBUG LAPTOP-9USMPILF - [         task-1] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:35:01.322  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Starting ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:35:01.343  WARN LAPTOP-9USMPILF - [         task-1] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:35:01.355  INFO LAPTOP-9USMPILF - [           main] [o.s.b.w.e.t.TomcatWebServer        ] : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-21 13:35:01.357  INFO LAPTOP-9USMPILF - [           main] [redRepositoryInitializationListener] : Triggering deferred initialization of Spring Data repositories…
+2021-12-21 13:35:01.360  WARN LAPTOP-9USMPILF - [         task-1] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:35:01.382 ERROR LAPTOP-9USMPILF - [         task-1] [alContainerEntityManagerFactoryBean] : Failed to initialize JPA EntityManagerFactory: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+2021-12-21 13:35:01.409  WARN LAPTOP-9USMPILF - [           main] [gServletWebServerApplicationContext] : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'personRepository' defined in com.pf7.smdb.repository.PersonRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+2021-12-21 13:35:01.411  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:35:01.411  WARN LAPTOP-9USMPILF - [           main] [o.s.b.f.s.DisposableBeanAdapter    ] : Invocation of destroy method failed on bean with name 'entityManagerFactory': org.hibernate.AnnotationException: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+2021-12-21 13:35:01.411  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown initiated...
+2021-12-21 13:35:01.411 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before shutdown stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:35:01.413 DEBUG LAPTOP-9USMPILF - [nnection closer] [c.z.h.p.PoolBase                   ] : eshopConnectionPooling - Closing connection conn1: url=jdbc:h2:file:~/smdb user=SA: (connection evicted)
+2021-12-21 13:35:01.436 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2021-12-21 13:35:01.436  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown completed.
+2021-12-21 13:35:01.447  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Pausing ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:35:01.447  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Stopping service [Tomcat]
+2021-12-21 13:35:01.450  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Stopping ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:35:01.451  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Destroying ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:35:01.456  INFO LAPTOP-9USMPILF - [           main] [tionEvaluationReportLoggingListener] : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-21 13:35:01.471 ERROR LAPTOP-9USMPILF - [           main] [o.s.b.SpringApplication            ] : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'personRepository' defined in com.pf7.smdb.repository.PersonRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:671)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:659)
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:53)
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:35)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:938)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.pf7.smdb.SmdbPf7Application.main(SmdbPf7Application.java:13)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	... 27 more
+Caused by: org.hibernate.AnnotationException: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildUniqueKeyFromColumnNames(InFlightMetadataCollectorImpl.java:2118)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processJPAIndexHolders(InFlightMetadataCollectorImpl.java:2131)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1653)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:295)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2021-12-21 13:36:12.862  INFO LAPTOP-9USMPILF - [kground-preinit] [o.h.v.i.u.Version                  ] : HV000001: Hibernate Validator 6.2.0.Final
+2021-12-21 13:36:12.881  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : Starting SmdbPf7Application using Java 17.0.1 on LAPTOP-9USMPILF with PID 25668 (C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes started by jimar in C:\Users\jimar\IdeaProjects\SMDB_pf7)
+2021-12-21 13:36:12.884  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : No active profile set, falling back to default profiles: default
+2021-12-21 13:36:13.216  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-21 13:36:13.269  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2021-12-21 13:36:13.673  INFO LAPTOP-9USMPILF - [           main] [o.s.b.w.e.t.TomcatWebServer        ] : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 13:36:13.678  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Initializing ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:36:13.679  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Starting service [Tomcat]
+2021-12-21 13:36:13.679  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardEngine             ] : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 13:36:13.757  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.C.[.[.[/]                  ] : Initializing Spring embedded WebApplicationContext
+2021-12-21 13:36:13.757  INFO LAPTOP-9USMPILF - [           main] [.ServletWebServerApplicationContext] : Root WebApplicationContext: initialization completed in 842 ms
+2021-12-21 13:36:13.768 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : Driver class org.h2.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@e5c649
+
+2021-12-21 13:36:13.779 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : eshopConnectionPooling - configuration:
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : allowPoolSuspension................................false
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : autoCommit................................false
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : catalog................................none
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionInitSql................................none
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTestQuery................................"select 1 from dual;"
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTimeout................................10000
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSource................................none
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceClassName................................none
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceJNDI................................none
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceProperties................................{password=<masked>, prepStmtCacheSqlLimit=2048, cachePrepStmts=true, prepStmtCacheSize=250}
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : driverClassName................................"org.h2.Driver"
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : exceptionOverrideClassName................................none
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckProperties................................{}
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckRegistry................................none
+2021-12-21 13:36:13.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : idleTimeout................................30000
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : initializationFailTimeout................................1
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : isolateInternalQueries................................false
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : jdbcUrl................................jdbc:h2:file:~/smdb;IFEXISTS=FALSE;AUTO_SERVER=TRUE;
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : keepaliveTime................................0
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : leakDetectionThreshold................................0
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maxLifetime................................60000
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maximumPoolSize................................10
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricRegistry................................none
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricsTrackerFactory................................none
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : minimumIdle................................1
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : password................................<masked>
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : poolName................................"eshopConnectionPooling"
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : readOnly................................false
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : registerMbeans................................false
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : scheduledExecutor................................none
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : schema................................none
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : threadFactory................................internal
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : transactionIsolation................................"TRANSACTION_READ_COMMITTED"
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : username................................"sa"
+2021-12-21 13:36:13.781 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : validationTimeout................................5000
+2021-12-21 13:36:13.781  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Starting...
+2021-12-21 13:36:13.939 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Added connection conn1: url=jdbc:h2:file:~/smdb user=SA
+2021-12-21 13:36:13.940  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Start completed.
+2021-12-21 13:36:13.950 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:36:13.950  INFO LAPTOP-9USMPILF - [           main] [.s.b.a.h.H2ConsoleAutoConfiguration] : H2 console available at '/h2AdminConsole'. Database available at 'jdbc:h2:file:~/smdb'
+2021-12-21 13:36:14.021  INFO LAPTOP-9USMPILF - [           main] [o.h.j.i.u.LogHelper                ] : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-21 13:36:14.045 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:36:14.046 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:36:14.046 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Fill pool skipped, pool is at sufficient level.
+2021-12-21 13:36:14.050  INFO LAPTOP-9USMPILF - [           main] [o.h.Version                        ] : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-21 13:36:14.132  INFO LAPTOP-9USMPILF - [           main] [o.h.a.c.Version                    ] : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-21 13:36:14.202  INFO LAPTOP-9USMPILF - [           main] [o.h.d.Dialect                      ] : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-12-21 13:36:14.255 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:36:14.316  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:36:14.327  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:36:14.339 ERROR LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Failed to initialize JPA EntityManagerFactory: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+2021-12-21 13:36:14.340  WARN LAPTOP-9USMPILF - [           main] [gServletWebServerApplicationContext] : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+2021-12-21 13:36:14.340  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown initiated...
+2021-12-21 13:36:14.340 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before shutdown stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:36:14.341 DEBUG LAPTOP-9USMPILF - [nnection closer] [c.z.h.p.PoolBase                   ] : eshopConnectionPooling - Closing connection conn1: url=jdbc:h2:file:~/smdb user=SA: (connection evicted)
+2021-12-21 13:36:14.371 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2021-12-21 13:36:14.371  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown completed.
+2021-12-21 13:36:14.373  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Stopping service [Tomcat]
+2021-12-21 13:36:14.381  INFO LAPTOP-9USMPILF - [           main] [tionEvaluationReportLoggingListener] : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-21 13:36:14.393 ERROR LAPTOP-9USMPILF - [           main] [o.s.b.SpringApplication            ] : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.pf7.smdb.SmdbPf7Application.main(SmdbPf7Application.java:15)
+Caused by: org.hibernate.AnnotationException: Unable to create index (personRoles) on table People: database column 'personRoles' not found. Make sure that you use the correct column name which depends on the naming strategy in use (it may not be the same as the property name in the entity, especially for relational types)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildUniqueKeyFromColumnNames(InFlightMetadataCollectorImpl.java:2118)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processJPAIndexHolders(InFlightMetadataCollectorImpl.java:2131)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1653)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:295)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 16 more
+2021-12-21 13:37:51.653  INFO LAPTOP-9USMPILF - [kground-preinit] [o.h.v.i.u.Version                  ] : HV000001: Hibernate Validator 6.2.0.Final
+2021-12-21 13:37:51.673  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : Starting SmdbPf7Application using Java 17.0.1 on LAPTOP-9USMPILF with PID 6648 (C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes started by jimar in C:\Users\jimar\IdeaProjects\SMDB_pf7)
+2021-12-21 13:37:51.676  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : No active profile set, falling back to default profiles: default
+2021-12-21 13:37:52.018  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-21 13:37:52.076  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Finished Spring Data repository scanning in 51 ms. Found 3 JPA repository interfaces.
+2021-12-21 13:37:52.497  INFO LAPTOP-9USMPILF - [           main] [o.s.b.w.e.t.TomcatWebServer        ] : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 13:37:52.503  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Initializing ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:37:52.503  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Starting service [Tomcat]
+2021-12-21 13:37:52.503  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardEngine             ] : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 13:37:52.581  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.C.[.[.[/]                  ] : Initializing Spring embedded WebApplicationContext
+2021-12-21 13:37:52.581  INFO LAPTOP-9USMPILF - [           main] [.ServletWebServerApplicationContext] : Root WebApplicationContext: initialization completed in 874 ms
+2021-12-21 13:37:52.593 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : Driver class org.h2.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@e5c649
+
+2021-12-21 13:37:52.603 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : eshopConnectionPooling - configuration:
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : allowPoolSuspension................................false
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : autoCommit................................false
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : catalog................................none
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionInitSql................................none
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTestQuery................................"select 1 from dual;"
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTimeout................................10000
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSource................................none
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceClassName................................none
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceJNDI................................none
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceProperties................................{password=<masked>, prepStmtCacheSqlLimit=2048, cachePrepStmts=true, prepStmtCacheSize=250}
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : driverClassName................................"org.h2.Driver"
+2021-12-21 13:37:52.604 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : exceptionOverrideClassName................................none
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckProperties................................{}
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckRegistry................................none
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : idleTimeout................................30000
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : initializationFailTimeout................................1
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : isolateInternalQueries................................false
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : jdbcUrl................................jdbc:h2:file:~/smdb;IFEXISTS=FALSE;AUTO_SERVER=TRUE;
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : keepaliveTime................................0
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : leakDetectionThreshold................................0
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maxLifetime................................60000
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maximumPoolSize................................10
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricRegistry................................none
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricsTrackerFactory................................none
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : minimumIdle................................1
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : password................................<masked>
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : poolName................................"eshopConnectionPooling"
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : readOnly................................false
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : registerMbeans................................false
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : scheduledExecutor................................none
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : schema................................none
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : threadFactory................................internal
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : transactionIsolation................................"TRANSACTION_READ_COMMITTED"
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : username................................"sa"
+2021-12-21 13:37:52.605 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : validationTimeout................................5000
+2021-12-21 13:37:52.605  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Starting...
+2021-12-21 13:37:52.770 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Added connection conn1: url=jdbc:h2:file:~/smdb user=SA
+2021-12-21 13:37:52.771  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Start completed.
+2021-12-21 13:37:52.780 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:37:52.780  INFO LAPTOP-9USMPILF - [           main] [.s.b.a.h.H2ConsoleAutoConfiguration] : H2 console available at '/h2AdminConsole'. Database available at 'jdbc:h2:file:~/smdb'
+2021-12-21 13:37:52.856  INFO LAPTOP-9USMPILF - [           main] [o.h.j.i.u.LogHelper                ] : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-21 13:37:52.878 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:37:52.878 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:37:52.878 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Fill pool skipped, pool is at sufficient level.
+2021-12-21 13:37:52.888  INFO LAPTOP-9USMPILF - [           main] [o.h.Version                        ] : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-21 13:37:52.971  INFO LAPTOP-9USMPILF - [           main] [o.h.a.c.Version                    ] : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-21 13:37:53.041  INFO LAPTOP-9USMPILF - [           main] [o.h.d.Dialect                      ] : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-12-21 13:37:53.057 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:37:53.161  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:37:53.173  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:37:53.629 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists Films CASCADE 
+2021-12-21 13:37:53.630  INFO LAPTOP-9USMPILF - [           main] [o.h.o.c.access                     ] : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@135370b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-21 13:37:53.632 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists People CASCADE 
+2021-12-21 13:37:53.633 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists Person_personRoles CASCADE 
+2021-12-21 13:37:53.633 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists TVShows CASCADE 
+2021-12-21 13:37:53.633 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists FILMS_SEQ
+2021-12-21 13:37:53.634 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists PEOPLE_SEQ
+2021-12-21 13:37:53.634 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists TVSHOWS_SEQ
+2021-12-21 13:37:53.636 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence FILMS_SEQ start with 1 increment by 1
+2021-12-21 13:37:53.636  INFO LAPTOP-9USMPILF - [           main] [o.h.o.c.access                     ] : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@ece6d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-21 13:37:53.636 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence PEOPLE_SEQ start with 1 increment by 1
+2021-12-21 13:37:53.636 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence TVSHOWS_SEQ start with 1 increment by 1
+2021-12-21 13:37:53.637 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table Films (
+       id bigint not null,
+        year2 integer not null,
+        primary key (id)
+    )
+2021-12-21 13:37:53.637 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table People (
+       id bigint not null,
+        bio varchar(255),
+        born varchar(50) not null,
+        name varchar(20) not null,
+        surname varchar(20) not null,
+        primary key (id)
+    )
+2021-12-21 13:37:53.638 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table Person_personRoles (
+       Person_id bigint not null,
+        personRoles integer
+    )
+2021-12-21 13:37:53.638 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table TVShows (
+       id bigint not null,
+        episodes integer not null,
+        season integer not null,
+        primary key (id)
+    )
+2021-12-21 13:37:53.639 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    alter table Person_personRoles 
+       add constraint FKdhptp12acf1nvmfqm1a1tx1gq 
+       foreign key (Person_id) 
+       references People
+2021-12-21 13:37:53.644  INFO LAPTOP-9USMPILF - [           main] [o.h.e.t.j.p.i.JtaPlatformInitiator ] : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-21 13:37:53.654  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:37:53.876  WARN LAPTOP-9USMPILF - [           main] [gServletWebServerApplicationContext] : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'filmServiceImpl' defined in file [C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes\com\pf7\smdb\service\FilmServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+2021-12-21 13:37:53.876  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:37:53.878  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown initiated...
+2021-12-21 13:37:53.878 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before shutdown stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:37:53.880 DEBUG LAPTOP-9USMPILF - [nnection closer] [c.z.h.p.PoolBase                   ] : eshopConnectionPooling - Closing connection conn1: url=jdbc:h2:file:~/smdb user=SA: (connection evicted)
+2021-12-21 13:37:53.886 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2021-12-21 13:37:53.887  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown completed.
+2021-12-21 13:37:53.888  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Stopping service [Tomcat]
+2021-12-21 13:37:53.895  INFO LAPTOP-9USMPILF - [           main] [tionEvaluationReportLoggingListener] : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-21 13:37:53.910 ERROR LAPTOP-9USMPILF - [           main] [o.s.b.SpringApplication            ] : Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'filmServiceImpl' defined in file [C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes\com\pf7\smdb\service\FilmServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.pf7.smdb.SmdbPf7Application.main(SmdbPf7Application.java:15)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 19 more
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:106)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:96)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:86)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:86)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:364)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:322)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:230)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:328)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 30 more
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:113)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:87)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:102)
+	... 52 more
+Caused by: java.lang.IllegalArgumentException: Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.checkNotNull(AbstractManagedType.java:148)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:119)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:117)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:44)
+	at org.springframework.data.jpa.repository.query.QueryUtils.requiresOuterJoin(QueryUtils.java:697)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:638)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:617)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:613)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.getTypedPath(JpaQueryCreator.java:387)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.build(JpaQueryCreator.java:310)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.toPredicate(JpaQueryCreator.java:211)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:124)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:59)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createCriteria(AbstractQueryCreator.java:119)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:95)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:81)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.<init>(PartTreeJpaQuery.java:217)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$CountQueryPreparer.<init>(PartTreeJpaQuery.java:348)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:91)
+	... 56 more
+2021-12-21 13:53:12.336  INFO LAPTOP-9USMPILF - [kground-preinit] [o.h.v.i.u.Version                  ] : HV000001: Hibernate Validator 6.2.0.Final
+2021-12-21 13:53:12.356  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : Starting SmdbPf7Application using Java 17.0.1 on LAPTOP-9USMPILF with PID 21268 (C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes started by jimar in C:\Users\jimar\IdeaProjects\SMDB_pf7)
+2021-12-21 13:53:12.358  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : No active profile set, falling back to default profiles: default
+2021-12-21 13:53:12.718  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-21 13:53:12.782  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Finished Spring Data repository scanning in 55 ms. Found 3 JPA repository interfaces.
+2021-12-21 13:53:13.193  INFO LAPTOP-9USMPILF - [           main] [o.s.b.w.e.t.TomcatWebServer        ] : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 13:53:13.199  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Initializing ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:53:13.200  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Starting service [Tomcat]
+2021-12-21 13:53:13.200  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardEngine             ] : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 13:53:13.284  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.C.[.[.[/]                  ] : Initializing Spring embedded WebApplicationContext
+2021-12-21 13:53:13.284  INFO LAPTOP-9USMPILF - [           main] [.ServletWebServerApplicationContext] : Root WebApplicationContext: initialization completed in 894 ms
+2021-12-21 13:53:13.297 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : Driver class org.h2.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@e5c649
+
+2021-12-21 13:53:13.308 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : eshopConnectionPooling - configuration:
+2021-12-21 13:53:13.309 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : allowPoolSuspension................................false
+2021-12-21 13:53:13.309 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : autoCommit................................false
+2021-12-21 13:53:13.309 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : catalog................................none
+2021-12-21 13:53:13.309 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionInitSql................................none
+2021-12-21 13:53:13.309 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTestQuery................................"select 1 from dual;"
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTimeout................................10000
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSource................................none
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceClassName................................none
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceJNDI................................none
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceProperties................................{password=<masked>, prepStmtCacheSqlLimit=2048, cachePrepStmts=true, prepStmtCacheSize=250}
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : driverClassName................................"org.h2.Driver"
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : exceptionOverrideClassName................................none
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckProperties................................{}
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckRegistry................................none
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : idleTimeout................................30000
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : initializationFailTimeout................................1
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : isolateInternalQueries................................false
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : jdbcUrl................................jdbc:h2:file:~/smdb;IFEXISTS=FALSE;AUTO_SERVER=TRUE;
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : keepaliveTime................................0
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : leakDetectionThreshold................................0
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maxLifetime................................60000
+2021-12-21 13:53:13.310 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maximumPoolSize................................10
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricRegistry................................none
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricsTrackerFactory................................none
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : minimumIdle................................1
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : password................................<masked>
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : poolName................................"eshopConnectionPooling"
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : readOnly................................false
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : registerMbeans................................false
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : scheduledExecutor................................none
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : schema................................none
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : threadFactory................................internal
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : transactionIsolation................................"TRANSACTION_READ_COMMITTED"
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : username................................"sa"
+2021-12-21 13:53:13.311 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : validationTimeout................................5000
+2021-12-21 13:53:13.311  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Starting...
+2021-12-21 13:53:13.487 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Added connection conn1: url=jdbc:h2:file:~/smdb user=SA
+2021-12-21 13:53:13.488  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Start completed.
+2021-12-21 13:53:13.499 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:53:13.499  INFO LAPTOP-9USMPILF - [           main] [.s.b.a.h.H2ConsoleAutoConfiguration] : H2 console available at '/h2AdminConsole'. Database available at 'jdbc:h2:file:~/smdb'
+2021-12-21 13:53:13.579  INFO LAPTOP-9USMPILF - [           main] [o.h.j.i.u.LogHelper                ] : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-21 13:53:13.598 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:53:13.599 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:53:13.599 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Fill pool skipped, pool is at sufficient level.
+2021-12-21 13:53:13.611  INFO LAPTOP-9USMPILF - [           main] [o.h.Version                        ] : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-21 13:53:13.692  INFO LAPTOP-9USMPILF - [           main] [o.h.a.c.Version                    ] : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-21 13:53:13.763  INFO LAPTOP-9USMPILF - [           main] [o.h.d.Dialect                      ] : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-12-21 13:53:13.782 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:53:13.891  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:53:13.905  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:53:14.249 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists Films CASCADE 
+2021-12-21 13:53:14.250  INFO LAPTOP-9USMPILF - [           main] [o.h.o.c.access                     ] : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1cd3a6f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-21 13:53:14.252 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists People CASCADE 
+2021-12-21 13:53:14.253 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists Person_personRoles CASCADE 
+2021-12-21 13:53:14.253 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists TVShows CASCADE 
+2021-12-21 13:53:14.253 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists FILMS_SEQ
+2021-12-21 13:53:14.254 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists PEOPLE_SEQ
+2021-12-21 13:53:14.254 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists TVSHOWS_SEQ
+2021-12-21 13:53:14.256 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence FILMS_SEQ start with 1 increment by 1
+2021-12-21 13:53:14.256  INFO LAPTOP-9USMPILF - [           main] [o.h.o.c.access                     ] : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@b67366] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-21 13:53:14.256 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence PEOPLE_SEQ start with 1 increment by 1
+2021-12-21 13:53:14.256 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence TVSHOWS_SEQ start with 1 increment by 1
+2021-12-21 13:53:14.257 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table Films (
+       id bigint not null,
+        year2 integer not null,
+        primary key (id)
+    )
+2021-12-21 13:53:14.257 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table People (
+       id bigint not null,
+        bio varchar(255),
+        born varchar(50) not null,
+        name varchar(20) not null,
+        surname varchar(20) not null,
+        primary key (id)
+    )
+2021-12-21 13:53:14.258 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table Person_personRoles (
+       Person_id bigint not null,
+        personRoles integer
+    )
+2021-12-21 13:53:14.258 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table TVShows (
+       id bigint not null,
+        episodes integer not null,
+        season integer not null,
+        primary key (id)
+    )
+2021-12-21 13:53:14.258 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    alter table Person_personRoles 
+       add constraint FKdhptp12acf1nvmfqm1a1tx1gq 
+       foreign key (Person_id) 
+       references People
+2021-12-21 13:53:14.263  INFO LAPTOP-9USMPILF - [           main] [o.h.e.t.j.p.i.JtaPlatformInitiator ] : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-21 13:53:14.268  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:53:14.448  WARN LAPTOP-9USMPILF - [           main] [gServletWebServerApplicationContext] : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'filmServiceImpl' defined in file [C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes\com\pf7\smdb\service\FilmServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+2021-12-21 13:53:14.448  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:53:14.450  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown initiated...
+2021-12-21 13:53:14.450 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before shutdown stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:53:14.451 DEBUG LAPTOP-9USMPILF - [nnection closer] [c.z.h.p.PoolBase                   ] : eshopConnectionPooling - Closing connection conn1: url=jdbc:h2:file:~/smdb user=SA: (connection evicted)
+2021-12-21 13:53:14.469 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2021-12-21 13:53:14.469  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown completed.
+2021-12-21 13:53:14.470  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Stopping service [Tomcat]
+2021-12-21 13:53:14.477  INFO LAPTOP-9USMPILF - [           main] [tionEvaluationReportLoggingListener] : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-21 13:53:14.491 ERROR LAPTOP-9USMPILF - [           main] [o.s.b.SpringApplication            ] : Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'filmServiceImpl' defined in file [C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes\com\pf7\smdb\service\FilmServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.pf7.smdb.SmdbPf7Application.main(SmdbPf7Application.java:15)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 19 more
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:106)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:96)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:86)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:86)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:364)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:322)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:230)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:328)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 30 more
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:113)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:87)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:102)
+	... 52 more
+Caused by: java.lang.IllegalArgumentException: Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.checkNotNull(AbstractManagedType.java:148)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:119)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:117)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:44)
+	at org.springframework.data.jpa.repository.query.QueryUtils.requiresOuterJoin(QueryUtils.java:697)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:638)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:617)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:613)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.getTypedPath(JpaQueryCreator.java:387)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.build(JpaQueryCreator.java:310)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.toPredicate(JpaQueryCreator.java:211)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:124)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:59)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createCriteria(AbstractQueryCreator.java:119)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:95)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:81)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.<init>(PartTreeJpaQuery.java:217)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$CountQueryPreparer.<init>(PartTreeJpaQuery.java:348)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:91)
+	... 56 more
+2021-12-21 13:58:15.756  INFO LAPTOP-9USMPILF - [kground-preinit] [o.h.v.i.u.Version                  ] : HV000001: Hibernate Validator 6.2.0.Final
+2021-12-21 13:58:15.774  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : Starting SmdbPf7Application using Java 17.0.1 on LAPTOP-9USMPILF with PID 25660 (C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes started by jimar in C:\Users\jimar\IdeaProjects\SMDB_pf7)
+2021-12-21 13:58:15.776  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : No active profile set, falling back to default profiles: default
+2021-12-21 13:58:16.103  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-21 13:58:16.153  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Finished Spring Data repository scanning in 44 ms. Found 3 JPA repository interfaces.
+2021-12-21 13:58:16.547  INFO LAPTOP-9USMPILF - [           main] [o.s.b.w.e.t.TomcatWebServer        ] : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 13:58:16.559  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Initializing ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:58:16.559  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Starting service [Tomcat]
+2021-12-21 13:58:16.560  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardEngine             ] : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 13:58:16.637  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.C.[.[.[/]                  ] : Initializing Spring embedded WebApplicationContext
+2021-12-21 13:58:16.637  INFO LAPTOP-9USMPILF - [           main] [.ServletWebServerApplicationContext] : Root WebApplicationContext: initialization completed in 831 ms
+2021-12-21 13:58:16.649 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : Driver class org.h2.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@e5c649
+
+2021-12-21 13:58:16.659 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : eshopConnectionPooling - configuration:
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : allowPoolSuspension................................false
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : autoCommit................................false
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : catalog................................none
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionInitSql................................none
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTestQuery................................"select 1 from dual;"
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTimeout................................10000
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSource................................none
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceClassName................................none
+2021-12-21 13:58:16.660 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceJNDI................................none
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceProperties................................{password=<masked>, prepStmtCacheSqlLimit=2048, cachePrepStmts=true, prepStmtCacheSize=250}
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : driverClassName................................"org.h2.Driver"
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : exceptionOverrideClassName................................none
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckProperties................................{}
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckRegistry................................none
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : idleTimeout................................30000
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : initializationFailTimeout................................1
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : isolateInternalQueries................................false
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : jdbcUrl................................jdbc:h2:file:~/smdb;IFEXISTS=FALSE;AUTO_SERVER=TRUE;
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : keepaliveTime................................0
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : leakDetectionThreshold................................0
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maxLifetime................................60000
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maximumPoolSize................................10
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricRegistry................................none
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricsTrackerFactory................................none
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : minimumIdle................................1
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : password................................<masked>
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : poolName................................"eshopConnectionPooling"
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : readOnly................................false
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : registerMbeans................................false
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : scheduledExecutor................................none
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : schema................................none
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : threadFactory................................internal
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : transactionIsolation................................"TRANSACTION_READ_COMMITTED"
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : username................................"sa"
+2021-12-21 13:58:16.661 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : validationTimeout................................5000
+2021-12-21 13:58:16.661  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Starting...
+2021-12-21 13:58:16.818 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Added connection conn1: url=jdbc:h2:file:~/smdb user=SA
+2021-12-21 13:58:16.819  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Start completed.
+2021-12-21 13:58:16.828 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:58:16.829  INFO LAPTOP-9USMPILF - [           main] [.s.b.a.h.H2ConsoleAutoConfiguration] : H2 console available at '/h2AdminConsole'. Database available at 'jdbc:h2:file:~/smdb'
+2021-12-21 13:58:16.901  INFO LAPTOP-9USMPILF - [           main] [o.h.j.i.u.LogHelper                ] : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-21 13:58:16.926 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:58:16.927 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:58:16.927 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Fill pool skipped, pool is at sufficient level.
+2021-12-21 13:58:16.930  INFO LAPTOP-9USMPILF - [           main] [o.h.Version                        ] : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-21 13:58:17.011  INFO LAPTOP-9USMPILF - [           main] [o.h.a.c.Version                    ] : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-21 13:58:17.080  INFO LAPTOP-9USMPILF - [           main] [o.h.d.Dialect                      ] : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-12-21 13:58:17.133 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:58:17.193  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:58:17.203  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:58:17.525 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists Films CASCADE 
+2021-12-21 13:58:17.526  INFO LAPTOP-9USMPILF - [           main] [o.h.o.c.access                     ] : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@12dc0e0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-21 13:58:17.528 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists People CASCADE 
+2021-12-21 13:58:17.529 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists Person_personRoles CASCADE 
+2021-12-21 13:58:17.529 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists TVShows CASCADE 
+2021-12-21 13:58:17.529 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists FILMS_SEQ
+2021-12-21 13:58:17.530 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists PEOPLE_SEQ
+2021-12-21 13:58:17.530 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists TVSHOWS_SEQ
+2021-12-21 13:58:17.532 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence FILMS_SEQ start with 1 increment by 1
+2021-12-21 13:58:17.532  INFO LAPTOP-9USMPILF - [           main] [o.h.o.c.access                     ] : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@137bf27] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-21 13:58:17.532 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence PEOPLE_SEQ start with 1 increment by 1
+2021-12-21 13:58:17.533 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence TVSHOWS_SEQ start with 1 increment by 1
+2021-12-21 13:58:17.533 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table Films (
+       id bigint not null,
+        year2 integer not null,
+        primary key (id)
+    )
+2021-12-21 13:58:17.534 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table People (
+       id bigint not null,
+        bio varchar(255),
+        born varchar(50) not null,
+        name varchar(20) not null,
+        surname varchar(20) not null,
+        primary key (id)
+    )
+2021-12-21 13:58:17.534 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table Person_personRoles (
+       Person_id bigint not null,
+        personRoles integer
+    )
+2021-12-21 13:58:17.534 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table TVShows (
+       id bigint not null,
+        episodes integer not null,
+        season integer not null,
+        primary key (id)
+    )
+2021-12-21 13:58:17.535 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    alter table Person_personRoles 
+       add constraint FKdhptp12acf1nvmfqm1a1tx1gq 
+       foreign key (Person_id) 
+       references People
+2021-12-21 13:58:17.539  INFO LAPTOP-9USMPILF - [           main] [o.h.e.t.j.p.i.JtaPlatformInitiator ] : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-21 13:58:17.545  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:58:17.726  WARN LAPTOP-9USMPILF - [           main] [gServletWebServerApplicationContext] : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'filmServiceImpl' defined in file [C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes\com\pf7\smdb\service\FilmServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+2021-12-21 13:58:17.726  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:58:17.727  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown initiated...
+2021-12-21 13:58:17.727 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before shutdown stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:58:17.728 DEBUG LAPTOP-9USMPILF - [nnection closer] [c.z.h.p.PoolBase                   ] : eshopConnectionPooling - Closing connection conn1: url=jdbc:h2:file:~/smdb user=SA: (connection evicted)
+2021-12-21 13:58:17.735 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2021-12-21 13:58:17.735  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown completed.
+2021-12-21 13:58:17.736  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Stopping service [Tomcat]
+2021-12-21 13:58:17.745  INFO LAPTOP-9USMPILF - [           main] [tionEvaluationReportLoggingListener] : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-21 13:58:17.759 ERROR LAPTOP-9USMPILF - [           main] [o.s.b.SpringApplication            ] : Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'filmServiceImpl' defined in file [C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes\com\pf7\smdb\service\FilmServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.pf7.smdb.SmdbPf7Application.main(SmdbPf7Application.java:15)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 19 more
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:106)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:96)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:86)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:86)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:364)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:322)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:230)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:328)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 30 more
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle(java.lang.String)! Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:113)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:87)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:102)
+	... 52 more
+Caused by: java.lang.IllegalArgumentException: Unable to locate Attribute  with the the given name [title] on this ManagedType [com.pf7.smdb.domain.BaseModel]
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.checkNotNull(AbstractManagedType.java:148)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:119)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:117)
+	at org.hibernate.metamodel.model.domain.internal.AbstractManagedType.getAttribute(AbstractManagedType.java:44)
+	at org.springframework.data.jpa.repository.query.QueryUtils.requiresOuterJoin(QueryUtils.java:697)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:638)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:617)
+	at org.springframework.data.jpa.repository.query.QueryUtils.toExpressionRecursively(QueryUtils.java:613)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.getTypedPath(JpaQueryCreator.java:387)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator$PredicateBuilder.build(JpaQueryCreator.java:310)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.toPredicate(JpaQueryCreator.java:211)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:124)
+	at org.springframework.data.jpa.repository.query.JpaQueryCreator.create(JpaQueryCreator.java:59)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createCriteria(AbstractQueryCreator.java:119)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:95)
+	at org.springframework.data.repository.query.parser.AbstractQueryCreator.createQuery(AbstractQueryCreator.java:81)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$QueryPreparer.<init>(PartTreeJpaQuery.java:217)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery$CountQueryPreparer.<init>(PartTreeJpaQuery.java:348)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:91)
+	... 56 more
+2021-12-21 13:59:24.386  INFO LAPTOP-9USMPILF - [kground-preinit] [o.h.v.i.u.Version                  ] : HV000001: Hibernate Validator 6.2.0.Final
+2021-12-21 13:59:24.405  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : Starting SmdbPf7Application using Java 17.0.1 on LAPTOP-9USMPILF with PID 21080 (C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes started by jimar in C:\Users\jimar\IdeaProjects\SMDB_pf7)
+2021-12-21 13:59:24.408  INFO LAPTOP-9USMPILF - [           main] [c.p.s.SmdbPf7Application           ] : No active profile set, falling back to default profiles: default
+2021-12-21 13:59:24.744  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-21 13:59:24.798  INFO LAPTOP-9USMPILF - [           main] [r.c.RepositoryConfigurationDelegate] : Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
+2021-12-21 13:59:25.207  INFO LAPTOP-9USMPILF - [           main] [o.s.b.w.e.t.TomcatWebServer        ] : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 13:59:25.214  INFO LAPTOP-9USMPILF - [           main] [o.a.c.h.Http11NioProtocol          ] : Initializing ProtocolHandler ["http-nio-8080"]
+2021-12-21 13:59:25.214  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Starting service [Tomcat]
+2021-12-21 13:59:25.215  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardEngine             ] : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 13:59:25.295  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.C.[.[.[/]                  ] : Initializing Spring embedded WebApplicationContext
+2021-12-21 13:59:25.295  INFO LAPTOP-9USMPILF - [           main] [.ServletWebServerApplicationContext] : Root WebApplicationContext: initialization completed in 854 ms
+2021-12-21 13:59:25.306 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : Driver class org.h2.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@e5c649
+
+2021-12-21 13:59:25.317 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : eshopConnectionPooling - configuration:
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : allowPoolSuspension................................false
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : autoCommit................................false
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : catalog................................none
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionInitSql................................none
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTestQuery................................"select 1 from dual;"
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : connectionTimeout................................10000
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSource................................none
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceClassName................................none
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceJNDI................................none
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : dataSourceProperties................................{password=<masked>, prepStmtCacheSqlLimit=2048, cachePrepStmts=true, prepStmtCacheSize=250}
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : driverClassName................................"org.h2.Driver"
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : exceptionOverrideClassName................................none
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckProperties................................{}
+2021-12-21 13:59:25.319 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : healthCheckRegistry................................none
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : idleTimeout................................30000
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : initializationFailTimeout................................1
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : isolateInternalQueries................................false
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : jdbcUrl................................jdbc:h2:file:~/smdb;IFEXISTS=FALSE;AUTO_SERVER=TRUE;
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : keepaliveTime................................0
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : leakDetectionThreshold................................0
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maxLifetime................................60000
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : maximumPoolSize................................10
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricRegistry................................none
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : metricsTrackerFactory................................none
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : minimumIdle................................1
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : password................................<masked>
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : poolName................................"eshopConnectionPooling"
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : readOnly................................false
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : registerMbeans................................false
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : scheduledExecutor................................none
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : schema................................none
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : threadFactory................................internal
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : transactionIsolation................................"TRANSACTION_READ_COMMITTED"
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : username................................"sa"
+2021-12-21 13:59:25.320 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.HikariConfig                 ] : validationTimeout................................5000
+2021-12-21 13:59:25.320  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Starting...
+2021-12-21 13:59:25.484 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Added connection conn1: url=jdbc:h2:file:~/smdb user=SA
+2021-12-21 13:59:25.485  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Start completed.
+2021-12-21 13:59:25.494 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:59:25.494  INFO LAPTOP-9USMPILF - [           main] [.s.b.a.h.H2ConsoleAutoConfiguration] : H2 console available at '/h2AdminConsole'. Database available at 'jdbc:h2:file:~/smdb'
+2021-12-21 13:59:25.569  INFO LAPTOP-9USMPILF - [           main] [o.h.j.i.u.LogHelper                ] : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-21 13:59:25.590 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:59:25.592 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:59:25.592 DEBUG LAPTOP-9USMPILF - [ing housekeeper] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Fill pool skipped, pool is at sufficient level.
+2021-12-21 13:59:25.600  INFO LAPTOP-9USMPILF - [           main] [o.h.Version                        ] : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-21 13:59:25.680  INFO LAPTOP-9USMPILF - [           main] [o.h.a.c.Version                    ] : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-21 13:59:25.790  INFO LAPTOP-9USMPILF - [           main] [o.h.d.Dialect                      ] : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-12-21 13:59:25.808 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.ProxyConnection            ] : eshopConnectionPooling - Executed rollback on connection conn1: url=jdbc:h2:file:~/smdb user=SA due to dirty commit state on close().
+2021-12-21 13:59:25.867  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:59:25.878  WARN LAPTOP-9USMPILF - [           main] [h.b.i.InFlightMetadataCollectorImpl] : HHH000069: Duplicate generator name idGenerator
+2021-12-21 13:59:26.232 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists Films CASCADE 
+2021-12-21 13:59:26.233  INFO LAPTOP-9USMPILF - [           main] [o.h.o.c.access                     ] : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1063bd0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-21 13:59:26.235 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists People CASCADE 
+2021-12-21 13:59:26.236 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists Person_personRoles CASCADE 
+2021-12-21 13:59:26.236 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop table if exists TVShows CASCADE 
+2021-12-21 13:59:26.236 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists FILMS_SEQ
+2021-12-21 13:59:26.237 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists PEOPLE_SEQ
+2021-12-21 13:59:26.237 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    drop sequence if exists TVSHOWS_SEQ
+2021-12-21 13:59:26.238 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence FILMS_SEQ start with 1 increment by 1
+2021-12-21 13:59:26.238  INFO LAPTOP-9USMPILF - [           main] [o.h.o.c.access                     ] : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1719e98] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-21 13:59:26.239 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence PEOPLE_SEQ start with 1 increment by 1
+2021-12-21 13:59:26.239 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : create sequence TVSHOWS_SEQ start with 1 increment by 1
+2021-12-21 13:59:26.239 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table Films (
+       id bigint not null,
+        year2 integer not null,
+        primary key (id)
+    )
+2021-12-21 13:59:26.240 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table People (
+       id bigint not null,
+        bio varchar(255),
+        born varchar(50) not null,
+        name varchar(20) not null,
+        surname varchar(20) not null,
+        primary key (id)
+    )
+2021-12-21 13:59:26.240 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table Person_personRoles (
+       Person_id bigint not null,
+        personRoles integer
+    )
+2021-12-21 13:59:26.241 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    create table TVShows (
+       id bigint not null,
+        episodes integer not null,
+        season integer not null,
+        primary key (id)
+    )
+2021-12-21 13:59:26.241 DEBUG LAPTOP-9USMPILF - [           main] [o.h.SQL                            ] : 
+    
+    alter table Person_personRoles 
+       add constraint FKdhptp12acf1nvmfqm1a1tx1gq 
+       foreign key (Person_id) 
+       references People
+2021-12-21 13:59:26.245  INFO LAPTOP-9USMPILF - [           main] [o.h.e.t.j.p.i.JtaPlatformInitiator ] : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-21 13:59:26.251  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:59:26.422  WARN LAPTOP-9USMPILF - [           main] [gServletWebServerApplicationContext] : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'filmServiceImpl' defined in file [C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes\com\pf7\smdb\service\FilmServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?
+2021-12-21 13:59:26.422  INFO LAPTOP-9USMPILF - [           main] [alContainerEntityManagerFactoryBean] : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-21 13:59:26.424  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown initiated...
+2021-12-21 13:59:26.424 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - Before shutdown stats (total=1, active=0, idle=1, waiting=0)
+2021-12-21 13:59:26.425 DEBUG LAPTOP-9USMPILF - [nnection closer] [c.z.h.p.PoolBase                   ] : eshopConnectionPooling - Closing connection conn1: url=jdbc:h2:file:~/smdb user=SA: (connection evicted)
+2021-12-21 13:59:26.432 DEBUG LAPTOP-9USMPILF - [           main] [c.z.h.p.HikariPool                 ] : eshopConnectionPooling - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2021-12-21 13:59:26.433  INFO LAPTOP-9USMPILF - [           main] [c.z.h.HikariDataSource             ] : eshopConnectionPooling - Shutdown completed.
+2021-12-21 13:59:26.434  INFO LAPTOP-9USMPILF - [           main] [o.a.c.c.StandardService            ] : Stopping service [Tomcat]
+2021-12-21 13:59:26.442  INFO LAPTOP-9USMPILF - [           main] [tionEvaluationReportLoggingListener] : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-21 13:59:26.456 ERROR LAPTOP-9USMPILF - [           main] [o.s.b.SpringApplication            ] : Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'filmServiceImpl' defined in file [C:\Users\jimar\IdeaProjects\SMDB_pf7\target\classes\com\pf7\smdb\service\FilmServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.pf7.smdb.SmdbPf7Application.main(SmdbPf7Application.java:15)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filmRepository' defined in com.pf7.smdb.repository.FilmRepository defined in @EnableJpaRepositories declared on SmdbPf7Application: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 19 more
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! Reason: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:106)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:96)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:86)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:86)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:364)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:322)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:230)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:328)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 30 more
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract com.pf7.smdb.domain.Film com.pf7.smdb.repository.FilmRepository.findByTitle2(java.lang.String)! No property title2 found for type Film! Did you mean 'title'?
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:113)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:87)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:102)
+	... 52 more
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property title2 found for type Film! Did you mean 'title'?
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:437)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:413)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:366)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:348)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:331)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:249)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:250)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:383)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:384)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:95)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
+	... 56 more
