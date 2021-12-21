@@ -4,16 +4,16 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Data
-@SuperBuilder
-@NoArgsConstructor
-//@AllArgsConstructor CAUSE NO VARIABLES
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-@Entity()
-@Table(name = "FILMS")
-@SequenceGenerator(name = "idGenerator", sequenceName = "FILMS_SEQ", allocationSize = 1)
-public class Film extends Movie{
+@Entity
+public class Film extends BaseModel {
+
+    @Embedded
+    private Movie movie;
 
 }
+

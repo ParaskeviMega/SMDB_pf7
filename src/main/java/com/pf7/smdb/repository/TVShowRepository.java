@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TVShowRepository extends JpaRepository<TVShow, Long> {
 
-    //@Query("select ts from TVShow ts where ts.title = ?1")
-    //TVShow findByTitle(String title);
+//    @Query(value="select ts from TVShow ts where ts.title = ?1")
+//    TVShow findByTitle(String title);
 }

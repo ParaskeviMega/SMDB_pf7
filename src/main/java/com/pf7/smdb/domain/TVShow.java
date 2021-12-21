@@ -4,6 +4,8 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -13,9 +15,12 @@ import javax.validation.constraints.NotNull;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Entity()
-@Table(name = "TVSHOWS")
 @SequenceGenerator(name = "idGenerator", sequenceName = "SHOWS_SEQ", allocationSize = 1)
-public class TVShow extends Movie{
+public class TVShow extends BaseModel{
+
+//    @Embedded
+//    private Movie movie;
+
     @NotNull(message = "Season cannot be null.")
     @Column(nullable = false)
     private Integer season;

@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Entity()
-@Table(name = "PEOPLE")
 @SequenceGenerator(name = "idGenerator", sequenceName = "PEOPLE_SEQ", allocationSize = 1)
 public class Person extends BaseModel{
 
@@ -34,6 +33,6 @@ public class Person extends BaseModel{
 
     @NotNull(message = "Role cannot be null.")
     @Column(length = 50,nullable = false)
-    private String personRole;
+    private String personRole;   //Set Collection ??????
 }
 

@@ -16,19 +16,20 @@ public abstract class BaseServiceImpl<T extends BaseModel> extends AbstractLogCo
     public abstract JpaRepository<T,Long> getRepository();
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public T create(T obj) {
         logger.trace("Creating {}.",obj);
         return getRepository().save(obj);
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public List<T> createAll(List<T> obj) {
         logger.trace("Creating All By List{}.",obj);
         return getRepository().saveAll(obj);
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public List<T> createAll(T... obj) {
         logger.trace("Crete All by Objs {}.",obj);
         return getRepository().saveAll(Arrays.asList(obj));
