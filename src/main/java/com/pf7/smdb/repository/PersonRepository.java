@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
-   // @Query(value = "select * from FILMS o, people c where o.people_id = c.id", nativeQuery = true)
-    Person findPersonById(Long id);
+    //@Query(value = "select * from FILMS o, people c where o.people_id = c.id", nativeQuery = true)
+    //Person findPersonById(Long id);
 }

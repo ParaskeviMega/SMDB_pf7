@@ -9,14 +9,14 @@ spring:
   datasource:
     driver-class-name: org.h2.Driver
     hikari:
-      auto-commit: false
+      auto-commit: true
       connection-test-query: select 1 from dual;
       connection-timeout: 10000
       idle-timeout: 30000
       max-lifetime: 60000
       maximum-pool-size: 10
       minimum-idle: 1
-      pool-name: eshopConnectionPooling
+      pool-name: smdbConnectionPooling
       transaction-isolation: TRANSACTION_READ_COMMITTED
       username: sa
       password: sa
@@ -25,7 +25,7 @@ spring:
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:~/smdb;IFEXISTS=FALSE;AUTO_SERVER=TRUE;
+    url: jdbc:h2:file:~/smdb_pf7;IFEXISTS=FALSE;AUTO_SERVER=TRUE;
   h2:
     console:
       enabled: true
@@ -33,7 +33,7 @@ spring:
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: true
@@ -59,5 +59,5 @@ spring:
     init:
       # Mode to apply when determining if DataSource initialization should be performed using the available DDL (schema
       # .sql) and DML (data.sql) scripts.
-      mode: EMBEDDED
+      mode: embedded
       platform: h2

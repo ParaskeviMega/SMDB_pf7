@@ -5,17 +5,16 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.Set;
 
-@Getter
-@Setter
+@Data
+@ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "People")
-@SequenceGenerator(name = "idGenerator", sequenceName = "PEOPLE_SEQ", initialValue = 1, allocationSize = 1)
+@EqualsAndHashCode(callSuper = false)
+@Entity()
+@Table(name = "PEOPLE")
+@SequenceGenerator(name = "idGenerator", sequenceName = "PEOPLE_SEQ", allocationSize = 1)
 public class Person extends BaseModel{
 
     @NotNull(message = "First Name cannot be null.")
@@ -33,8 +32,8 @@ public class Person extends BaseModel{
     @Column(length = 50,nullable = false)
     private String born;
 
-    @NotNull
-    @ElementCollection
-    private Set<PersonRole> personRoles;
+    @NotNull(message = "Role cannot be null.")
+    @Column(length = 50,nullable = false)
+    private String personRole;
 }
 

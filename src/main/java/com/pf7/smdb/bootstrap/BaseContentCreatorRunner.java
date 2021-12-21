@@ -28,9 +28,9 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
 		//@formatter:off
 		//Set<PersonRole> example = Set.of(PersonRole.ACTOR, PersonRole.PRODUCER);
 
-		List<Person> people = List.of(
-				Person.builder().name("Dimitris").surname("Linarakis").bio("").born("1998").personRoles(Set.of(PersonRole.ACTOR, PersonRole.PRODUCER)).build());
-		personService.createAll(people);
+//		List<Person> people = List.of(
+//				Person.builder().name("Dimitris").surname("Linarakis").bio("").born("1998").personRoles(Set.of(PersonRole.ACTOR, PersonRole.PRODUCER)).build());
+//		personService.createAll(people);
 		//logger.info("Created {} Persons.", PersonService.createAll(Persons).size());
 
 

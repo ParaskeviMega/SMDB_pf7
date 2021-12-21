@@ -16,8 +16,8 @@ public class TVShowServiceImpl extends BaseServiceImpl<TVShow> implements TVShow
         return tvShowRepository;
     }
 
-    @Override
-    public TVShow findByTitle(String title) {
-        return tvShowRepository.findAll().stream().filter(tv -> tv.getTitle().equals(title)).findAny().orElse(null);
-    }
+//    @Override
+//    public TVShow findByTitle(String title) {
+//        return tvShowRepository.findByTitle(title);
+//    }
 }
