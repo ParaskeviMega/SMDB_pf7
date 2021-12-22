@@ -19,12 +19,12 @@ public class Film extends BaseModel {
     })
     private Movie movie;
 
-    @NotNull
-    @ManyToMany
-    @JoinTable(name = "films_played",
-            joinColumns = {@JoinColumn(name = "person_id")},
-            inverseJoinColumns = @JoinColumn(name = "film_id"))
-    private Set<Person> peoplePlayedFilms;
+//    @NotNull
+//    @OneToMany
+//    private Set<Person> peoplePlayedFilms;
 
+    @OneToMany(mappedBy = "film")
+    private Set<Association> associations1;
 }
+
 

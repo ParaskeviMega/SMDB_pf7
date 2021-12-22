@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -34,16 +35,16 @@ public class Person extends BaseModel{
     @Column(length = 50,nullable = false)
     private String born;
 
-    @NotNull(message = "Role cannot be null.")
-    @ElementCollection
-    private Set<PersonRole> personRoles;
+//    @NotNull(message = "Role cannot be null.")
+//    @ElementCollection
+//    private Set<PersonRole> personRoles;
 
     @NotNull
-    @ManyToMany (mappedBy = "peoplePlayedTVShows")
-    private Set<TVShow> playedInTvShow;
+    @OneToMany (mappedBy = "person")
+    private Set<Association> associations1;
 
-    @NotNull
-    @ManyToMany (mappedBy = "peoplePlayedFilms")
-    private Set<Film> playedInFilm;
+//    @NotNull
+//    @OneToMany (mappedBy = "peoplePlayedFilms")
+//    private Set<Film> playedInFilm = new HashSet<Film>();
 }
 
