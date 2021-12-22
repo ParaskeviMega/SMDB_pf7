@@ -1,16 +1,11 @@
 package com.pf7.smdb.domain;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+@Data
 @Entity
 //@SequenceGenerator(name = "idGenerator", sequenceName = "FILMS_SEQ", allocationSize = 1)
 public class Film extends BaseModel {
@@ -23,6 +18,13 @@ public class Film extends BaseModel {
             @AttributeOverride( name = "rating", column = @Column(name = "MovieRating"))
     })
     private Movie movie;
+
+    @NotNull
+    @ManyToMany
+    @JoinTable(name = "films_played",
+            joinColumns = {@JoinColumn(name = "person_id")},
+            inverseJoinColumns = @JoinColumn(name = "film_id"))
+    private Set<Person> peoplePlayedFilms;
 
 }
 

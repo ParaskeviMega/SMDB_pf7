@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @Entity()
@@ -25,4 +26,10 @@ public class TVShow extends BaseModel{
     @NotNull(message = "Episodes cannot be null.")
     @Column(nullable = false)
     private Integer episodes;
+
+    @NotNull
+    @ManyToMany
+    @JoinTable(name = "tv_shows_played", joinColumns = {@JoinColumn(name = "person_id")/*,@JoinColumn(name = "name"), @JoinColumn(name = "name"),@JoinColumn(name = "surname")*/},
+            inverseJoinColumns = @JoinColumn(name = "tv_show_id"))
+    private Set<Person> peoplePlayedTVShows;
 }

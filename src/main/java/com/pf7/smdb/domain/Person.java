@@ -5,6 +5,9 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @ToString
@@ -32,7 +35,15 @@ public class Person extends BaseModel{
     private String born;
 
     @NotNull(message = "Role cannot be null.")
-    @Column(length = 50,nullable = false)
-    private String personRole;   //Set Collection ??????
+    @ElementCollection
+    private Set<PersonRole> personRoles;
+
+    @NotNull
+    @ManyToMany (mappedBy = "peoplePlayedTVShows")
+    private Set<TVShow> playedInTvShow;
+
+    @NotNull
+    @ManyToMany (mappedBy = "peoplePlayedFilms")
+    private Set<Film> playedInFilm;
 }
 

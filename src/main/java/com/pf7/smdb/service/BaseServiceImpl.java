@@ -31,7 +31,7 @@ public abstract class BaseServiceImpl<T extends BaseModel> extends AbstractLogCo
     @Override
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public List<T> createAll(T... obj) {
-        logger.trace("Crete All by Objs {}.",obj);
+        logger.trace("Create All by Objs {}.",obj);
         return getRepository().saveAll(Arrays.asList(obj));
     }
 

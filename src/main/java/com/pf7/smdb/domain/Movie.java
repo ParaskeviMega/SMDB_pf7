@@ -37,8 +37,4 @@ public class Movie{
     @Min(1)
     @Max(5)
     private Float rating;
-//
-//    @NotNull
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
-//    private Set<Person> peopleSet;
 }
