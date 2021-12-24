@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Data
 @Entity
-public class Association extends BaseModel{
+public class Contribution extends BaseModel{
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;

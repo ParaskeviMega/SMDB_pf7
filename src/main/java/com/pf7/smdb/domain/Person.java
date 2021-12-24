@@ -5,9 +5,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -41,7 +38,7 @@ public class Person extends BaseModel{
 
     @NotNull
     @OneToMany (mappedBy = "person")
-    private Set<Association> associations1;
+    private Set<Contribution> associations1;
 
 //    @NotNull
 //    @OneToMany (mappedBy = "peoplePlayedFilms")
