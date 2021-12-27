@@ -1,33 +1,33 @@
 package com.pf7.smdb.domain;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Data
-@Entity()
-public class TVShow extends BaseModel{
+@ToString
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@SequenceGenerator(name = "idGenerator", sequenceName = "TVSHOWS_SEQ", allocationSize = 1)
+public class TVShow extends BaseModel {
 
     @Embedded
     @AttributeOverrides(value = {
-            @AttributeOverride( name = "title", column = @Column(name = "MovieTitle")),
-            @AttributeOverride( name = "description", column = @Column(name = "MovieDescription")),
-            @AttributeOverride( name = "year", column = @Column(name = "MovieYear")),
-            @AttributeOverride( name = "rating", column = @Column(name = "MovieRating")),
-            @AttributeOverride( name = "genre", column = @Column(name = "Genre")),
-            @AttributeOverride( name = "personId", column = @Column(name = "PersonID"))
+            @AttributeOverride(name = "title", column = @Column(name = "MovieTitle")),
+            @AttributeOverride(name = "description", column = @Column(name = "MovieDescription")),
+            @AttributeOverride(name = "year", column = @Column(name = "MovieYear")),
+            @AttributeOverride(name = "rating", column = @Column(name = "MovieRating")),
+            @AttributeOverride(name = "genre", column = @Column(name = "Genre"))
     })
     private Movie movie;
 
-    //@NotNull(message = "Season cannot be null.")
-    @Column(nullable = false)
-    private Integer season;
-
-    //@NotNull(message = "Episodes cannot be null.")
-    @Column(nullable = false)
-    private Integer episodes;
-
-    @OneToMany(mappedBy = "tvShow")
-    private Set<Contribution> associations1;
+    @ManyToMany
+    private Set<Episode> episodes;
+//
+//    @OneToMany(mappedBy = "tvShow",fetch = FetchType.EAGER)
+//    private Set<Contribution> contributions;
 }

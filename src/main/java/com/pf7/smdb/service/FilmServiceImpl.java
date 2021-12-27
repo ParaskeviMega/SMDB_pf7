@@ -16,9 +16,9 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
         return filmRepository;
     }
 
-//    @Override
-//    public Film findByTitle(String title){
-//        return findAll().stream().filter(m -> m.getTitle().equals(title)).findAny().orElse(null);
-//    }
+    @Override
+    public Film findFilmByMovieTitle(String title) {
+        return filmRepository.findFilmByMovieTitle(title);
+    }
 
 }

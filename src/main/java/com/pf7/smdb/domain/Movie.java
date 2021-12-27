@@ -1,18 +1,20 @@
 package com.pf7.smdb.domain;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Data
-@AllArgsConstructor
+@ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
 @Embeddable
-public class Movie{
+public class Movie {
 
     //@NotNull(message = "Title cannot be null.")
     @Column(length = 50, nullable = false)
@@ -26,17 +28,17 @@ public class Movie{
     private Integer year;
 
     //@NotNull(message = "Genre cannot be null.")
-    @Enumerated(EnumType.STRING)
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private Set<Genre> genre;
 
     //@NotNull(message = "PersonID cannot be null.")
-    @ElementCollection
-    private Set<Long> personId;
+    @ManyToMany(targetEntity = Person.class, fetch = FetchType.EAGER)
+    private Set<Person> people;
 
     //@NotNull(message = "Rating cannot be null.")
     @Column(precision = 1, scale = 1, nullable = false)
     @Min(1)
     @Max(5)
     private Float rating;
+
 }

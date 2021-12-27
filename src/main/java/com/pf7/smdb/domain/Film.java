@@ -7,8 +7,12 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Data
-@Entity()
-//@SequenceGenerator(name = "idGenerator", sequenceName = "FILMS_SEQ", allocationSize = 1)
+@ToString
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@SequenceGenerator(name = "idGenerator", sequenceName = "FILMS_SEQ", allocationSize = 1)
 public class Film extends BaseModel {
 
     @Embedded
@@ -17,17 +21,13 @@ public class Film extends BaseModel {
             @AttributeOverride( name = "description", column = @Column(name = "MovieDescription")),
             @AttributeOverride( name = "year", column = @Column(name = "MovieYear")),
             @AttributeOverride( name = "rating", column = @Column(name = "MovieRating")),
-            @AttributeOverride( name = "genre", column = @Column(name = "Genre")),
-            @AttributeOverride( name = "personId", column = @Column(name = "PersonID"))
+            @AttributeOverride( name = "genre", column = @Column(name = "Genre"))
     })
     private Movie movie;
 
-//    @NotNull
-//    @OneToMany
-//    private Set<Person> peoplePlayedFilms;
-
-    @OneToMany(mappedBy = "film")
-    private Set<Contribution> associations1;
+//
+//    @OneToMany(mappedBy = "film",fetch = FetchType.EAGER)
+//    private Set<Contribution> contributions;
 }
 
 

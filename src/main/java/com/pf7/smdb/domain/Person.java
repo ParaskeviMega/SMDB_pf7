@@ -32,16 +32,7 @@ public class Person extends BaseModel{
     @Column(length = 50,nullable = false)
     private String born;
 
-//    @NotNull(message = "Role cannot be null.")
-//    @ElementCollection
-//    private Set<PersonRole> personRoles;
-
-    @NotNull
-    @OneToMany (mappedBy = "person")
-    private Set<Contribution> associations1;
-
-//    @NotNull
-//    @OneToMany (mappedBy = "peoplePlayedFilms")
-//    private Set<Film> playedInFilm = new HashSet<Film>();
+//    @OneToMany(mappedBy = "person",fetch = FetchType.EAGER)
+//    private Set<Contribution> contributions;
 }
 

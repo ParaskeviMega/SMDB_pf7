@@ -1,27 +1,31 @@
 package com.pf7.smdb.domain;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.EnumSet;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
+@ToString
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Embeddable
+@SequenceGenerator(name = "idGenerator", sequenceName = "CONTRIBUTIONS_SEQ", allocationSize = 1)
 public class Contribution extends BaseModel{
+
     @ManyToOne
-    @JoinColumn(name = "person_id")
     private Person person;
 
     @ManyToOne
-    @JoinColumn(name = "film_id")
     private Film film;
 
     @ManyToOne
-    @JoinColumn(name = "tvshow_id")
     private TVShow tvShow;
 
-    @Column(name="roles")
-    @ElementCollection
-    private Set<PersonRole> personRoles;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<PersonRole> personRole;
 }
