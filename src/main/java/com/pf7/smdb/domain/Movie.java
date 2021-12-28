@@ -33,7 +33,7 @@ public class Movie {
     private Set<GenreEnum> genre;
 
     //@NotNull(message = "PersonID cannot be null.")
-    @ManyToMany(targetEntity = Person.class, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Person.class, fetch = FetchType.EAGER)
     private Set<Person> people;
 
     //@NotNull(message = "Rating cannot be null.")

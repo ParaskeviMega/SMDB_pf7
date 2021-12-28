@@ -4,14 +4,15 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "FILMS")
 @SequenceGenerator(name = "idGenerator", sequenceName = "FILMS_SEQ", allocationSize = 1)
 public class Film extends BaseModel {
 

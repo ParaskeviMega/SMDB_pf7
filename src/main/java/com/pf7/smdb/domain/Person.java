@@ -1,6 +1,4 @@
 package com.pf7.smdb.domain;
-
-import com.pf7.smdb.helper.GenreEnum;
 import com.pf7.smdb.helper.PersonRoleEnum;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -15,7 +13,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@Entity()
+@Entity
+@Table(name = "PEOPLE")
 @SequenceGenerator(name = "idGenerator", sequenceName = "PEOPLE_SEQ", allocationSize = 1)
 public class Person extends BaseModel{
 

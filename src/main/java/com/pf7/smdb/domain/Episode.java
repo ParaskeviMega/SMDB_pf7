@@ -1,14 +1,12 @@
 package com.pf7.smdb.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
 @SuperBuilder
@@ -16,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Embeddable
 @Entity
+@Table(name = "EPISODES")
 @SequenceGenerator(name = "idGenerator", sequenceName = "EPISODES_SEQ", allocationSize = 1)
 public class Episode extends BaseModel{
 
