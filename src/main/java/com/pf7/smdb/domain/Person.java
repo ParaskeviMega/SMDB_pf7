@@ -1,5 +1,6 @@
 package com.pf7.smdb.domain;
 
+import com.pf7.smdb.helper.GenreEnum;
 import com.pf7.smdb.helper.PersonRoleEnum;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -34,7 +35,7 @@ public class Person extends BaseModel{
     private String born;
 
     //@ElementCollection(fetch = FetchType.EAGER)
-    @ManyToMany(targetEntity = PersonRole.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Set<PersonRole> personRoles;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<PersonRoleEnum> personRoles;
 }
 

@@ -12,5 +12,7 @@ public interface FilmService extends BaseService<Film, Long>{
 
     Person findPersonById(Long id);
 
+    Person findPersonBySurname(String surname);
+
     Set<Person> overridePersonRoles(List<PersonPersonRoles>  personPersonRoles);
 }

@@ -25,30 +25,30 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
         //@formatter:off
 
 
-        List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").personRoles(Set.of(new PersonRole(PersonRoleEnum.MANAGER))).build(),
-                Person.builder().name("Dimitris").surname("Linarakis").born("1998").personRoles(Set.of(new PersonRole(PersonRoleEnum.PRODUCER))).build(),
-                Person.builder().name("Stathis").surname("Zaragkas").born("1998").personRoles(Set.of(new PersonRole(PersonRoleEnum.ACTOR))).build(),
-                Person.builder().name("Vivi").surname("Mega").born("1995").personRoles(Set.of(new PersonRole(PersonRoleEnum.PRODUCER),new PersonRole(PersonRoleEnum.MANAGER))).build());
+        List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").personRoles(Set.of(PersonRoleEnum.MANAGER)).build(),
+                Person.builder().name("Dimitris").surname("Linarakis").born("1998").personRoles(Set.of(PersonRoleEnum.PRODUCER)).build(),
+                Person.builder().name("Stathis").surname("Zaragkas").born("1998").personRoles(Set.of(PersonRoleEnum.ACTOR)).build(),
+                Person.builder().name("Vivi").surname("Mega").born("1995").personRoles(Set.of(PersonRoleEnum.MANAGER)).build());
 
         personService.createAll(people);
 
 
         List<PersonPersonRoles> personRolesList = List.of(
-                PersonPersonRoles.builder().person(filmService.findPersonById(1L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.MANAGER), new PersonRole(PersonRoleEnum.ACTOR))).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonById(2L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.PRODUCER), new PersonRole(PersonRoleEnum.ACTOR))).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonById(3L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.MANAGER), new PersonRole(PersonRoleEnum.PRODUCER))).build());
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Fragkiadakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Linarakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Zaragkas")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build());
 
         List<PersonPersonRoles> personRolesList2 = List.of(
-                PersonPersonRoles.builder().person(filmService.findPersonById(1L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.PRODUCER), new PersonRole(PersonRoleEnum.MANAGER))).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonById(2L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.ACTOR), new PersonRole(PersonRoleEnum.PRODUCER))).build());
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Fragkiadakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Linarakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build());
 
         List<PersonPersonRoles> personRolesList3 = List.of(
-                PersonPersonRoles.builder().person(filmService.findPersonById(1L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.MANAGER), new PersonRole(PersonRoleEnum.PRODUCER))).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonById(2L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.PRODUCER), new PersonRole(PersonRoleEnum.WRITER))).build());
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Linarakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Zaragkas")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build());
 
         List<PersonPersonRoles> personRolesList4 = List.of(
-                PersonPersonRoles.builder().person(filmService.findPersonById(1L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.ACTOR), new PersonRole(PersonRoleEnum.WRITER))).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonById(4L)).personRoleList(Arrays.asList(new PersonRole(PersonRoleEnum.WRITER), new PersonRole(PersonRoleEnum.ACTOR))).build());
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Zaragkas")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Mega")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build());
 
 
         List<Film> filmsList = List.of(Film.builder()
@@ -81,5 +81,8 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                         .build()
         );
         filmService.createAll(filmsList);
+
+
+        filmService.findFilmByMovieTitle("Harry Poter").getMovie().getPeople().forEach(person -> logger.info("{}",person.getPersonRoles()));
     }
 }
