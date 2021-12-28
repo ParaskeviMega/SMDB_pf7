@@ -1,11 +1,18 @@
 package com.pf7.smdb.domain;
 
-import javax.persistence.Embeddable;
+import com.pf7.smdb.helper.PersonRoleEnum;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public enum PersonRole {
-    ACTOR,
-    DIRECTOR,
-    PRODUCER,
-    MANAGER,
-    WRITER;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class PersonRole extends BaseModel{
+
+    private PersonRoleEnum personRoleEnum;
 }

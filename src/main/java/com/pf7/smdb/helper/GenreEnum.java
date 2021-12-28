@@ -1,6 +1,6 @@
-package com.pf7.smdb.domain;
+package com.pf7.smdb.helper;
 
-public enum Genre {
+public enum GenreEnum {
     ACTION,
     COMEDY,
     DRAMA,

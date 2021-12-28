@@ -1,5 +1,6 @@
 package com.pf7.smdb.domain;
 
+import com.pf7.smdb.helper.GenreEnum;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -29,10 +30,10 @@ public class Movie {
 
     //@NotNull(message = "Genre cannot be null.")
     @ElementCollection(fetch = FetchType.EAGER)
-    private Set<Genre> genre;
+    private Set<GenreEnum> genre;
 
     //@NotNull(message = "PersonID cannot be null.")
-    @ManyToMany(targetEntity = Person.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = Person.class, fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
     private Set<Person> people;
 
     //@NotNull(message = "Rating cannot be null.")

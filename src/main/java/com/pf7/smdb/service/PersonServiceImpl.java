@@ -1,7 +1,6 @@
 package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.Person;
-import com.pf7.smdb.domain.PersonRole;
 import com.pf7.smdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -33,13 +32,6 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     @Override
     public Person findPersonById(Long id) {
         return personRepository.findPersonById(id);
-    }
-
-
-    public Person ovverideRoleAndGetPerson(Person person , PersonRole... personRoles){
-        Person personTest = new Person();
-        personTest.setRoles(persoroles);
-    return personTest;
     }
 
 }
