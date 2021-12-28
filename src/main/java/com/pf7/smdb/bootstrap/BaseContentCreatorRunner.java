@@ -36,8 +36,6 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                 PersonPersonRoles.builder().person(filmService.findPersonById(1L)).personRoleList(Arrays.asList(PersonRole.ACTOR, PersonRole.WRITER)).build(),
                 PersonPersonRoles.builder().person(filmService.findPersonById(1L)).personRoleList(Arrays.asList(PersonRole.MANAGER, PersonRole.PRODUCER)).build(),
                 PersonPersonRoles.builder().person(filmService.findPersonById(1L)).personRoleList(Arrays.asList(PersonRole.PRODUCER, PersonRole.WRITER)).build());
-
-
         var person = personService.ovverideRoleAndGetPerson(personRolesList);
 
 
