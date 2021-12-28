@@ -11,11 +11,12 @@ import java.util.List;
 @NoArgsConstructor
 public class PersonPersonRoles {
 
-    public PersonPersonRoles(Person person, PersonRole... personRoleList) {
-        this.person = person;
-        this.personRoleList = List.of(personRoleList);
-    }
-
     private Person person;
     private List<PersonRole> personRoleList;
+
+    public PersonPersonRoles(Person person, List<PersonRole> personRoleList) {
+        this.person = person;
+        this.personRoleList = personRoleList;
+    }
+
 }
