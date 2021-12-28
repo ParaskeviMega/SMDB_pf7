@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -28,9 +29,20 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
         List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").build(),
                 Person.builder().name("Dimitris").surname("Linarakis").born("1998").build(),
                 Person.builder().name("Stathis").surname("Zaragkas").born("1998").build(),
-                Person.builder().name("Vivi").surname("Mega").born("1994").build());
+                Person.builder().name("Vivi").surname("Mega").born("1995").build());
 
         personService.createAll(people);
+
+
+
+
+        List<PersonPersonRoles> personRolesList = List.of(PersonPersonRoles.builder()
+                .person(personService.findPeopleByNameInAndSurnameIn("Manos","Fragkiadakis")),PersonRole.ACTOR,PersonRole.WRITER);
+
+
+        var person = personService.ovverideRoleAndGetPerson(personRolesList
+                personService.findPeopleByNameInAndSurnameIn("Manos","Fragkiadakis"),PersonRole.ACTOR,PersonRole.WRITER);
+
 
         List<Film> filmsList = List.of(Film.builder()
                         .movie(Movie.builder().title("Resident Evil 10")
