@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -26,9 +27,8 @@ public class Film extends BaseModel {
     })
     private Movie movie;
 
-//
-//    @OneToMany(mappedBy = "film",fetch = FetchType.EAGER)
-//    private Set<Contribution> contributions;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<FilmPersonRoles> filmPersonRoles;
 }
 
 

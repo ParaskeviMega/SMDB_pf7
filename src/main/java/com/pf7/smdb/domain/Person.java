@@ -33,9 +33,5 @@ public class Person extends BaseModel{
     @NotNull(message = "Born cannot be null.")
     @Column(length = 50,nullable = false)
     private String born;
-
-    @ElementCollection(fetch = FetchType.EAGER)
-    private Set<PersonRoleEnum> generalRoles = new HashSet<>();
-
 }
 

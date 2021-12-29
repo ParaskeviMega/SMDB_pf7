@@ -24,10 +24,10 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
         //@formatter:off
 
 
-        List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").generalRoles(Set.of(PersonRoleEnum.ACTOR,PersonRoleEnum.PRODUCER)).build(),
-                Person.builder().name("Dimitris").surname("Linarakis").born("1998").generalRoles(Set.of(PersonRoleEnum.DIRECTOR,PersonRoleEnum.PRODUCER)).build(),
-                Person.builder().name("Stathis").surname("Zaragkas").born("1998").generalRoles(Set.of(PersonRoleEnum.MANAGER,PersonRoleEnum.WRITER)).build(),
-                Person.builder().name("Vivi").surname("Mega").born("1995").generalRoles(Set.of(PersonRoleEnum.WRITER,PersonRoleEnum.ACTOR)).build());
+        List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").build(),
+                Person.builder().name("Dimitris").surname("Linarakis").born("1998").build(),
+                Person.builder().name("Stathis").surname("Zaragkas").born("1998").build(),
+                Person.builder().name("Vivi").surname("Mega").born("1995").build());
 
         personService.createAll(people);
 
@@ -39,6 +39,7 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .genre(Set.of(GenreEnum.ROMANCE, GenreEnum.COMEDY))
                                 .people(Set.of(personService.findPersonById(4L),personService.findPersonById(2L)))
                                 .rating(4.5f).build())
+                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(3),PersonRoleEnum.ACTOR),new FilmPersonRoles(people.get(2),PersonRoleEnum.ACTOR)))
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Spiderman : NoWay Home")
@@ -46,6 +47,7 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .genre(Set.of(GenreEnum.FANTASY, GenreEnum.ACTION))
                                 .people(Set.of(personService.findPersonById(3L),personService.findPersonById(1L)))
                                 .rating(2.5f).build())
+                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(1),PersonRoleEnum.ACTOR),new FilmPersonRoles(people.get(2),PersonRoleEnum.ACTOR)))
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Lord Of The Rings")
@@ -53,6 +55,7 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
                                 .people(Set.of(personService.findPersonById(2L),personService.findPersonById(4L)))
                                 .rating(4.5f).build())
+                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(1),PersonRoleEnum.ACTOR),new FilmPersonRoles(people.get(2),PersonRoleEnum.ACTOR)))
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Harry Poter")
@@ -60,24 +63,12 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
                                 .people(Set.of(personService.findPersonById(3L),personService.findPersonById(1L)))
                                 .rating(4.5f).build())
+                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(3),PersonRoleEnum.ACTOR),new FilmPersonRoles(people.get(2),PersonRoleEnum.ACTOR)))
                         .build()
         );
 
-        Set<MoviePersonRoles> moviePersonRoles = Set.of(
-                MoviePersonRoles.builder().film(filmList.get(0)).person(people.get((0))).personRoleEnum(PersonRoleEnum.ACTOR).build(),
-                MoviePersonRoles.builder().film(filmList.get(0)).person(people.get((1))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
-                MoviePersonRoles.builder().film(filmList.get(0)).person(people.get((2))).personRoleEnum(PersonRoleEnum.PRODUCER).build(),
-                MoviePersonRoles.builder().film(filmList.get(0)).person(people.get((3))).personRoleEnum(PersonRoleEnum.WRITER).build(),
-                MoviePersonRoles.builder().film(filmList.get(1)).person(people.get((3))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
-                MoviePersonRoles.builder().film(filmList.get(1)).person(people.get((3))).personRoleEnum(PersonRoleEnum.DIRECTOR).build(),
-                MoviePersonRoles.builder().film(filmList.get(2)).person(people.get((1))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
-                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
-                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((0))).personRoleEnum(PersonRoleEnum.ACTOR).build(),
-                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((3))).personRoleEnum(PersonRoleEnum.WRITER).build(),
-                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.DIRECTOR).build(),
-                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.PRODUCER).build());
+        filmService.createAll(filmList);
 
-        filmService.UpdateFilmsAndContributions(new HashSet<>(filmList),moviePersonRoles);
 
 
         //TVShow Insert
@@ -88,7 +79,7 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .people(Set.of(personService.findPersonById(4L),personService.findPersonById(2L)))
                                 .rating(4.5f).build())
                         .episodes(Set.of(new Episode("Friends Episode 1",1),new Episode("Friends Episode 2",2)))
-                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(0),PersonRoleEnum.ACTOR)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(3),PersonRoleEnum.MANAGER),new TvShowPersonRoles(people.get(1),PersonRoleEnum.PRODUCER)))
                         .build(),
                 TVShow.builder()
                         .movie(Movie.builder().title("Titans")
@@ -97,7 +88,7 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .people(Set.of(personService.findPersonById(3L),personService.findPersonById(1L)))
                                 .rating(2.5f).build())
                         .episodes(Set.of(new Episode("Titans Episode 1",1),new Episode("Titans Episode 2",2)))
-                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(1),PersonRoleEnum.MANAGER),new TvShowPersonRoles(people.get(1),PersonRoleEnum.PRODUCER)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(2),PersonRoleEnum.MANAGER),new TvShowPersonRoles(people.get(3),PersonRoleEnum.PRODUCER)))
                         .build(),
                 TVShow.builder()
                         .movie(Movie.builder().title("Punisher")
@@ -106,7 +97,7 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .people(Set.of(personService.findPersonById(2L),personService.findPersonById(4L)))
                                 .rating(4.5f).build())
                         .episodes(Set.of(new Episode("Punisher Episode 1",1),new Episode("Punisher Episode 2",2)))
-                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(2),PersonRoleEnum.ACTOR),new TvShowPersonRoles(people.get(2),PersonRoleEnum.WRITER)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(2),PersonRoleEnum.ACTOR),new TvShowPersonRoles(people.get(1),PersonRoleEnum.WRITER)))
                         .build(),
                 TVShow.builder()
                         .movie(Movie.builder().title("Flash")
@@ -115,28 +106,17 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .people(Set.of(personService.findPersonById(3L),personService.findPersonById(1L)))
                                 .rating(4.5f).build())
                         .episodes(Set.of(new Episode("Flash Episode 1",1),new Episode("Flash Episode 2",2)))
-                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(3),PersonRoleEnum.WRITER)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(0),PersonRoleEnum.WRITER)))
                         .build()
         );
 
         tvShowService.createAll(tvShowList);
-        tvShowService.delete(tvShowList.get(3));
 
-//        Set<MoviePersonRoles> moviePersonRoles1 = Set.of(
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(0)).person(people.get((0))).personRoleEnum(PersonRoleEnum.ACTOR).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(0)).person(people.get((1))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(0)).person(people.get((2))).personRoleEnum(PersonRoleEnum.PRODUCER).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(0)).person(people.get((3))).personRoleEnum(PersonRoleEnum.WRITER).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(1)).person(people.get((2))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(1)).person(people.get((3))).personRoleEnum(PersonRoleEnum.DIRECTOR).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(2)).person(people.get((1))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(2)).person(people.get((2))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(3)).person(people.get((0))).personRoleEnum(PersonRoleEnum.ACTOR).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(3)).person(people.get((3))).personRoleEnum(PersonRoleEnum.WRITER).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.DIRECTOR).build(),
-//                MoviePersonRoles.builder().tvShow(tvShowList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.PRODUCER).build());
+        tvShowList.forEach(tvShow -> tvShow.getTvShowPersonRoles().forEach(tvShowPersonRoles ->
+                logger.info("TvShow : {} , Person : {}, Role : {}",tvShow.getMovie().getTitle(),
+                        tvShowPersonRoles.getPerson().getSurname(),
+                        tvShowPersonRoles.getPersonRoleEnum().toString())));
 
-        //tvShowService.UpdateFilmsAndContributions(new HashSet<>(tvShowList),moviePersonRoles1);
-        //tvShowService.delete(tvShowList.get(3));
+
     }
 }
