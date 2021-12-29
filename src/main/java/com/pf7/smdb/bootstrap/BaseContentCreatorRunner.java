@@ -25,10 +25,10 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
         //@formatter:off
 
 
-        List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").personRoles(Set.of(PersonRoleEnum.MANAGER)).build(),
-                Person.builder().name("Dimitris").surname("Linarakis").born("1998").personRoles(Set.of(PersonRoleEnum.PRODUCER)).build(),
-                Person.builder().name("Stathis").surname("Zaragkas").born("1998").personRoles(Set.of(PersonRoleEnum.ACTOR)).build(),
-                Person.builder().name("Vivi").surname("Mega").born("1995").personRoles(Set.of(PersonRoleEnum.MANAGER)).build());
+        List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").generalRoles(Set.of(PersonRoleEnum.MANAGER)).build(),
+                Person.builder().name("Dimitris").surname("Linarakis").born("1998").generalRoles(Set.of(PersonRoleEnum.PRODUCER)).build(),
+                Person.builder().name("Stathis").surname("Zaragkas").born("1998").generalRoles(Set.of(PersonRoleEnum.ACTOR)).build(),
+                Person.builder().name("Vivi").surname("Mega").born("1995").generalRoles(Set.of(PersonRoleEnum.MANAGER)).build());
 
         personService.createAll(people);
 
@@ -48,7 +48,7 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
 
         List<PersonPersonRoles> personRolesList4 = List.of(
                 PersonPersonRoles.builder().person(filmService.findPersonBySurname("Zaragkas")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Mega")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build());
+                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Mega")).personRoleList(Set.of(PersonRoleEnum.PRODUCER, PersonRoleEnum.ACTOR)).build());
 
 
         List<Film> filmsList = List.of(Film.builder()
@@ -83,6 +83,10 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
         filmService.createAll(filmsList);
 
 
-        filmService.findFilmByMovieTitle("Harry Poter").getMovie().getPeople().forEach(person -> logger.info("{}",person.getPersonRoles()));
+        filmService.findFilmByMovieTitle("Harry Poter").getMovie().getPeople().forEach(person -> logger.info("{}",person.getGeneralRoles()));
+        logger.info("\n Test \n");
+        filmService.findFilmByMovieTitle("Harry Poter").getMovie().getPeople().forEach(person -> logger.info("{}",person.getMovieRoles()));
+
+        logger.info("TESTTTTTTTTTTTTT : {}",filmService.findFilmByMovieTitle("Harry Poter"));
     }
 }

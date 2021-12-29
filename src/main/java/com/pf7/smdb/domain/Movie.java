@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -30,11 +31,11 @@ public class Movie {
 
     //@NotNull(message = "Genre cannot be null.")
     @ElementCollection(fetch = FetchType.EAGER)
-    private Set<GenreEnum> genre;
+    private Set<GenreEnum> genre = new HashSet<>();
 
     //@NotNull(message = "PersonID cannot be null.")
     @ManyToMany(targetEntity = Person.class, fetch = FetchType.EAGER)
-    private Set<Person> people;
+    private Set<Person> people = new HashSet<>();
 
     //@NotNull(message = "Rating cannot be null.")
     @Column(precision = 1, scale = 1, nullable = false)

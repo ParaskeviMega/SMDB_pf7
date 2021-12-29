@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -35,6 +36,10 @@ public class Person extends BaseModel{
 
     //@ElementCollection(fetch = FetchType.EAGER)
     @ElementCollection(fetch = FetchType.EAGER)
-    private Set<PersonRoleEnum> personRoles;
+    private Set<PersonRoleEnum> generalRoles = new HashSet<>();
+
+    //@ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<PersonRoleEnum> movieRoles = new HashSet<>();
 }
 

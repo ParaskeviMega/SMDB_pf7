@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -21,6 +22,6 @@ public class PersonPersonRoles {
     private Person person;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Set<PersonRoleEnum> personRoleList;
+    private Set<PersonRoleEnum> personRoleList = new HashSet<>();
 
 }

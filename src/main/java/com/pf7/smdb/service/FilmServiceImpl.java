@@ -37,11 +37,12 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
     public Set<Person> overridePersonRoles(List<PersonPersonRoles> personPersonRoles) {
         Set<Person> personSet = new HashSet<>();
 
-        personPersonRoles.forEach(personPersonRoles1 -> personPersonRoles1.getPerson().setPersonRoles(Set.copyOf(personPersonRoles1.getPersonRoleList())));
+        personPersonRoles.forEach(personPersonRoles1 -> personPersonRoles1.getPerson().setMovieRoles(Set.copyOf(personPersonRoles1.getPersonRoleList())));
         personPersonRoles.forEach(personPersonRoles1 -> personSet.add(personPersonRoles1.getPerson()));
 
         return personSet;
     }
+
 
     @Override
     public Person findPersonBySurname(String surname) {
