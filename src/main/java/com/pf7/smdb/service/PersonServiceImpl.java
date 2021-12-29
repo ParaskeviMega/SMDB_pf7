@@ -21,12 +21,12 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
 
     @Override
     public Person getPersonByNameAndAndSurname(String name, String surname) {
-        return personRepository.getPersonByNameAndAndSurname(name,surname);
+        return personRepository.getPersonByNameAndAndSurname(name, surname);
     }
 
     @Override
     public Set<Person> findPeopleByNameInAndSurnameIn(List<String> name, List<String> surname) {
-        return personRepository.findPeopleByNameInAndSurnameIn(name,surname);
+        return personRepository.findPeopleByNameInAndSurnameIn(name, surname);
     }
 
     @Override

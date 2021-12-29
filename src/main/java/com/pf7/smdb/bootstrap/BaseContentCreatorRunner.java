@@ -40,28 +40,28 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.ROMANCE, GenreEnum.COMEDY))
                                 .rating(4.5f).build())
-                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(3),PersonRoleEnum.ACTOR),new FilmPersonRoles(people.get(2),PersonRoleEnum.ACTOR)))
+                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(3), PersonRoleEnum.ACTOR), new FilmPersonRoles(people.get(2), PersonRoleEnum.ACTOR)))
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Spiderman : NoWay Home")
                                 .year(2022)
                                 .genre(Set.of(GenreEnum.FANTASY, GenreEnum.ACTION))
                                 .rating(2.5f).build())
-                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(1),PersonRoleEnum.ACTOR),new FilmPersonRoles(people.get(2),PersonRoleEnum.ACTOR)))
+                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(1), PersonRoleEnum.ACTOR), new FilmPersonRoles(people.get(2), PersonRoleEnum.ACTOR)))
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Lord Of The Rings")
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
                                 .rating(4.5f).build())
-                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(1),PersonRoleEnum.ACTOR),new FilmPersonRoles(people.get(2),PersonRoleEnum.ACTOR)))
+                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(1), PersonRoleEnum.ACTOR), new FilmPersonRoles(people.get(2), PersonRoleEnum.ACTOR)))
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Harry Poter")
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
                                 .rating(4.5f).build())
-                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(3),PersonRoleEnum.ACTOR),new FilmPersonRoles(people.get(2),PersonRoleEnum.ACTOR)))
+                        .filmPersonRoles(Set.of(new FilmPersonRoles(people.get(3), PersonRoleEnum.ACTOR), new FilmPersonRoles(people.get(2), PersonRoleEnum.ACTOR)))
                         .build()
         );
 
@@ -74,32 +74,32 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.ROMANCE, GenreEnum.COMEDY))
                                 .rating(4.5f).build())
-                        .episodes(Set.of(new Episode("Friends Episode 1",1),new Episode("Friends Episode 2",2)))
-                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(3),PersonRoleEnum.MANAGER),new TvShowPersonRoles(people.get(1),PersonRoleEnum.PRODUCER)))
+                        .episodes(Set.of(new Episode("Friends Episode 1", 1), new Episode("Friends Episode 2", 2)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(3), PersonRoleEnum.MANAGER), new TvShowPersonRoles(people.get(1), PersonRoleEnum.PRODUCER)))
                         .build(),
                 TVShow.builder()
                         .movie(Movie.builder().title("Titans")
                                 .year(2022)
                                 .genre(Set.of(GenreEnum.FANTASY, GenreEnum.ACTION))
                                 .rating(2.5f).build())
-                        .episodes(Set.of(new Episode("Titans Episode 1",1),new Episode("Titans Episode 2",2)))
-                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(2),PersonRoleEnum.MANAGER),new TvShowPersonRoles(people.get(3),PersonRoleEnum.PRODUCER)))
+                        .episodes(Set.of(new Episode("Titans Episode 1", 1), new Episode("Titans Episode 2", 2)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(2), PersonRoleEnum.MANAGER), new TvShowPersonRoles(people.get(3), PersonRoleEnum.PRODUCER)))
                         .build(),
                 TVShow.builder()
                         .movie(Movie.builder().title("Punisher")
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
                                 .rating(4.5f).build())
-                        .episodes(Set.of(new Episode("Punisher Episode 1",1),new Episode("Punisher Episode 2",2)))
-                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(2),PersonRoleEnum.ACTOR),new TvShowPersonRoles(people.get(1),PersonRoleEnum.WRITER)))
+                        .episodes(Set.of(new Episode("Punisher Episode 1", 1), new Episode("Punisher Episode 2", 2)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(2), PersonRoleEnum.ACTOR), new TvShowPersonRoles(people.get(1), PersonRoleEnum.WRITER)))
                         .build(),
                 TVShow.builder()
                         .movie(Movie.builder().title("Flash")
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
                                 .rating(4.5f).build())
-                        .episodes(Set.of(new Episode("Flash Episode 1",1),new Episode("Flash Episode 2",2)))
-                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(0),PersonRoleEnum.WRITER)))
+                        .episodes(Set.of(new Episode("Flash Episode 1", 1), new Episode("Flash Episode 2", 2)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(0), PersonRoleEnum.WRITER)))
                         .build()
         );
 
@@ -107,13 +107,13 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
 
 
         filmList.forEach(film -> film.getFilmPersonRoles().forEach(filmPersonRoles ->
-                logger.info("Film : {} , Person : {}, Role : {}",film.getMovie().getTitle(),
+                logger.info("Film : {} , Person : {}, Role : {}", film.getMovie().getTitle(),
                         filmPersonRoles.getPerson().getSurname(),
                         filmPersonRoles.getPersonRoleEnum().toString())));
 
 
         tvShowList.forEach(tvShow -> tvShow.getTvShowPersonRoles().forEach(tvShowPersonRoles ->
-                logger.info("TvShow : {} , Person : {}, Role : {}",tvShow.getMovie().getTitle(),
+                logger.info("TvShow : {} , Person : {}, Role : {}", tvShow.getMovie().getTitle(),
                         tvShowPersonRoles.getPerson().getSurname(),
                         tvShowPersonRoles.getPersonRoleEnum().toString())));
 
