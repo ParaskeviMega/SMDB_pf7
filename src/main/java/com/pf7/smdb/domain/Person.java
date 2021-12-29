@@ -19,19 +19,19 @@ import java.util.Set;
 @SequenceGenerator(name = "idGenerator", sequenceName = "PEOPLE_SEQ", allocationSize = 1)
 public class Person extends BaseModel {
 
-    @NotNull(message = "First Name cannot be null.")
-    @Column(length = 20, nullable = false)
+    //@NotNull(message = "First Name cannot be null.")
+    @Column(length = 100)
     private String name;
 
-    @NotNull(message = "Surname cannot be null.")
-    @Column(length = 20, nullable = false)
-    private String surname;
+//    @NotNull(message = "Surname cannot be null.")
+//    @Column(length = 100)
+//    private String surname;
 
-    @Column
-    private String bio;
+//    @Column
+//    private String bio;
 
-    @NotNull(message = "Born cannot be null.")
-    @Column(length = 50, nullable = false)
-    private String born;
+    //@NotNull(message = "Born cannot be null.")
+    @Column(length = 4)
+    private Integer born;
 }
 

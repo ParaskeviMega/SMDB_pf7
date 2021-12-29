@@ -26,7 +26,7 @@ public class FilmPersonRoles extends BaseModel {
         this.personRoleEnum = personRoleEnum;
     }
 
-    @ManyToOne(targetEntity = Person.class, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Person.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Person person;
 
     @Enumerated(EnumType.STRING)

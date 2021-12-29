@@ -2,13 +2,21 @@ package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
+import com.pf7.smdb.helper.GenreEnum;
+import com.pf7.smdb.helper.PersonRoleEnum;
 
 import java.util.Set;
 
-public interface FilmService extends BaseService<Film, Long>{
+public interface FilmService extends BaseService<Film, Long> {
     Film findFilmByMovieTitle(String title);
 
     Person findPersonById(Long id);
 
-    Person findPersonBySurname(String surname);
+    void parseAndCreateFilmsFromTmdbApi();
+
+    GenreEnum randomGenre();
+
+    PersonRoleEnum randomRole();
+
+    double round(double value, int places);
 }

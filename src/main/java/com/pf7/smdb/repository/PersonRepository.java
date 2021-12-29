@@ -10,9 +10,6 @@ import java.util.Set;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
-    Person getPersonByNameAndAndSurname(String name, String surname);
-
-    Set<Person> findPeopleByNameInAndSurnameIn(List<String> name, List<String> surname);
 
     Person findPersonById(Long id);
 }

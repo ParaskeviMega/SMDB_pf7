@@ -19,15 +19,6 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         return personRepository;
     }
 
-    @Override
-    public Person getPersonByNameAndAndSurname(String name, String surname) {
-        return personRepository.getPersonByNameAndAndSurname(name, surname);
-    }
-
-    @Override
-    public Set<Person> findPeopleByNameInAndSurnameIn(List<String> name, List<String> surname) {
-        return personRepository.findPeopleByNameInAndSurnameIn(name, surname);
-    }
 
     @Override
     public Person findPersonById(Long id) {

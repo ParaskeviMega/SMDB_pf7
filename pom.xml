@@ -28,11 +28,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-<!--        <maven.compiler.source>17</maven.compiler.source>-->
-<!--        <maven.compiler.target>17</maven.compiler.target>-->
-<!--        <log4j.version>2.15.0</log4j.version>-->
-<!--        <slf4j.version>1.7.32</slf4j.version>-->
-<!--        <disruptor-maven-plugin.version>3.4.4</disruptor-maven-plugin.version>-->
+        <!--        <maven.compiler.source>17</maven.compiler.source>-->
+        <!--        <maven.compiler.target>17</maven.compiler.target>-->
+        <!--        <log4j.version>2.15.0</log4j.version>-->
+        <!--        <slf4j.version>1.7.32</slf4j.version>-->
+        <!--        <disruptor-maven-plugin.version>3.4.4</disruptor-maven-plugin.version>-->
         <log4j2.version>2.16.0</log4j2.version>
         <disruptor-maven-plugin.version>3.4.4</disruptor-maven-plugin.version>
     </properties>
@@ -40,11 +40,11 @@
     <!-- Dependency Management -->
     <dependencyManagement>
         <dependencies>
-<!--            <dependency>-->
-<!--                <groupId>org.apache.logging.log4j</groupId>-->
-<!--                <artifactId>log4j-slf4j18-impl</artifactId>-->
-<!--                <version>${log4j.version}</version>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.apache.logging.log4j</groupId>-->
+            <!--                <artifactId>log4j-slf4j18-impl</artifactId>-->
+            <!--                <version>${log4j.version}</version>-->
+            <!--            </dependency>-->
 
             <!--
             Asynchronous Logging @see https://logging.apache.org/log4j/2.x/manual/async.html
@@ -66,11 +66,11 @@
         <!-- You can easily generate your own configuration metadata file from items annotated with
 		@ConfigurationProperties by using the spring-boot-configuration-processor jar. The jar includes a Java
 		annotation processor which is invoked as your project is compiled. -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-configuration-processor</artifactId>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-configuration-processor</artifactId>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
 
         <!-- you need to exclude spring-boot-starter-logging dependency as Logback is the default implementation -->
         <dependency>
@@ -111,12 +111,17 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j18-impl</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.jetbrains</groupId>-->
-<!--            <artifactId>annotations</artifactId>-->
-<!--            <version>RELEASE</version>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.github.holgerbrandl</groupId>
+            <artifactId>themoviedbapi</artifactId>
+            <version>1.12</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.jetbrains</groupId>-->
+        <!--            <artifactId>annotations</artifactId>-->
+        <!--            <version>RELEASE</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--        </dependency>-->
 
 
         <dependency>

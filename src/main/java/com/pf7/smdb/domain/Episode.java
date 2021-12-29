@@ -18,11 +18,11 @@ import javax.validation.constraints.NotNull;
 @SequenceGenerator(name = "idGenerator", sequenceName = "EPISODES_SEQ", allocationSize = 1)
 public class Episode extends BaseModel{
 
-    @NotNull(message = "Season cannot be null.")
+    //@NotNull(message = "Season cannot be null.")
     @Column(nullable = false)
     private String title;
 
-    @NotNull(message = "Season cannot be null.")
+    //@NotNull(message = "Season cannot be null.")
     @Column(nullable = false)
     private Integer season;
 

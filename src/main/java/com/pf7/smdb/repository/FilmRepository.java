@@ -15,6 +15,6 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
     @Query("select pr from Person pr where pr.id = ?1")
     Person findPersonById(Long id);
 
-    @Query("select pr from Person pr where pr.surname like %?1")
-    Person findPersonBySurname(String surname);
+//    @Query("select pr from Person pr where pr.surname like %?1")
+//    Person findPersonBySurname(String surname);
 }
