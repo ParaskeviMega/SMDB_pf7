@@ -3,7 +3,6 @@ package com.pf7.smdb.bootstrap;
 import com.pf7.smdb.base.AbstractLogComponent;
 import com.pf7.smdb.domain.*;
 import com.pf7.smdb.helper.GenreEnum;
-import com.pf7.smdb.helper.PersonPersonRoles;
 import com.pf7.smdb.helper.PersonRoleEnum;
 import com.pf7.smdb.service.*;
 import lombok.RequiredArgsConstructor;
@@ -25,68 +24,119 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
         //@formatter:off
 
 
-        List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").generalRoles(Set.of(PersonRoleEnum.MANAGER)).build(),
-                Person.builder().name("Dimitris").surname("Linarakis").born("1998").generalRoles(Set.of(PersonRoleEnum.PRODUCER)).build(),
-                Person.builder().name("Stathis").surname("Zaragkas").born("1998").generalRoles(Set.of(PersonRoleEnum.ACTOR)).build(),
-                Person.builder().name("Vivi").surname("Mega").born("1995").generalRoles(Set.of(PersonRoleEnum.MANAGER)).build());
+        List<Person> people = List.of(Person.builder().name("Manos").surname("Fragkiadakis").born("1993").generalRoles(Set.of(PersonRoleEnum.ACTOR,PersonRoleEnum.PRODUCER)).build(),
+                Person.builder().name("Dimitris").surname("Linarakis").born("1998").generalRoles(Set.of(PersonRoleEnum.DIRECTOR,PersonRoleEnum.PRODUCER)).build(),
+                Person.builder().name("Stathis").surname("Zaragkas").born("1998").generalRoles(Set.of(PersonRoleEnum.MANAGER,PersonRoleEnum.WRITER)).build(),
+                Person.builder().name("Vivi").surname("Mega").born("1995").generalRoles(Set.of(PersonRoleEnum.WRITER,PersonRoleEnum.ACTOR)).build());
 
         personService.createAll(people);
 
 
-        List<PersonPersonRoles> personRolesList = List.of(
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Fragkiadakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Linarakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Zaragkas")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build());
-
-        List<PersonPersonRoles> personRolesList2 = List.of(
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Fragkiadakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Linarakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build());
-
-        List<PersonPersonRoles> personRolesList3 = List.of(
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Linarakis")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Zaragkas")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build());
-
-        List<PersonPersonRoles> personRolesList4 = List.of(
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Zaragkas")).personRoleList(Set.of(PersonRoleEnum.MANAGER, PersonRoleEnum.ACTOR)).build(),
-                PersonPersonRoles.builder().person(filmService.findPersonBySurname("Mega")).personRoleList(Set.of(PersonRoleEnum.PRODUCER, PersonRoleEnum.ACTOR)).build());
-
-
-        List<Film> filmsList = List.of(Film.builder()
+        //Films Insert
+        List<Film> filmList = List.of(Film.builder()
                         .movie(Movie.builder().title("Resident Evil 10")
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.ROMANCE, GenreEnum.COMEDY))
-                                .people(filmService.overridePersonRoles(personRolesList))
+                                .people(Set.of(personService.findPersonById(4L),personService.findPersonById(2L)))
                                 .rating(4.5f).build())
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Spiderman : NoWay Home")
                                 .year(2022)
                                 .genre(Set.of(GenreEnum.FANTASY, GenreEnum.ACTION))
-                                .people(filmService.overridePersonRoles(personRolesList2))
+                                .people(Set.of(personService.findPersonById(3L),personService.findPersonById(1L)))
                                 .rating(2.5f).build())
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Lord Of The Rings")
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
-                                .people(filmService.overridePersonRoles(personRolesList3))
+                                .people(Set.of(personService.findPersonById(2L),personService.findPersonById(4L)))
                                 .rating(4.5f).build())
                         .build(),
                 Film.builder()
                         .movie(Movie.builder().title("Harry Poter")
                                 .year(2004)
                                 .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
-                                .people(filmService.overridePersonRoles(personRolesList4))
+                                .people(Set.of(personService.findPersonById(3L),personService.findPersonById(1L)))
                                 .rating(4.5f).build())
                         .build()
         );
-        filmService.createAll(filmsList);
+
+        Set<MoviePersonRoles> moviePersonRoles = Set.of(
+                MoviePersonRoles.builder().film(filmList.get(0)).person(people.get((0))).personRoleEnum(PersonRoleEnum.ACTOR).build(),
+                MoviePersonRoles.builder().film(filmList.get(0)).person(people.get((1))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
+                MoviePersonRoles.builder().film(filmList.get(0)).person(people.get((2))).personRoleEnum(PersonRoleEnum.PRODUCER).build(),
+                MoviePersonRoles.builder().film(filmList.get(0)).person(people.get((3))).personRoleEnum(PersonRoleEnum.WRITER).build(),
+                MoviePersonRoles.builder().film(filmList.get(1)).person(people.get((3))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
+                MoviePersonRoles.builder().film(filmList.get(1)).person(people.get((3))).personRoleEnum(PersonRoleEnum.DIRECTOR).build(),
+                MoviePersonRoles.builder().film(filmList.get(2)).person(people.get((1))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
+                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
+                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((0))).personRoleEnum(PersonRoleEnum.ACTOR).build(),
+                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((3))).personRoleEnum(PersonRoleEnum.WRITER).build(),
+                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.DIRECTOR).build(),
+                MoviePersonRoles.builder().film(filmList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.PRODUCER).build());
+
+        filmService.UpdateFilmsAndContributions(new HashSet<>(filmList),moviePersonRoles);
 
 
-        filmService.findFilmByMovieTitle("Harry Poter").getMovie().getPeople().forEach(person -> logger.info("{}",person.getGeneralRoles()));
-        logger.info("\n Test \n");
-        filmService.findFilmByMovieTitle("Harry Poter").getMovie().getPeople().forEach(person -> logger.info("{}",person.getMovieRoles()));
+        //TVShow Insert
+        List<TVShow> tvShowList = List.of(TVShow.builder()
+                        .movie(Movie.builder().title("Friends")
+                                .year(2004)
+                                .genre(Set.of(GenreEnum.ROMANCE, GenreEnum.COMEDY))
+                                .people(Set.of(personService.findPersonById(4L),personService.findPersonById(2L)))
+                                .rating(4.5f).build())
+                        .episodes(Set.of(new Episode("Friends Episode 1",1),new Episode("Friends Episode 2",2)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(0),PersonRoleEnum.ACTOR)))
+                        .build(),
+                TVShow.builder()
+                        .movie(Movie.builder().title("Titans")
+                                .year(2022)
+                                .genre(Set.of(GenreEnum.FANTASY, GenreEnum.ACTION))
+                                .people(Set.of(personService.findPersonById(3L),personService.findPersonById(1L)))
+                                .rating(2.5f).build())
+                        .episodes(Set.of(new Episode("Titans Episode 1",1),new Episode("Titans Episode 2",2)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(1),PersonRoleEnum.MANAGER),new TvShowPersonRoles(people.get(1),PersonRoleEnum.PRODUCER)))
+                        .build(),
+                TVShow.builder()
+                        .movie(Movie.builder().title("Punisher")
+                                .year(2004)
+                                .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
+                                .people(Set.of(personService.findPersonById(2L),personService.findPersonById(4L)))
+                                .rating(4.5f).build())
+                        .episodes(Set.of(new Episode("Punisher Episode 1",1),new Episode("Punisher Episode 2",2)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(2),PersonRoleEnum.ACTOR),new TvShowPersonRoles(people.get(2),PersonRoleEnum.WRITER)))
+                        .build(),
+                TVShow.builder()
+                        .movie(Movie.builder().title("Flash")
+                                .year(2004)
+                                .genre(Set.of(GenreEnum.HORROR, GenreEnum.ACTION))
+                                .people(Set.of(personService.findPersonById(3L),personService.findPersonById(1L)))
+                                .rating(4.5f).build())
+                        .episodes(Set.of(new Episode("Flash Episode 1",1),new Episode("Flash Episode 2",2)))
+                        .tvShowPersonRoles(Set.of(new TvShowPersonRoles(people.get(3),PersonRoleEnum.WRITER)))
+                        .build()
+        );
 
-        logger.info("TESTTTTTTTTTTTTT : {}",filmService.findFilmByMovieTitle("Harry Poter"));
+        tvShowService.createAll(tvShowList);
+        tvShowService.delete(tvShowList.get(3));
+
+//        Set<MoviePersonRoles> moviePersonRoles1 = Set.of(
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(0)).person(people.get((0))).personRoleEnum(PersonRoleEnum.ACTOR).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(0)).person(people.get((1))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(0)).person(people.get((2))).personRoleEnum(PersonRoleEnum.PRODUCER).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(0)).person(people.get((3))).personRoleEnum(PersonRoleEnum.WRITER).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(1)).person(people.get((2))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(1)).person(people.get((3))).personRoleEnum(PersonRoleEnum.DIRECTOR).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(2)).person(people.get((1))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(2)).person(people.get((2))).personRoleEnum(PersonRoleEnum.MANAGER).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(3)).person(people.get((0))).personRoleEnum(PersonRoleEnum.ACTOR).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(3)).person(people.get((3))).personRoleEnum(PersonRoleEnum.WRITER).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.DIRECTOR).build(),
+//                MoviePersonRoles.builder().tvShow(tvShowList.get(3)).person(people.get((2))).personRoleEnum(PersonRoleEnum.PRODUCER).build());
+
+        //tvShowService.UpdateFilmsAndContributions(new HashSet<>(tvShowList),moviePersonRoles1);
+        //tvShowService.delete(tvShowList.get(3));
     }
 }

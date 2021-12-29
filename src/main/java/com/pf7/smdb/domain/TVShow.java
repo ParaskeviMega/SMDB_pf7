@@ -27,8 +27,11 @@ public class TVShow extends BaseModel {
     })
     private Movie movie;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Episode> episodes;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<TvShowPersonRoles> tvShowPersonRoles;
 //
 //    @OneToMany(mappedBy = "tvShow",fetch = FetchType.EAGER)
 //    private Set<Contribution> contributions;

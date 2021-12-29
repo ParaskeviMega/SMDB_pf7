@@ -2,10 +2,8 @@ package com.pf7.smdb.repository;
 
 import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
-import com.pf7.smdb.helper.PersonPersonRoles;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 

@@ -1,21 +1,24 @@
 package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.Film;
+import com.pf7.smdb.domain.MoviePersonRoles;
 import com.pf7.smdb.domain.Person;
-import com.pf7.smdb.helper.PersonPersonRoles;
 import com.pf7.smdb.repository.FilmRepository;
+import com.pf7.smdb.repository.MoviePersonRolesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmService {
     private final FilmRepository filmRepository;
+    private final MoviePersonRolesRepository moviePersonRolesRepository;
 
     @Override
     public JpaRepository<Film, Long> getRepository() {
@@ -33,20 +36,17 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
         return filmRepository.findPersonById(id);
     }
 
-    @Override
-    public Set<Person> overridePersonRoles(List<PersonPersonRoles> personPersonRoles) {
-        Set<Person> personSet = new HashSet<>();
-
-        personPersonRoles.forEach(personPersonRoles1 -> personPersonRoles1.getPerson().setMovieRoles(Set.copyOf(personPersonRoles1.getPersonRoleList())));
-        personPersonRoles.forEach(personPersonRoles1 -> personSet.add(personPersonRoles1.getPerson()));
-
-        return personSet;
-    }
-
 
     @Override
     public Person findPersonBySurname(String surname) {
         Person person = filmRepository.findPersonBySurname(surname);
         return person;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
+    public void UpdateFilmsAndContributions(Set<Film> films, Set<MoviePersonRoles> moviePersonRoles) {
+        filmRepository.saveAll(films);
+        moviePersonRolesRepository.saveAll(moviePersonRoles);
     }
 }

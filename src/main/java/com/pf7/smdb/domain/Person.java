@@ -34,12 +34,8 @@ public class Person extends BaseModel{
     @Column(length = 50,nullable = false)
     private String born;
 
-    //@ElementCollection(fetch = FetchType.EAGER)
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<PersonRoleEnum> generalRoles = new HashSet<>();
 
-    //@ElementCollection(fetch = FetchType.EAGER)
-    @ElementCollection(fetch = FetchType.EAGER)
-    private Set<PersonRoleEnum> movieRoles = new HashSet<>();
 }
 
