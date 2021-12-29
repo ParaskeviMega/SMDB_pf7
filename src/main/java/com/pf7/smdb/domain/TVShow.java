@@ -1,5 +1,6 @@
 package com.pf7.smdb.domain;
 
+import com.pf7.smdb.helper.TvShowPersonRoles;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -27,7 +28,7 @@ public class TVShow extends BaseModel {
     })
     private Movie movie;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Episode> episodes;
 
     @OneToMany(cascade = CascadeType.ALL)

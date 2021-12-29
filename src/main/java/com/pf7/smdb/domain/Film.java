@@ -1,5 +1,6 @@
 package com.pf7.smdb.domain;
 
+import com.pf7.smdb.helper.FilmPersonRoles;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
