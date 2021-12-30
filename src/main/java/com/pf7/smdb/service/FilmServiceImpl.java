@@ -72,10 +72,19 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
                 if (existsFilmByMovieTitle(film.getMovie().getTitle())) {
                     continue;
                 }
-                if (generalFilmlist.stream().allMatch(film2 -> film2.getMovie().getTitle().equals(film.getMovie().getTitle()))) {
-                    continue;
+
+                boolean exists = false;
+                if (generalFilmlist.size() > 0) {
+                    for (Film films : generalFilmlist) {
+                        if (films.getMovie().getTitle().equals(film.getMovie().getTitle())) {
+                            exists = true;
+                            break;
+                        }
+                    }
                 }
 
+                if (exists)
+                    continue;
 
                 Set<Person> personList = new HashSet<>();
 
