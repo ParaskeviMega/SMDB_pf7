@@ -28,7 +28,7 @@ public class Film extends BaseModel {
     })
     private Movie movie;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<FilmPersonRoles> filmPersonRoles;
 }
 

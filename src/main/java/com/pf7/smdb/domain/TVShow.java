@@ -35,7 +35,7 @@ public class TVShow extends BaseModel {
 
     private Integer seasons;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<TvShowPersonRoles> tvShowPersonRoles;
 //
 //    @OneToMany(mappedBy = "tvShow",fetch = FetchType.EAGER)

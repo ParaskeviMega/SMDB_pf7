@@ -21,7 +21,7 @@ public class PersonPersonRoles {
 
     private Person person;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<PersonRoleEnum> personRoleList = new HashSet<>();
 
 }

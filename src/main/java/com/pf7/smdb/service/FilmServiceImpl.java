@@ -119,5 +119,10 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
     public Boolean existsFilmByMovieTitle(String title) {
         return filmRepository.existsFilmByMovieTitle(title);
     }
+
+    @Override
+    public Film findFilmByTitleLike(String title) {
+        return filmRepository.findFilmByMovieTitle(title);
+    }
 }
 
