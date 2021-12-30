@@ -19,4 +19,6 @@ public interface FilmService extends BaseService<Film, Long> {
     PersonRoleEnum randomRole();
 
     double round(double value, int places);
+
+    Boolean existsFilmByMovieTitle(String title);
 }

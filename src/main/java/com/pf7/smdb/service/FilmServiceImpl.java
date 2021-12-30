@@ -61,13 +61,21 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
                     }
                 }
 
-                List<Film> filmList = List.of(Film.builder()
+                Film film = Film.builder()
                         .movie(Movie.builder().title(movie.getOriginalTitle())
                                 .genre(Set.of(randomGenre()))
                                 .description(movie.getOverview())
                                 .year(year)
                                 .rating(round(movie.getVoteAverage(), 2)).build())
-                        .build());
+                        .build();
+
+                if (existsFilmByMovieTitle(film.getMovie().getTitle())) {
+                    continue;
+                }
+                if (generalFilmlist.stream().allMatch(film2 -> film2.getMovie().getTitle().equals(film.getMovie().getTitle()))) {
+                    continue;
+                }
+
 
                 Set<Person> personList = new HashSet<>();
 
@@ -96,8 +104,8 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
                     }
                 }
 
-                filmList.get(0).setFilmPersonRoles(filmPersonRoles);
-                generalFilmlist.add(filmList.get(0));
+                film.setFilmPersonRoles(filmPersonRoles);
+                generalFilmlist.add(film);
 
             }
         }
@@ -125,6 +133,11 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
         value = value * factor;
         long tmp = Math.round(value);
         return (double) tmp / factor;
+    }
+
+    @Override
+    public Boolean existsFilmByMovieTitle(String title) {
+        return filmRepository.existsFilmByMovieTitle(title);
     }
 }
 
