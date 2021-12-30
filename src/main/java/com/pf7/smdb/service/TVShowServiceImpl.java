@@ -37,7 +37,7 @@ public class TVShowServiceImpl extends BaseServiceImpl<TVShow> implements TVShow
 
         Set<TVShow> generalTVshowList = new HashSet<>();
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 1; i++) {
             for (TvSeries tvSerie : series.getPopular("en", i)) {
 
                 int year = 0;

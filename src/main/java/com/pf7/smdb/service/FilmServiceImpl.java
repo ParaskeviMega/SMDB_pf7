@@ -40,13 +40,13 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
     @Override
     public void parseAndCreateFilmsFromTmdbApi() {
 
-        TmdbMovies movies = new TmdbApi("f69dfa8d4626eb03ab4cbc2f11ff66c2").getMovies();
+        TmdbMovies movies = new TmdbApi("690004238e130a8abc787e0ddb18a5d3").getMovies();
 
         //var a = movies.getPopularMovies("en-US",1).getTotalPages();
 
         Set<Film> generalFilmlist = new HashSet<>();
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 1; i++) {
             for (MovieDb movie : movies.getPopularMovies("en", i)) {
 
                 int year = 0;
