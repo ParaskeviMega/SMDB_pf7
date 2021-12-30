@@ -14,11 +14,5 @@ public interface FilmService extends BaseService<Film, Long> {
 
     void parseAndCreateFilmsFromTmdbApi();
 
-    GenreEnum randomGenre();
-
-    PersonRoleEnum randomRole();
-
-    double round(double value, int places);
-
     Boolean existsFilmByMovieTitle(String title);
 }

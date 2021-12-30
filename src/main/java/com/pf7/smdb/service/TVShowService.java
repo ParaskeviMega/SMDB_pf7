@@ -6,9 +6,7 @@ import com.pf7.smdb.helper.PersonRoleEnum;
 
 public interface TVShowService extends BaseService<TVShow, Long> {
 
-    GenreEnum randomGenre();
+    void parseAndCreateTvShowFromTmdbApi();
 
-    PersonRoleEnum randomRole();
-
-    double round(double value, int places);
+    Boolean existsTVShowByMovieTitle(String title);
 }

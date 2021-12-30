@@ -1,11 +1,7 @@
 package com.pf7.smdb.service;
 
-import com.pf7.smdb.domain.Film;
-import com.pf7.smdb.domain.Movie;
-import com.pf7.smdb.domain.Person;
-import com.pf7.smdb.helper.FilmPersonRoles;
-import com.pf7.smdb.helper.GenreEnum;
-import com.pf7.smdb.helper.PersonRoleEnum;
+import com.pf7.smdb.domain.*;
+import com.pf7.smdb.helper.*;
 import com.pf7.smdb.repository.FilmRepository;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbMovies;
@@ -17,8 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
+
+import static com.pf7.smdb.helper.HelperFunctions.*;
 
 @Service
 @RequiredArgsConstructor
@@ -35,12 +32,10 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
         return filmRepository.findFilmByMovieTitle(title);
     }
 
-
     @Override
     public Person findPersonById(Long id) {
         return filmRepository.findPersonById(id);
     }
-
 
     @Override
     public void parseAndCreateFilmsFromTmdbApi() {
@@ -115,33 +110,9 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
 
                 film.setFilmPersonRoles(filmPersonRoles);
                 generalFilmlist.add(film);
-
             }
         }
-
         createAll(List.copyOf(generalFilmlist));
-    }
-
-    @Override
-    public GenreEnum randomGenre() {
-        int pick = new Random().nextInt(GenreEnum.values().length);
-        return GenreEnum.values()[pick];
-    }
-
-    @Override
-    public PersonRoleEnum randomRole() {
-        int pick = new Random().nextInt(PersonRoleEnum.values().length);
-        return PersonRoleEnum.values()[pick];
-    }
-
-    @Override
-    public double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
-
-        long factor = (long) Math.pow(10, places);
-        value = value * factor;
-        long tmp = Math.round(value);
-        return (double) tmp / factor;
     }
 
     @Override

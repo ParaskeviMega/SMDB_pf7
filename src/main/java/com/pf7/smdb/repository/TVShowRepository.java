@@ -10,4 +10,5 @@ public interface TVShowRepository extends JpaRepository<TVShow, Long> {
 
 //    @Query(value="select ts from TVShow ts where ts.title = ?1")
 //    TVShow findByTitle(String title);
+    Boolean existsTVShowByMovieTitle(String title);
 }

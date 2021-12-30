@@ -28,8 +28,12 @@ public class TVShow extends BaseModel {
     })
     private Movie movie;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Episode> episodes;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private Set<Episode> episodes;
+
+    private Integer episodes;
+
+    private Integer seasons;
 
     @OneToMany(cascade = CascadeType.ALL)
     private Set<TvShowPersonRoles> tvShowPersonRoles;

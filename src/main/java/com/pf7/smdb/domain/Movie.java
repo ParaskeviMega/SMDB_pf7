@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.sql.Clob;
 import java.util.HashSet;
@@ -20,8 +21,8 @@ import java.util.Set;
 @Embeddable
 public class Movie {
 
-    //@NotNull(message = "Title cannot be null.")
-    @Column(length = 255)
+    @NotNull(message = "Title cannot be null.")
+    @Column(length = 255, nullable = false)
     private String title;
 
     @Lob
@@ -32,9 +33,10 @@ public class Movie {
     @Column(length = 4)
     private Integer year;
 
-    //@NotNull(message = "Genre cannot be null.")
+    @NotNull(message = "Genre cannot be null.")
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Set<GenreEnum> genre = new HashSet<>();
 
 //    //@NotNull(message = "PersonID cannot be null.")
