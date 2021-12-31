@@ -8,4 +8,6 @@ import java.util.Set;
 public interface PersonService extends BaseService<Person, Long> {
 
     Person findPersonById(Long id);
+
+    Boolean existsPersonByName(String name);
 }

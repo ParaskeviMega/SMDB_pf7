@@ -2,6 +2,7 @@ package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.*;
 import com.pf7.smdb.helper.*;
+import com.pf7.smdb.repository.PersonRepository;
 import com.pf7.smdb.repository.TVShowRepository;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbTV;
@@ -22,6 +23,7 @@ import static com.pf7.smdb.helper.HelperFunctions.*;
 @RequiredArgsConstructor
 public class TVShowServiceImpl extends BaseServiceImpl<TVShow> implements TVShowService {
     private final TVShowRepository tvShowRepository;
+    private final PersonRepository personRepository;
 
     @Override
     public JpaRepository<TVShow, Long> getRepository() {
@@ -36,6 +38,7 @@ public class TVShowServiceImpl extends BaseServiceImpl<TVShow> implements TVShow
         //var a = movies.getPopularMovies("en-US",1).getTotalPages();
 
         Set<TVShow> generalTVshowList = new HashSet<>();
+        Set<Person> personList = new HashSet<>();
 
         for (int i = 0; i < 1; i++) {
             for (TvSeries tvSerie : series.getPopular("en", i)) {
@@ -79,8 +82,6 @@ public class TVShowServiceImpl extends BaseServiceImpl<TVShow> implements TVShow
                 if (exists)
                     continue;
 
-                Set<Person> personList = new HashSet<>();
-
                 var castList = series.getSeries(tvSerie.getId(), "en", TmdbTV.TvMethod.credits);
 
                 if (castList != null) {
@@ -90,6 +91,24 @@ public class TVShowServiceImpl extends BaseServiceImpl<TVShow> implements TVShow
                         Person person = new Person();
                         person.setName(cast.getName());
                         person.setBorn(r);
+
+                        if (existsPersonByName(person.getName())) {
+                            continue;
+                        }
+
+                        boolean existsPerson = false;
+                        if (generalTVshowList.size() > 0) {
+                            for (Person person1 : personList) {
+                                if (person1.getName().equals(person.getName())) {
+                                    existsPerson = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (existsPerson)
+                            continue;
+
                         personList.add(person);
                     }
                 }
@@ -116,5 +135,15 @@ public class TVShowServiceImpl extends BaseServiceImpl<TVShow> implements TVShow
     @Override
     public Boolean existsTVShowByMovieTitle(String title) {
         return tvShowRepository.existsTVShowByMovieTitle(title);
+    }
+
+    @Override
+    public TVShow findTvShowByTitleLike(String title) {
+        return tvShowRepository.findTvShowByMovieTitle(title);
+    }
+
+    @Override
+    public Boolean existsPersonByName(String name) {
+        return personRepository.existsPersonByName(name);
     }
 }

@@ -39,10 +39,6 @@ public class Movie {
     @Column(nullable = false)
     private Set<GenreEnum> genre = new HashSet<>();
 
-//    //@NotNull(message = "PersonID cannot be null.")
-//    @ManyToMany(targetEntity = Person.class, fetch = FetchType.EAGER)
-//    private Set<Person> people = new HashSet<>();
-
     //@NotNull(message = "Rating cannot be null.")
     @Column(precision = 1, scale = 1)
     @Min(1)

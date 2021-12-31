@@ -3,6 +3,7 @@ package com.pf7.smdb.service;
 import com.pf7.smdb.domain.*;
 import com.pf7.smdb.helper.*;
 import com.pf7.smdb.repository.FilmRepository;
+import com.pf7.smdb.repository.PersonRepository;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.model.MovieDb;
@@ -21,6 +22,7 @@ import static com.pf7.smdb.helper.HelperFunctions.*;
 @RequiredArgsConstructor
 public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmService {
     private final FilmRepository filmRepository;
+    private final PersonRepository personRepository;
 
     @Override
     public JpaRepository<Film, Long> getRepository() {
@@ -45,6 +47,7 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
         //var a = movies.getPopularMovies("en-US",1).getTotalPages();
 
         Set<Film> generalFilmlist = new HashSet<>();
+        Set<Person> personList = new HashSet<>();
 
         for (int i = 0; i < 1; i++) {
             for (MovieDb movie : movies.getPopularMovies("en", i)) {
@@ -81,8 +84,6 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
                 if (exists)
                     continue;
 
-                Set<Person> personList = new HashSet<>();
-
                 var castList = movies.getMovie(movie.getId(), "en", TmdbMovies.MovieMethod.credits);
 
                 if (castList != null) {
@@ -92,6 +93,24 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
                         Person person = new Person();
                         person.setName(cast.getName());
                         person.setBorn(r);
+
+                        if (existsPersonByName(person.getName())) {
+                            continue;
+                        }
+
+                        boolean existsPerson = false;
+                        if (personList.size() > 0) {
+                            for (Person person1 : personList) {
+                                if (person1.getName().equals(person.getName())) {
+                                    existsPerson = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (existsPerson)
+                            continue;
+
                         personList.add(person);
                     }
                 }
@@ -123,6 +142,11 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
     @Override
     public Film findFilmByTitleLike(String title) {
         return filmRepository.findFilmByMovieTitle(title);
+    }
+
+    @Override
+    public Boolean existsPersonByName(String name) {
+        return personRepository.existsPersonByName(name);
     }
 }
 

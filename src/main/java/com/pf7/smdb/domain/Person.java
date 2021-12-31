@@ -23,13 +23,6 @@ public class Person extends BaseModel {
     @Column(length = 100)
     private String name;
 
-//    @NotNull(message = "Surname cannot be null.")
-//    @Column(length = 100)
-//    private String surname;
-
-//    @Column
-//    private String bio;
-
     //@NotNull(message = "Born cannot be null.")
     @Column(length = 4)
     private Integer born;

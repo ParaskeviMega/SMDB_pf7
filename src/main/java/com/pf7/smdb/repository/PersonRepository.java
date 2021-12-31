@@ -12,4 +12,6 @@ import java.util.Set;
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
     Person findPersonById(Long id);
+
+    Boolean existsPersonByName(String name);
 }
