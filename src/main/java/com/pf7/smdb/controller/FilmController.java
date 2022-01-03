@@ -21,6 +21,4 @@ public class FilmController extends AbstractController<Film> {
     public Film getByFilmTitle(@RequestParam("title") String title) {
         return filmService.findFilmByTitleLike(title);
     }
-
-
 }

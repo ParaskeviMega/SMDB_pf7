@@ -4,6 +4,9 @@ import com.pf7.smdb.domain.TVShow;
 
 import org.springframework.data.jpa.repository.Query;
 
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
+import java.util.List;
+
 public interface TVShowService extends BaseService<TVShow, Long> {
 
     void parseAndCreateTvShowFromTmdbApi();
@@ -14,4 +17,6 @@ public interface TVShowService extends BaseService<TVShow, Long> {
     TVShow findTvShowByTitleLike(String title);
 
     Boolean existsPersonByName(String name);
+
+//    List<KeyValue<String, TVShow>> findAllTvShowsByActorName();
 }

@@ -30,4 +30,8 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         return personRepository.existsPersonByName(name);
     }
 
+    @Override
+    public Person findPersonByName(String name) {
+        return personRepository.findPersonByName(name);
+    }
 }

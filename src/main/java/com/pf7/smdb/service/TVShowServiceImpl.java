@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -146,4 +148,9 @@ public class TVShowServiceImpl extends BaseServiceImpl<TVShow> implements TVShow
     public Boolean existsPersonByName(String name) {
         return personRepository.existsPersonByName(name);
     }
+
+//    @Override
+//    public List<KeyValue<String, TVShow>> findAllTvShowsByActorName (){
+//        return tvShowRepository.findAllTvShowsByActorName();
 }
+

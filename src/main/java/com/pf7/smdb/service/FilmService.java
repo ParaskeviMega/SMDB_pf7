@@ -4,7 +4,11 @@ import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 public interface FilmService extends BaseService<Film, Long> {
+//    List<String> findAllFilmsByActorName();
+
     Film findFilmByMovieTitle(String title);
 
     Person findPersonById(Long id);

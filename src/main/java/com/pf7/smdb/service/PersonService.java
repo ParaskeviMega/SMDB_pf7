@@ -10,4 +10,6 @@ public interface PersonService extends BaseService<Person, Long> {
     Person findPersonById(Long id);
 
     Boolean existsPersonByName(String name);
+
+    Person findPersonByName(String name);
 }
