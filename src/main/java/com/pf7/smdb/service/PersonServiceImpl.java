@@ -1,5 +1,6 @@
 package com.pf7.smdb.service;
 
+import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
 import com.pf7.smdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,5 +34,10 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     @Override
     public Person findPersonByName(String name) {
         return personRepository.findPersonByName(name);
+    }
+
+    @Override
+    public List<Film> findFilmsByPersonName(String name) {
+        return personRepository.findFilmsByPersonName(name);
     }
 }

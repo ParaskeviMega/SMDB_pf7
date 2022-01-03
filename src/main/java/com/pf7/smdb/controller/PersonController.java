@@ -1,20 +1,19 @@
 package com.pf7.smdb.controller;
 
+import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
 import com.pf7.smdb.service.BaseService;
-import com.pf7.smdb.service.FilmService;
 import com.pf7.smdb.service.PersonService;
-import com.pf7.smdb.service.TVShowService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/people")
 public class PersonController extends AbstractController<Person> {
     private final PersonService personService;
-    private final TVShowService tvShowService;
-    private final FilmService filmService;
 
     @Override
     protected BaseService<Person, Long> getBaseService() {
@@ -30,6 +29,10 @@ public class PersonController extends AbstractController<Person> {
     public Person getPersonByName(@RequestParam("name") String name) {
         return personService.findPersonByName(name);
     }
+
+    @GetMapping(path = "/films", params = {"film_person_name"})
+    public List<Film> findFilmsByPersonName(@RequestParam("film_person_name") String name) {
+        return personService.findFilmsByPersonName(name);
 
 //    @GetMapping(path = "/person", params = {"name"})
 //    public Person getFilmsAndTvShowByName(@RequestParam("name") String name) {
@@ -48,5 +51,6 @@ public class PersonController extends AbstractController<Person> {
 //        return ResponseEntity.ok(ApiResponse.<List<String, TVShow>>builder()
 //                .data(tvShowService.findAllTvShowsByActorName())
 //                .build());
+    }
 }
 

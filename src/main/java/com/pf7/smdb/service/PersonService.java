@@ -1,5 +1,6 @@
 package com.pf7.smdb.service;
 
+import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface PersonService extends BaseService<Person, Long> {
     Boolean existsPersonByName(String name);
 
     Person findPersonByName(String name);
+
+    List<Film> findFilmsByPersonName(String name);
 }
