@@ -2,6 +2,7 @@ package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
+import com.pf7.smdb.repository.FilmRepository;
 import com.pf7.smdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,7 +21,6 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         return personRepository;
     }
 
-
     @Override
     public Person findPersonById(Long id) {
         return personRepository.findPersonById(id);
@@ -36,8 +36,4 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         return personRepository.findPersonByName(name);
     }
 
-    @Override
-    public List<Film> findFilmsByPersonName(String name) {
-        return personRepository.findFilmsByPersonName(name);
-    }
 }

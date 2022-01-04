@@ -19,11 +19,5 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
     Person findPersonByName(String name);
 
-    @Query(value = "select F.* " +
-            "FROM FILMS F " +
-            "INNER JOIN FILMS_FILMPERSONROLES FF on F.ID = FF.FILM_ID " +
-            "INNER JOIN FILMPERSONROLES F2 on F2.ID = FF.FILMPERSONROLES_ID " +
-            "INNER JOIN PEOPLE P on P.ID = F2.PERSON_ID " +
-            "WHERE upper(P.NAME) LIKE upper(%?1%); ",nativeQuery = true)
-    List<Film> findFilmsByPersonName (String name);
+    //Person findPersonByNameAndBorn();
 }

@@ -12,9 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static com.pf7.smdb.helper.HelperFunctions.*;
 
@@ -29,14 +27,12 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
         return filmRepository;
     }
 
-    @Override
     public Film findFilmByMovieTitle(String title) {
         return filmRepository.findFilmByMovieTitle(title);
     }
 
-    @Override
     public Person findPersonById(Long id) {
-        return filmRepository.findPersonById(id);
+        return personRepository.findPersonById(id);
     }
 
     @Override
@@ -88,6 +84,14 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
 
                 if (castList != null) {
                     for (PersonCast cast : castList.getCredits().getCast()) {
+                        int counter = 0;
+
+                        counter++;
+
+                        if (counter == 4) {
+                            counter = 0;
+                            continue;
+                        }
 
                         int r = (int) (Math.random() * (2010 - 1960)) + 1960;
                         Person person = new Person();
@@ -141,12 +145,55 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
 
     @Override
     public Film findFilmByTitleLike(String title) {
-        return filmRepository.findFilmByMovieTitle(title);
+        return findFilmByTitleLike(title);
     }
 
     @Override
     public Boolean existsPersonByName(String name) {
         return personRepository.existsPersonByName(name);
+    }
+
+    @Override
+    public List<Film> findFilmsByPersonNameLike(String name) {
+        List<Film> films = new ArrayList<>();
+
+        filmRepository.findAll().forEach(film -> {
+            film.getFilmPersonRoles().stream().filter(filmPersonRoles -> filmPersonRoles.getPerson().getName().toLowerCase(Locale.ROOT).contains(name.toLowerCase(Locale.ROOT))).map(filmPersonRoles -> film).forEach(films::add);
+        });
+
+        return films;
+    }
+
+    public List<Film> findFilmsByMovieYear(int year) {
+        return filmRepository.findFilmsByMovieYear(year);
+    }
+
+    public List<Film> findFilmsByMovieRating(double rating) {
+        return filmRepository.findFilmsByMovieRating(rating);
+    }
+
+    public List<Film> findFilmsByMovieGenre(String genre) {
+        return filmRepository.findFilmsByMovieGenre(genre);
+    }
+
+    @Override
+    public List<Film> findFilmsByPersonNameAndRole(String name, String role) {
+        return findFilmsByPersonNameAndRole(name,role);
+
+//        List<Film> films = new ArrayList<>();
+//
+//        for(Film film : filmRepository.findAll()){
+//            film.getFilmPersonRoles().stream().filter(filmPersonRoles ->
+//                    filmPersonRoles.getPerson().getName() != null).filter(filmPersonRoles ->
+//                    filmPersonRoles.getPersonRoleEnum() != null).filter(filmPersonRoles ->
+//                    filmPersonRoles.getPerson().getName().contains(name)).filter(filmPersonRoles ->
+//                    filmPersonRoles.getPersonRoleEnum().toString().contains(role)).forEach(filmPersonRoles -> {
+//                films.add(film);
+//                return;
+//            });
+//        }
+//
+//        return films;
     }
 }
 

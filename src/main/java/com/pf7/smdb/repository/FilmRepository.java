@@ -4,7 +4,10 @@ import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 
 @Repository
@@ -12,12 +15,17 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
 
     Film findFilmByMovieTitle(String title);
 
-    @Query("select pr from Person pr where pr.id = ?1")
-    Person findPersonById(Long id);
-
     Boolean existsFilmByMovieTitle(String title);
 
+    List<Film> findFilmsByMovieYear(int year);
 
-//    @Query("select pr from Person pr where pr.surname like %?1")
-//    Person findPersonBySurname(String surname);
+    List<Film> findFilmsByMovieRating(double rating);
+
+    List<Film> findFilmsByMovieGenre(String genre);
+
+    //Film findFilmByFilmPersonRoles
+//    @Query(value = "select f.* from FILMS f inner join FILMPERSONROLES FP  inner join PEOPLE P  where P.NAME like '%?1%' and F.PERSONROLEENUM like '%?2%'",nativeQuery = true)
+//    List<Film> findFilmsByPersonNameAndRole(String name,String role);
+
+
 }
