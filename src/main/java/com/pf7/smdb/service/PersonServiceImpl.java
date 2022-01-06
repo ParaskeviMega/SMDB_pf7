@@ -1,15 +1,11 @@
 package com.pf7.smdb.service;
 
-import com.pf7.smdb.domain.Film;
 import com.pf7.smdb.domain.Person;
-import com.pf7.smdb.repository.FilmRepository;
 import com.pf7.smdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -21,19 +17,19 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         return personRepository;
     }
 
-    @Override
-    public Person findPersonById(Long id) {
-        return personRepository.findPersonById(id);
-    }
-
-    @Override
-    public Boolean existsPersonByName(String name) {
-        return personRepository.existsPersonByName(name);
-    }
-
-    @Override
-    public Person findPersonByName(String name) {
-        return personRepository.findPersonByName(name);
-    }
+//    @Override
+//    public Person findPersonById(Long id) {
+//        return personRepository.findPersonById(id);
+//    }
+//
+//    @Override
+//    public Boolean existsPersonByName(String name) {
+//        return personRepository.existsPersonByName(name);
+//    }
+//
+//    @Override
+//    public Person findPersonByName(String name) {
+//        return personRepository.findPersonByName(name);
+//    }
 
 }

@@ -12,9 +12,9 @@
 		</Console>
 
 		<!-- Rolling Random Access File Appender with a default buffer of 256 * 1024 bytes -->
-		<RollingRandomAccessFile name="RollingRandomAccessFileAppender"
-								 fileName="logs/SMDB_pf7.log"
-								 filePattern="logs/SMDB_pf7-%d{yyyy-MM-dd}.zip">
+		<RollingRandomAccessFile name="RollingRandomAccessFileAppender">
+								 <!--fileName="logs/SMDB_pf7.log"
+								 filePattern="logs/SMDB_pf7-%d{yyyy-MM-dd}.zip">-->
 			<PatternLayout>
 				<Pattern>${LOG_PATTERN}</Pattern>
 			</PatternLayout>

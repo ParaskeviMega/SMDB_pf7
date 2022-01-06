@@ -15,31 +15,34 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@SequenceGenerator(name = "idGenerator", sequenceName = "MOVIES_SEQ", allocationSize = 1)
-public class Movie extends BaseModel {
+@Table
+@SequenceGenerator(name = "idGenerator", sequenceName = "SHOWS_SEQ", allocationSize = 1)
+public class Show extends BaseModel{
 
     @NotNull(message = "Title cannot be null.")
     @Column(nullable = false)
-    private String movieTitle;
+    private String showTitle;
 
     @Lob
     @Column(length = 20000)
-    private String movieDescription;
+    private String showDescription;
 
     @Column(length = 4)
-    private Integer movieYear;
+    private Integer showYear;
 
     @NotNull(message = "Genre cannot be null.")
     @Column(length = 50,nullable = false)
     @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> movieGenre;
+    private List<String> showGenre;
 
     @Column(length = 4)
-    private String movieRating;
+    private String showRating;
+
+    private Integer showEpisodes;
+
+    private Integer showSeasons;
 
     @OneToMany(targetEntity = PersonRole.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Set<PersonRole> moviePersonRoles;
+    private Set<PersonRole> showPersonRoles;
 
 }
-
-
