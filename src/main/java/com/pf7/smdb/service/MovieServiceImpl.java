@@ -104,8 +104,8 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
                 movie.getMoviePersonRoles().addAll(personRoleSet);
                 try {
                     movieRepository.save(movie);
-                }catch (Exception e){
-                    logger.info("PROBLEM--------------> : {}",e.getMessage());
+                } catch (Exception e) {
+                    logger.info("PROBLEM--------------> : {}", e.getMessage());
                 }
             }
         }
@@ -117,8 +117,8 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
     }
 
     @Override
-    public List<Movie> findMoviesByMovieGenreEquals(String genre) {
-        return movieRepository.findMoviesByMovieGenreEquals(genre);
+    public List<Movie> findMoviesByMovieGenreContains(String genre) {
+        return movieRepository.findMoviesByMovieGenreContains(genre);
     }
 
     @Override
@@ -134,6 +134,16 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
     @Override
     public List<Movie> findMoviesByMovieYear(Integer year) {
         return movieRepository.findMoviesByMovieYear(year);
+    }
+
+    @Override
+    public Movie findMovieById(Long id) {
+        return movieRepository.findMovieById(id);
+    }
+
+    @Override
+    public List<Movie> findMoviesByMovieTitleContains(String title) {
+        return movieRepository.findMoviesByMovieTitleContains(title);
     }
 }
 

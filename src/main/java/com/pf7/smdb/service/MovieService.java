@@ -13,9 +13,13 @@ public interface MovieService extends BaseService<Movie, Long> {
 
     List<Movie> findMoviesByMovieYear(Integer year);
 
-    List<Movie> findMoviesByMovieGenreEquals(String genre);
+    List<Movie> findMoviesByMovieGenreContains(String genre);
 
     List<Movie> findMoviesByMovieRatingStartsWith(String rating);
 
     Boolean existsMovieByMovieTitleContains(String title);
+
+    Movie findMovieById(Long id);
+
+    List<Movie> findMoviesByMovieTitleContains(String title);
 }

@@ -33,6 +33,7 @@ public class Movie extends BaseModel {
     @NotNull(message = "Genre cannot be null.")
     @Column(length = 50,nullable = false)
     @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "movie_genres",joinColumns = @JoinColumn(name = "id"))
     private List<String> movieGenre;
 
     @Column(length = 4)

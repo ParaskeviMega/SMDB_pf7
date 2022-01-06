@@ -13,7 +13,7 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
 
     Boolean existsShowByShowTitleContains(String title);
 
-    Show findShowByShowTitleContains(String title);
+    List<Show> findShowsByShowTitleContains(String title);
 
     Show findShowByShowTitle(String title);
 

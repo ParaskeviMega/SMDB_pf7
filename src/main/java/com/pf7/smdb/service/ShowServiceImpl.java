@@ -120,8 +120,8 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
     }
 
     @Override
-    public Show findShowByShowTitleContains(String title) {
-        return showRepository.findShowByShowTitleContains(title);
+    public List<Show> findShowsByShowTitleContains(String title) {
+        return showRepository.findShowsByShowTitleContains(title);
     }
 
     @Override

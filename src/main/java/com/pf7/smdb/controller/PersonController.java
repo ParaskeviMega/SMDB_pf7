@@ -1,54 +1,40 @@
 package com.pf7.smdb.controller;
 
+import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Person;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/people")
+@RequestMapping("/search/person/by/")
 public class PersonController extends AbstractController<Person> {
     private final PersonService personService;
-    //private final FilmService filmService;
 
     @Override
     protected BaseService<Person, Long> getBaseService() {
         return personService;
     }
 
-//    @GetMapping(path = "/person", params = {"id"})
-//    public Person getPersonById(@RequestParam("id") Long id) {
-//        return personService.findPersonById(id);
-//    }
-//
-//    @GetMapping(path = "/person", params = {"name"})
-//    public Person getPersonByName(@RequestParam("name") String name) {
-//        return personService.findPersonByName(name);
-//    }
-//
-//    @GetMapping(path = "/films", params = {"film_person_name"})
-//    public List<Film> findFilmsByPersonName(@RequestParam("film_person_name") String name) {
-//        return filmService.findFilmsByPersonNameLike(name);
-//    }
 
-//    @GetMapping(path = "/person", params = {"name"})
-//    public Person getFilmsAndTvShowByName(@RequestParam("name") String name) {
-//        return null;
-//    }
+    @GetMapping(params = {"id"})
+    public Person getPersonById(@RequestParam("id") Long id) {
+        return personService.findPersonById(id);
+    }
 
-//    @GetMapping(path = "films_version",headers = "action=findAllFilmsByActorName")
-//    public ResponseEntity<ApiResponse<String, List<Film>>> findAllFilmsByActorName() {
-//        return ResponseEntity.ok(ApiResponse.<List<String, Film>>builder()
-//                .data(filmService.findAllFilmsByActorName())
-//                .build());
-//    }
-//
-//    @GetMapping(path = "tvshows_version",headers = "action=findAllTvShowsByActorName")
-//    public ResponseEntity<ApiResponse<List<KeyValue<String, TVShow>>>> findAllTvShowsByActorName() {
-//        return ResponseEntity.ok(ApiResponse.<List<String, TVShow>>builder()
-//                .data(tvShowService.findAllTvShowsByActorName())
-//                .build());
+    @GetMapping(params = {"name"})
+    public Person getPersonByName(@RequestParam("year") String name) {
+        return personService.findPersonByPersonNameContains(name);
+    }
+
+    @GetMapping(params = {"born"})
+    public List<Person> getPeopleByBorn(@RequestParam("year") Integer born) {
+        return personService.findPeopleByPersonBorn(born);
+    }
+
 }
 

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/movie")
+@RequestMapping("/search/movie/by")
 public class MovieController extends AbstractController<Movie> {
     private final MovieService movieService;
 
@@ -20,8 +20,8 @@ public class MovieController extends AbstractController<Movie> {
     }
 
     @GetMapping(params = {"title"})
-    public Movie getByMovieTitle(@RequestParam("title") String title) {
-        return movieService.findMovieByMovieTitle(title);
+    public List<Movie> getByMovieTitle(@RequestParam("title") String title) {
+        return movieService.findMoviesByMovieTitleContains(title);
     }
 
     @GetMapping(params = {"year"})
@@ -31,7 +31,7 @@ public class MovieController extends AbstractController<Movie> {
 
     @GetMapping(params = {"genre"})
     public List<Movie> getMoviesByGenre(@RequestParam("genre") String genre) {
-        return movieService.findMoviesByMovieGenreEquals(genre);
+        return movieService.findMoviesByMovieGenreContains(genre);
     }
 
     @GetMapping(params = {"rating"})

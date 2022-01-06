@@ -15,5 +15,6 @@ public interface PersonService extends BaseService<Person, Long> {
     Person findPersonById(Long id);
 
     List<Person> findPeopleByPersonBorn(Integer born);
+
 }
 

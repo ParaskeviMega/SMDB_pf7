@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/show")
+@RequestMapping("/search/show/by")
 public class ShowController extends AbstractController<Show>{
     private  final ShowService showService;
 
@@ -24,8 +24,8 @@ public class ShowController extends AbstractController<Show>{
     }
 
     @GetMapping(params = {"title"})
-    public Show getByShowTitle(@RequestParam("title") String title) {
-        return showService.findShowByShowTitle(title);
+    public List<Show> getShowsByTitle(@RequestParam("title") String title) {
+        return showService.findShowsByShowTitleContains(title);
     }
 
     @GetMapping(params = {"year"})
