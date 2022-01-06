@@ -16,8 +16,6 @@ import java.util.Set;
 //@Profile("base-content-creator")
 @RequiredArgsConstructor
 public class BaseContentCreatorRunner extends AbstractLogComponent implements CommandLineRunner {
-    //private final FilmService filmService;
-   // private final TVShowService tvShowService;
     private final MovieService movieService;
     private final ShowService showService;
 
@@ -26,7 +24,7 @@ public class BaseContentCreatorRunner extends AbstractLogComponent implements Co
         //@formatter:off
 
         //Parsing Films From Tmdb
-        //filmService.parseAndCreateFilmsFromTmdbApi();
+        movieService.parseAndCreateMovieFromTmdbApi();
         showService.parseAndCreateShowFromTmdbApi();
     }
 }

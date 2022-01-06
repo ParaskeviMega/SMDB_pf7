@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -43,6 +44,6 @@ public class Show extends BaseModel{
     private Integer showSeasons;
 
     @OneToMany(targetEntity = PersonRole.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Set<PersonRole> showPersonRoles;
+    private final Set<PersonRole> showPersonRoles = new HashSet<>();
 
 }

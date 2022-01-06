@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -38,7 +39,7 @@ public class Movie extends BaseModel {
     private String movieRating;
 
     @OneToMany(targetEntity = PersonRole.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Set<PersonRole> moviePersonRoles;
+    private final Set<PersonRole> moviePersonRoles = new HashSet<>();
 
 }
 

@@ -1,22 +1,38 @@
 package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.*;
+import com.pf7.smdb.helper.PersonRole;
 import com.pf7.smdb.repository.MovieRepository;
+import com.pf7.smdb.repository.PersonRepository;
+import info.movito.themoviedbapi.TmdbApi;
+import info.movito.themoviedbapi.TmdbMovies;
+import info.movito.themoviedbapi.TmdbTV;
+import info.movito.themoviedbapi.model.MovieDb;
+import info.movito.themoviedbapi.model.people.PersonCast;
+import info.movito.themoviedbapi.model.tv.TvSeries;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static com.pf7.smdb.helper.HelperFunctions.randomRole;
 
 @Service
 @RequiredArgsConstructor
 public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieService {
     private final MovieRepository movieRepository;
-    //private final PersonRepository personRepository;
+    private final PersonRepository personRepository;
 
     @Override
     public JpaRepository<Movie, Long> getRepository() {
         return movieRepository;
     }
-//
+
+    //
 //    public Film findFilmByMovieTitle(String title) {
 //        return filmRepository.findFilmByMovieTitle(title);
 //    }
@@ -25,108 +41,80 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
 //        return personRepository.findPersonById(id);
 //    }
 //
-//    @Override
-//    public void parseAndCreateFilmsFromTmdbApi() {
-//
-//        TmdbMovies movies = new TmdbApi("690004238e130a8abc787e0ddb18a5d3").getMovies();
-//
-//        //var a = movies.getPopularMovies("en-US",1).getTotalPages();
-//
-//        Set<Film> generalFilmlist = new HashSet<>();
-//        Set<Person> personList = new HashSet<>();
-//
-//        for (int i = 0; i < 1; i++) {
-//            for (MovieDb movie : movies.getPopularMovies("en", i)) {
-//
-//                int year = 0;
-//                if (movie.getReleaseDate() != null) {
-//                    if (movie.getReleaseDate().length() >= 4) {
-//                        year = Integer.parseInt(movie.getReleaseDate().substring(0, 4));
-//                    }
-//                }
-//
-//                Film film = Film.builder()
-//                        .movie(Movie.builder().title(movie.getOriginalTitle())
-//                                .genre(Set.of(randomGenre()))
-//                                .description(movie.getOverview())
-//                                .year(year)
-//                                .rating(round(movie.getVoteAverage(), 2)).build())
-//                        .build();
-//
-//                if (existsFilmByMovieTitle(film.getMovie().getTitle())) {
-//                    continue;
-//                }
-//
-//                boolean exists = false;
-//                if (generalFilmlist.size() > 0) {
-//                    for (Film films : generalFilmlist) {
-//                        if (films.getMovie().getTitle().equals(film.getMovie().getTitle())) {
-//                            exists = true;
-//                            break;
-//                        }
-//                    }
-//                }
-//
-//                if (exists)
-//                    continue;
-//
-//                var castList = movies.getMovie(movie.getId(), "en", TmdbMovies.MovieMethod.credits);
-//
-//                if (castList != null) {
-//                    for (PersonCast cast : castList.getCredits().getCast()) {
-//                        int counter = 0;
-//
-//                        counter++;
-//
-//                        if (counter == 4) {
-//                            counter = 0;
-//                            continue;
-//                        }
-//
-//                        int r = (int) (Math.random() * (2010 - 1960)) + 1960;
-//                        Person person = new Person();
-//                        person.setName(cast.getName());
-//                        person.setBorn(r);
-//
-//                        if (existsPersonByName(person.getName())) {
-//                            continue;
-//                        }
-//
-//                        boolean existsPerson = false;
-//                        if (personList.size() > 0) {
-//                            for (Person person1 : personList) {
-//                                if (person1.getName().equals(person.getName())) {
-//                                    existsPerson = true;
-//                                    break;
-//                                }
-//                            }
-//                        }
-//
-//                        if (existsPerson)
-//                            continue;
-//
-//                        personList.add(person);
-//                    }
-//                }
-//
-//                Set<FilmPersonRoles> filmPersonRoles = new HashSet<>();
-//
-//                if (personList.size() > 0) {
-//                    for (Person person : personList) {
-//                        FilmPersonRoles filmPersonRoles1 = new FilmPersonRoles();
-//                        filmPersonRoles1.setPerson(person);
-//                        filmPersonRoles1.setPersonRoleEnum(randomRole());
-//
-//                        filmPersonRoles.add(filmPersonRoles1);
-//                    }
-//                }
-//
-//                film.setFilmPersonRoles(filmPersonRoles);
-//                generalFilmlist.add(film);
-//            }
-//        }
-//        createAll(List.copyOf(generalFilmlist));
-//    }
+    @Override
+    public void parseAndCreateMovieFromTmdbApi() {
+
+        TmdbMovies movies = new TmdbApi("690004238e130a8abc787e0ddb18a5d3").getMovies();
+
+        for (int i = 0; i < 1; i++) {
+            for (MovieDb movieTmdb : movies.getPopularMovies("en", i)) {
+
+                int year = 0;
+                if (movieTmdb.getReleaseDate() != null) {
+                    if (movieTmdb.getReleaseDate().length() >= 4) {
+                        year = Integer.parseInt(movieTmdb.getReleaseDate().substring(0, 4));
+                    }
+                }
+
+                MovieDb tmdbMovies = movies.getMovie(movieTmdb.getId(), "en", TmdbMovies.MovieMethod.credits);
+
+                List<String> genres = new ArrayList<>();
+
+                tmdbMovies.getGenres().forEach(genre ->
+                        genres.add(genre.getName()));
+
+                Movie movie = Movie.builder()
+                        .movieTitle(movieTmdb.getOriginalTitle())
+                        .movieGenre(genres)
+                        .movieDescription(movieTmdb.getOverview())
+                        .movieYear(year)
+                        .movieRating(String.valueOf(movieTmdb.getVoteAverage()))
+                        .build();
+
+                if (movieRepository.existsMovieByMovieTitleContains(movie.getMovieTitle())) {
+                    continue;
+                }
+
+                Set<PersonRole> personRoleSet = new HashSet<>();
+
+                if (tmdbMovies != null) {
+                    for (PersonCast cast : tmdbMovies.getCredits().getCast()) {
+
+                        var person2 = personRepository.findPeopleByPersonNameContains(cast.getName());
+
+                        if (person2.size() > 0) {
+                            continue;
+                        }
+
+                        Person person = new Person();
+                        int r = (int) (Math.random() * (2010 - 1960)) + 1960;
+                        person.setPersonName(cast.getName());
+                        person.setPersonBorn(r);
+
+                        PersonRole personRole = new PersonRole();
+
+                        List<String> roles = new ArrayList<>();
+
+                        int counter = 0;
+
+                        while (counter != 3) {
+                            String randomRole = randomRole();
+                            if (!roles.contains(randomRole)) {
+                                roles.add(randomRole);
+                                counter++;
+                            }
+                        }
+
+                        personRole.setPersonRoles(roles);
+                        personRole.setPersonRolesPerson(person);
+                        personRoleSet.add(personRole);
+                    }
+                }
+                movie.getMoviePersonRoles().addAll(personRoleSet);
+                movieRepository.save(movie);
+            }
+        }
+    }
 //
 //    @Override
 //    public Boolean existsFilmByMovieTitle(String title) {
@@ -184,6 +172,6 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
 //        }
 //
 //        return films;
-    }
+}
 
 

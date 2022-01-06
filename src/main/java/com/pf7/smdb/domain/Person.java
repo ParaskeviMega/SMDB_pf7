@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @SequenceGenerator(name = "idGenerator", sequenceName = "PEOPLE_SEQ", allocationSize = 1)
 public class Person extends BaseModel {
 
-    @NotNull(message = "Person Name cannot be null.")
-    @Column(name = "personName",length = 100,nullable = false)
+    //NotNull(message = "Person Name cannot be null.")
+    @Column(name = "personName",length = 100)
     private String personName;
 
     @Column(length = 4)

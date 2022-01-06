@@ -5,7 +5,7 @@ import com.pf7.smdb.domain.Movie;
 public interface MovieService extends BaseService<Movie, Long> {
 
 
-//    void parseAndCreateFilmsFromTmdbApi();
+    void parseAndCreateMovieFromTmdbApi();
 //
 //    Boolean existsFilmByMovieTitle(String title);
 //

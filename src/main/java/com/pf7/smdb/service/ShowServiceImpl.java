@@ -73,16 +73,16 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                 if (tvSeries != null) {
                     for (PersonCast cast : tvSeries.getCredits().getCast()) {
 
+                        var person2 = personRepository.findPeopleByPersonNameContains(cast.getName());
+
+                        if (person2.size() > 0) {
+                            continue;
+                        }
 
                         Person person = new Person();
-                        person = personRepository.findPersonByPersonNameContains(cast.getName());
-
-                        if (person == null) {
-                            person = new Person();
-                            int r = (int) (Math.random() * (2010 - 1960)) + 1960;
-                            person.setPersonName(cast.getName());
-                            person.setPersonBorn(r);
-                        }
+                        int r = (int) (Math.random() * (2010 - 1960)) + 1960;
+                        person.setPersonName(cast.getName());
+                        person.setPersonBorn(r);
 
                         PersonRole personRole = new PersonRole();
 
@@ -98,21 +98,21 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                             }
                         }
 
-
-//                        if (roles.size() == 0){
-//                        }
-
                         personRole.setPersonRoles(roles);
                         personRole.setPersonRolesPerson(person);
                         personRoleSet.add(personRole);
                     }
                 }
 
-                show.setShowPersonRoles(personRoleSet);
-                showRepository.save(show);
+                show.getShowPersonRoles().addAll(personRoleSet);
+                try {
+                    showRepository.save(show);
+                }catch (Exception e){
+                    logger.info("GAMIETAI_______________________________ : {}",e.getMessage());
+                    update(show);
+                }
             }
         }
-
     }
 
 
