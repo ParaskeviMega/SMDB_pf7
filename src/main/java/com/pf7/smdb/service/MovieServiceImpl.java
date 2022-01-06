@@ -32,15 +32,6 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
         return movieRepository;
     }
 
-    //
-//    public Film findFilmByMovieTitle(String title) {
-//        return filmRepository.findFilmByMovieTitle(title);
-//    }
-//
-//    public Person findPersonById(Long id) {
-//        return personRepository.findPersonById(id);
-//    }
-//
     @Override
     public void parseAndCreateMovieFromTmdbApi() {
 
@@ -71,7 +62,7 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
                         .movieRating(String.valueOf(movieTmdb.getVoteAverage()))
                         .build();
 
-                if (movieRepository.existsMovieByMovieTitleContains(movie.getMovieTitle())) {
+                if (existsMovieByMovieTitleContains(movie.getMovieTitle())) {
                     continue;
                 }
 
@@ -111,67 +102,39 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
                     }
                 }
                 movie.getMoviePersonRoles().addAll(personRoleSet);
-                movieRepository.save(movie);
+                try {
+                    movieRepository.save(movie);
+                }catch (Exception e){
+                    logger.info("PROBLEM--------------> : {}",e.getMessage());
+                }
             }
         }
     }
-//
-//    @Override
-//    public Boolean existsFilmByMovieTitle(String title) {
-//        return filmRepository.existsFilmByMovieTitle(title);
-//    }
-//
-//    @Override
-//    public Film findFilmByTitleLike(String title) {
-//        return findFilmByTitleLike(title);
-//    }
-//
-//    @Override
-//    public Boolean existsPersonByName(String name) {
-//        return personRepository.existsPersonByName(name);
-//    }
-//
-//    @Override
-//    public List<Film> findFilmsByPersonNameLike(String name) {
-//        List<Film> films = new ArrayList<>();
-//
-//        filmRepository.findAll().forEach(film -> {
-//            film.getFilmPersonRoles().stream().filter(filmPersonRoles -> filmPersonRoles.getPerson().getName().toLowerCase(Locale.ROOT).contains(name.toLowerCase(Locale.ROOT))).map(filmPersonRoles -> film).forEach(films::add);
-//        });
-//
-//        return films;
-//    }
-//
-//    public List<Film> findFilmsByMovieYear(int year) {
-//        return filmRepository.findFilmsByMovieYear(year);
-//    }
-//
-//    public List<Film> findFilmsByMovieRating(double rating) {
-//        return filmRepository.findFilmsByMovieRating(rating);
-//    }
-//
-//    public List<Film> findFilmsByMovieGenre(String genre) {
-//        return filmRepository.findFilmsByMovieGenre(genre);
-//    }
-//
-//    @Override
-//    public List<Film> findFilmsByPersonNameAndRole(String name, String role) {
-//        return findFilmsByPersonNameAndRole(name,role);
 
-//        List<Film> films = new ArrayList<>();
-//
-//        for(Film film : filmRepository.findAll()){
-//            film.getFilmPersonRoles().stream().filter(filmPersonRoles ->
-//                    filmPersonRoles.getPerson().getName() != null).filter(filmPersonRoles ->
-//                    filmPersonRoles.getPersonRoleEnum() != null).filter(filmPersonRoles ->
-//                    filmPersonRoles.getPerson().getName().contains(name)).filter(filmPersonRoles ->
-//                    filmPersonRoles.getPersonRoleEnum().toString().contains(role)).forEach(filmPersonRoles -> {
-//                films.add(film);
-//                return;
-//            });
-//        }
-//
-//        return films;
+    @Override
+    public Boolean existsMovieByMovieTitleContains(String title) {
+        return movieRepository.existsMovieByMovieTitleContains(title);
+    }
+
+    @Override
+    public List<Movie> findMoviesByMovieGenreEquals(String genre) {
+        return movieRepository.findMoviesByMovieGenreEquals(genre);
+    }
+
+    @Override
+    public List<Movie> findMoviesByMovieRatingStartsWith(String rating) {
+        return movieRepository.findMoviesByMovieRatingStartsWith(rating);
+    }
+
+    @Override
+    public Movie findMovieByMovieTitle(String title) {
+        return movieRepository.findMovieByMovieTitle(title);
+    }
+
+    @Override
+    public List<Movie> findMoviesByMovieYear(Integer year) {
+        return movieRepository.findMoviesByMovieYear(year);
+    }
 }
 
 

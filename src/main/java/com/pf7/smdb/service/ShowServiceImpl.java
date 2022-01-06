@@ -108,34 +108,50 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                 try {
                     showRepository.save(show);
                 }catch (Exception e){
-                    logger.info("GAMIETAI_______________________________ : {}",e.getMessage());
-                    update(show);
+                    logger.info("PROBLEM--------------> : {}",e.getMessage());
                 }
             }
         }
     }
 
+    @Override
+    public Boolean existsShowByShowTitleContains(String title) {
+        return showRepository.existsShowByShowTitleContains(title);
+    }
 
+    @Override
+    public Show findShowByShowTitleContains(String title) {
+        return showRepository.findShowByShowTitleContains(title);
+    }
 
+    @Override
+    public Show findShowByShowTitle(String title) {
+        return showRepository.findShowByShowTitle(title);
+    }
 
-//
-//    @Override
-//    public Boolean existsTVShowByMovieTitle(String title) {
-//        return tvShowRepository.existsTVShowByMovieTitle(title);
-//    }
-//
-//    @Override
-//    public TVShow findTvShowByTitleLike(String title) {
-//        return tvShowRepository.findTvShowByMovieTitle(title);
-//    }
-//
-//    @Override
-//    public Boolean existsPersonByName(String name) {
-//        return personRepository.existsPersonByName(name);
-//    }
+    @Override
+    public List<Show> findShowsByShowYear(Integer year) {
+        return showRepository.findShowsByShowYear(year);
+    }
 
-//    @Override
-//    public List<KeyValue<String, TVShow>> findAllTvShowsByActorName (){
-//        return tvShowRepository.findAllTvShowsByActorName();
+    @Override
+    public List<Show> findShowsByShowGenreEquals(String genre) {
+        return showRepository.findShowsByShowGenreEquals(genre);
+    }
+
+    @Override
+    public List<Show> findShowsByShowRatingStartsWith(String rating) {
+        return showRepository.findShowsByShowRatingStartsWith(rating);
+    }
+
+    @Override
+    public List<Show> findShowByShowEpisodesEquals(Integer episodes) {
+        return showRepository.findShowByShowEpisodesEquals(episodes);
+    }
+
+    @Override
+    public List<Show> findShowByShowSeasonsEquals(Integer seasons) {
+        return showRepository.findShowByShowSeasonsEquals(seasons);
+    }
 }
 

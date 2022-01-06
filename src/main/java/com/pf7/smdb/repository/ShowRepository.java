@@ -1,24 +1,29 @@
 package com.pf7.smdb.repository;
 
 import com.pf7.smdb.domain.Show;
+import com.pf7.smdb.domain.Show;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface ShowRepository extends JpaRepository<Show, Long> {
 
 
-    Boolean existsShowByShowTitleContains(String string);
+    Boolean existsShowByShowTitleContains(String title);
 
     Show findShowByShowTitleContains(String title);
 
-//    @Query(value="select ts from TVShow ts where ts.title = ?1")
-//    TVShow findByTitle(String title);
-//    Boolean existsTVShowByMovieTitle(String title);
-//
-//    TVShow findTvShowByMovieTitle(String title);
+    Show findShowByShowTitle(String title);
 
-//    @Query("select new com.pf7.smdb.transfer.KeyValue(concat(p.name, ' ', p.born)) " +
-//            "from TVShow tv join tv.tvShowPersonRoles p group by p order")
-//    List<KeyValue<String, TVShow>> findAllTvShowsByActorName();
+    List<Show> findShowsByShowYear(Integer year);
+
+    List<Show> findShowsByShowGenreEquals(String genre);
+
+    List<Show> findShowsByShowRatingStartsWith(String rating);
+
+    List<Show> findShowByShowEpisodesEquals(Integer episodes);
+
+    List<Show> findShowByShowSeasonsEquals(Integer seasons);
 }
