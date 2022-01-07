@@ -11,13 +11,12 @@ import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.model.people.PersonCast;
 import info.movito.themoviedbapi.model.tv.TvSeries;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.pf7.smdb.helper.HelperFunctions.randomRole;
 
@@ -103,7 +102,7 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
                 }
                 movie.getMoviePersonRoles().addAll(personRoleSet);
                 try {
-                    movieRepository.save(movie);
+                    getRepository().save(movie);
                 } catch (Exception e) {
                     logger.info("PROBLEM--------------> : {}", e.getMessage());
                 }
@@ -118,7 +117,19 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
 
     @Override
     public List<Movie> findMoviesByMovieGenreContains(String genre) {
-        return movieRepository.findMoviesByMovieGenreContains(genre);
+        List<Movie> movies = new ArrayList<>();
+        boolean exists;
+        for (Movie movie : getRepository().findAll()) {
+            exists = false;
+            for (String s : movie.getMovieGenre()) {
+                if (exists) continue;
+                if (StringUtils.containsIgnoreCase(s,genre)) {
+                    movies.add(movie);
+                    exists = true;
+                }
+            }
+        }
+        return movies;
     }
 
     @Override
@@ -138,12 +149,25 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
 
     @Override
     public Movie findMovieById(Long id) {
-        return movieRepository.findMovieById(id);
+        return find(id);
     }
 
     @Override
     public List<Movie> findMoviesByMovieTitleContains(String title) {
-        return movieRepository.findMoviesByMovieTitleContains(title);
+//        return movieRepository.findMoviesByMovieTitleContains(title);
+        List<Movie> movies = new ArrayList<>();
+        for (Movie movie : getRepository().findAll()) {
+            String s = movie.getMovieTitle();
+            if (StringUtils.containsIgnoreCase(s,title)) {
+                movies.add(movie);
+            }
+        }
+        return movies;
+    }
+    
+    @Override
+    public List<Movie> findMoviesByMovieYearAndMovieRatingStartsWith(Integer year, String rating) {
+        return movieRepository.findMoviesByMovieYearAndMovieRatingStartsWith(year, rating);
     }
 }
 

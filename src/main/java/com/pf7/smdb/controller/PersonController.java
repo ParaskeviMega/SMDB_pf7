@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/search/person/by/")
+@RequestMapping("/search/person")
 public class PersonController extends AbstractController<Person> {
     private final PersonService personService;
 
@@ -20,19 +20,23 @@ public class PersonController extends AbstractController<Person> {
         return personService;
     }
 
-
     @GetMapping(params = {"id"})
     public Person getPersonById(@RequestParam("id") Long id) {
         return personService.findPersonById(id);
     }
 
+//    @GetMapping(params = {"name"})
+//    public Person getPersonByName(@RequestParam("name") String name) {
+//        return personService.findPersonByPersonNameContains(name);
+//    }
+
     @GetMapping(params = {"name"})
-    public Person getPersonByName(@RequestParam("year") String name) {
-        return personService.findPersonByPersonNameContains(name);
+    public List<Person> getPeopleByName(@RequestParam("name") String name) {
+        return personService.findPeopleByPersonNameContains(name);
     }
 
     @GetMapping(params = {"born"})
-    public List<Person> getPeopleByBorn(@RequestParam("year") Integer born) {
+    public List<Person> getPeopleByBorn(@RequestParam("born") Integer born) {
         return personService.findPeopleByPersonBorn(born);
     }
 

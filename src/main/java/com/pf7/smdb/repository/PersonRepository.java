@@ -16,7 +16,5 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
     List<Person> findPeopleByPersonNameContains(String name);
 
-    Person findPersonById(Long id);
-
     List<Person> findPeopleByPersonBorn(Integer born);
 }

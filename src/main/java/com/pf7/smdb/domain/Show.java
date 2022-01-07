@@ -3,6 +3,7 @@ package com.pf7.smdb.domain;
 import com.pf7.smdb.helper.PersonRole;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -46,4 +47,7 @@ public class Show extends BaseModel{
     @OneToMany(targetEntity = PersonRole.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private final Set<PersonRole> showPersonRoles = new HashSet<>();
 
+//    public boolean existsPersonRoleInList(String role){
+//        return this.getShowPersonRoles().stream().anyMatch(s -> StringUtils.containsIgnoreCase(s, role));
+//    }
 }

@@ -9,13 +9,11 @@ import info.movito.themoviedbapi.TmdbTV;
 import info.movito.themoviedbapi.model.people.PersonCast;
 import info.movito.themoviedbapi.model.tv.TvSeries;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static com.pf7.smdb.helper.HelperFunctions.*;
 
@@ -121,7 +119,14 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
 
     @Override
     public List<Show> findShowsByShowTitleContains(String title) {
-        return showRepository.findShowsByShowTitleContains(title);
+        List<Show> shows = new ArrayList<>();
+        for (Show show : getRepository().findAll()) {
+            String s = show.getShowTitle();
+            if (StringUtils.containsIgnoreCase(s,title)) {
+                shows.add(show);
+            }
+        }
+        return shows;
     }
 
     @Override
@@ -136,7 +141,19 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
 
     @Override
     public List<Show> findShowsByShowGenreEquals(String genre) {
-        return showRepository.findShowsByShowGenreEquals(genre);
+        List<Show> shows = new ArrayList<>();
+        boolean exists;
+        for (Show show : getRepository().findAll()) {
+            exists = false;
+            for (String s : show.getShowGenre()) {
+                if (exists) continue;
+                if (StringUtils.containsIgnoreCase(s, genre)) {
+                    shows.add(show);
+                    exists = true;
+                }
+            }
+        }
+        return shows;
     }
 
     @Override
@@ -152,6 +169,16 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
     @Override
     public List<Show> findShowByShowSeasonsEquals(Integer seasons) {
         return showRepository.findShowByShowSeasonsEquals(seasons);
+    }
+
+    @Override
+    public Show findShowById(Long id) {
+        return find(id);
+    }
+
+    @Override
+    public List<Show> findShowsByShowYearAndShowRatingStartsWith(Integer year, String rating) {
+        return showRepository.findShowsByShowYearAndShowRatingStartsWith(year, rating);
     }
 }
 

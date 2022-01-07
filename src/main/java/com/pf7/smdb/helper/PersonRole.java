@@ -2,16 +2,17 @@ package com.pf7.smdb.helper;
 
 import com.pf7.smdb.domain.BaseModel;
 import com.pf7.smdb.domain.Person;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
@@ -33,4 +34,7 @@ public class PersonRole extends BaseModel {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> PersonRoles;
 
+    public List<String> getPersonRoles() {
+        return PersonRoles;
+    }
 }

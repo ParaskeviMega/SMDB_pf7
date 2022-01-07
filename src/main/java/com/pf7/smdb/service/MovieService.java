@@ -1,6 +1,7 @@
 package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.Movie;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -22,4 +23,6 @@ public interface MovieService extends BaseService<Movie, Long> {
     Movie findMovieById(Long id);
 
     List<Movie> findMoviesByMovieTitleContains(String title);
+
+    List<Movie> findMoviesByMovieYearAndMovieRatingStartsWith(Integer year, String rating);
 }

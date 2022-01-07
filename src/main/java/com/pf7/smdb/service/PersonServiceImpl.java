@@ -1,11 +1,18 @@
 package com.pf7.smdb.service;
 
+import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Person;
+import com.pf7.smdb.domain.Show;
+import com.pf7.smdb.helper.PersonRole;
+import com.pf7.smdb.repository.MovieRepository;
 import com.pf7.smdb.repository.PersonRepository;
+import com.pf7.smdb.repository.ShowRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -13,6 +20,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PersonServiceImpl extends BaseServiceImpl<Person> implements PersonService {
     private final PersonRepository personRepository;
+    private final MovieRepository movieRepository;
+    private final ShowRepository showRepository;
 
     @Override
     public JpaRepository<Person, Long> getRepository() {
@@ -36,11 +45,43 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
 
     @Override
     public Person findPersonById(Long id) {
-        return personRepository.findPersonById(id);
+        return find(id);
     }
 
     @Override
     public List<Person> findPeopleByPersonBorn(Integer born) {
         return personRepository.findPeopleByPersonBorn(born);
+    }
+
+    @Override
+    public List<Movie> findMoviesByPersonName(String name) {
+        List<Movie> movies = new ArrayList<>();
+        for (Movie movie: movieRepository.findAll()) {
+            if(movies.contains(movie)) continue;
+            for (PersonRole personRole: movie.getMoviePersonRoles()){
+                if(movies.contains(movie)) continue;
+                if(StringUtils.containsIgnoreCase(
+                        personRole.getPersonRolesPerson().getPersonName(),name)) {
+                    movies.add(movie);
+                }
+            }
+        }
+        return movies;
+    }
+
+    @Override
+    public List<Show> findShowsByPersonName(String name) {
+        List<Show> shows = new ArrayList<>();
+        for (Show show: showRepository.findAll()) {
+            if(shows.contains(show)) continue;
+            for (PersonRole personRole: show.getShowPersonRoles()){
+                if(shows.contains(show)) continue;
+                if(StringUtils.containsIgnoreCase(
+                        personRole.getPersonRolesPerson().getPersonName(),name)) {
+                    shows.add(show);
+                }
+            }
+        }
+        return shows;
     }
 }

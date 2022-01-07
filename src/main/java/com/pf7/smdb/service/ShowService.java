@@ -1,5 +1,6 @@
 package com.pf7.smdb.service;
 
+import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Show;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public interface ShowService extends BaseService<Show, Long> {
 
     Show findShowByShowTitle(String title);
 
+    Show findShowById(Long id);
+
     List<Show> findShowsByShowYear(Integer year);
 
     List<Show> findShowsByShowGenreEquals(String genre);
@@ -24,4 +27,5 @@ public interface ShowService extends BaseService<Show, Long> {
 
     List<Show> findShowByShowSeasonsEquals(Integer seasons);
 
+    List<Show> findShowsByShowYearAndShowRatingStartsWith(Integer year, String rating);
 }

@@ -1,8 +1,10 @@
 package com.pf7.smdb.controller;
 
+import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.service.BaseService;
+import com.pf7.smdb.service.PersonService;
 import com.pf7.smdb.service.ShowService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +16,10 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/search/show/by")
+@RequestMapping("/search/show")
 public class ShowController extends AbstractController<Show>{
     private  final ShowService showService;
+    private  final PersonService personService;
 
     @Override
     protected BaseService<Show, Long> getBaseService() {
@@ -51,5 +54,15 @@ public class ShowController extends AbstractController<Show>{
     @GetMapping(params = {"numberOfSeasons"})
     public List<Show> getShowsByNumberOfSeasons(@RequestParam("numberOfSeasons") Integer seasons) {
         return showService.findShowByShowSeasonsEquals(seasons);
+    }
+
+    @GetMapping(params = {"personName"})
+    public List<Show> getShowsByPersonName(@RequestParam("personName") String name){
+        return personService.findShowsByPersonName(name);
+    }
+
+    @GetMapping(params = {"year","rating"})
+    public List<Show> getShowsByPersonName(@RequestParam("year") Integer year,@RequestParam("rating") String rating){
+        return showService.findShowsByShowYearAndShowRatingStartsWith(year,rating);
     }
 }
