@@ -23,7 +23,7 @@ import static com.pf7.smdb.helper.HelperFunctions.*;
 @RequiredArgsConstructor
 public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowService {
     private final ShowRepository showRepository;
-    private final PersonService personService;
+    private final PersonRepository personRepository;
 
     @Override
     public JpaRepository<Show, Long> getRepository() {
@@ -53,7 +53,7 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                         genres.add(genre.getName().replace("&","-")));
 
                 Show show = Show.builder()
-                        .showTitle(new String(tvSerie.getOriginalName().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8))
+                        .showTitle(new String(tvSerie.getOriginalName().getBytes(StandardCharsets.UTF_16), StandardCharsets.UTF_16))
                         .showGenre(genres)
                         .showDescription(tvSerie.getOverview())
                         .showYear(year)
@@ -72,7 +72,7 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                 if (tvSeries != null) {
                     for (PersonCast cast : tvSeries.getCredits().getCast()) {
 
-                        var person2 = personService.findPeopleByPersonNameContains(cast.getName());
+                        var person2 = personRepository.findPeopleByPersonNameContains(cast.getName());
 
                         if (person2.size() > 0) {
                             continue;

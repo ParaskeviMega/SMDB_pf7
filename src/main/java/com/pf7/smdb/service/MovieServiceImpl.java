@@ -25,7 +25,7 @@ import static com.pf7.smdb.helper.HelperFunctions.randomRole;
 @RequiredArgsConstructor
 public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieService {
     private final MovieRepository movieRepository;
-    private final PersonService personService;
+    private final PersonRepository personRepository;
 
     @Override
     public JpaRepository<Movie, Long> getRepository() {
@@ -52,7 +52,7 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
                 List<String> genres = new ArrayList<>();
 
                 tmdbMovies.getGenres().forEach(genre ->
-                        genres.add(genre.getName().replace("&","-")));
+                        genres.add(genre.getName().replace("&", "-")));
 
                 Movie movie = Movie.builder()
                         .movieTitle(new String(movieTmdb.getOriginalTitle().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8))
@@ -71,13 +71,13 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
                 if (tmdbMovies != null) {
                     for (PersonCast cast : tmdbMovies.getCredits().getCast()) {
 
-                        var person2 = personService.findPeopleByPersonNameContains(cast.getName());
+                        var person2 = personRepository.findPeopleByPersonNameContains(cast.getName());
 
                         if (person2.size() > 0) {
                             continue;
                         }
-
                         Person person = new Person();
+
                         int r = (int) (Math.random() * (2010 - 1960)) + 1960;
                         person.setPersonName(cast.getName());
                         person.setPersonBorn(r);
@@ -124,7 +124,7 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
             exists = false;
             for (String s : movie.getMovieGenre()) {
                 if (exists) continue;
-                if (StringUtils.containsIgnoreCase(s,genre)) {
+                if (StringUtils.containsIgnoreCase(s, genre)) {
                     movies.add(movie);
                     exists = true;
                 }
@@ -159,13 +159,13 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
         List<Movie> movies = new ArrayList<>();
         for (Movie movie : getRepository().findAll()) {
             String s = movie.getMovieTitle();
-            if (StringUtils.containsIgnoreCase(s,title)) {
+            if (StringUtils.containsIgnoreCase(s, title)) {
                 movies.add(movie);
             }
         }
         return movies;
     }
-    
+
     @Override
     public List<Movie> findMoviesByMovieYearAndMovieRatingStartsWith(Integer year, String rating) {
         return movieRepository.findMoviesByMovieYearAndMovieRatingStartsWith(year, rating);

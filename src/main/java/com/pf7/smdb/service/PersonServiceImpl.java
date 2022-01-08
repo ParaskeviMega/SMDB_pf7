@@ -20,8 +20,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PersonServiceImpl extends BaseServiceImpl<Person> implements PersonService {
     private final PersonRepository personRepository;
-    private final MovieService movieService;
-    private final ShowService showService;
+    private final MovieRepository movieRepository;
+    private final ShowRepository showRepository;
 
     @Override
     public JpaRepository<Person, Long> getRepository() {
@@ -56,7 +56,7 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     @Override
     public List<Movie> findMoviesByPersonName(String name) {
         List<Movie> movies = new ArrayList<>();
-        for (Movie movie: movieService.findAll()) {
+        for (Movie movie: movieRepository.findAll()) {
             if(movies.contains(movie)) continue;
             for (PersonRole personRole: movie.getMoviePersonRoles()){
                 if(movies.contains(movie)) continue;
@@ -72,7 +72,7 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     @Override
     public List<Show> findShowsByPersonName(String name) {
         List<Show> shows = new ArrayList<>();
-        for (Show show: showService.findAll()) {
+        for (Show show: showRepository.findAll()) {
             if(shows.contains(show)) continue;
             for (PersonRole personRole: show.getShowPersonRoles()){
                 if(shows.contains(show)) continue;
