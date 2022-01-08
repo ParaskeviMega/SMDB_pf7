@@ -1,6 +1,7 @@
 package com.pf7.smdb.controller;
 
 import com.pf7.smdb.domain.Movie;
+import com.pf7.smdb.domain.Person;
 import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.service.BaseService;
@@ -11,7 +12,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.io.ICsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -64,5 +73,34 @@ public class ShowController extends AbstractController<Show>{
     @GetMapping(params = {"year","rating"})
     public List<Show> getShowsByPersonName(@RequestParam("year") Integer year,@RequestParam("rating") String rating){
         return showService.findShowsByShowYearAndShowRatingStartsWith(year,rating);
+    }
+
+    @GetMapping("/export")
+    public void exportToCSV(HttpServletResponse response) throws IOException {
+        response.setContentType("text/csv");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=shows_" + currentDateTime + ".csv";
+        response.setHeader(headerKey, headerValue);
+
+        List<Show> showList = showService.findAll();
+
+        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE);
+
+        String[] csvHeader = {"ID", "Title", "Description", "Year", "Genre","Rating", "Episodes", "Seasons", "Roles"};
+        String[] nameMapping = {"id", "showTitle", "showDescription", "showYear", "showGenre", "showRating","showEpisodes","showSeasons", "showPersonRoles"};
+
+        csvWriter.writeHeader(csvHeader);
+
+        for (Show show : showList) {
+            csvWriter.write(show, nameMapping);
+        }
+
+        csvWriter.writeComment("\nShow Domain Class " +
+                "\nRows Exported : " + showList.size());
+
+        csvWriter.close();
     }
 }

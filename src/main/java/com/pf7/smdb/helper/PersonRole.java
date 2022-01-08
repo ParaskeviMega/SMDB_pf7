@@ -20,7 +20,7 @@ import java.util.Set;
 @SequenceGenerator(name = "idGenerator", sequenceName = "MOVIEPERSONROLES_SEQ", allocationSize = 1)
 public class PersonRole extends BaseModel {
 
-    @ManyToOne(optional = false,cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.EAGER)
+    @ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "moviePersonId",referencedColumnName = "id")
     private Person PersonRolesPerson;
 
@@ -34,7 +34,4 @@ public class PersonRole extends BaseModel {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> PersonRoles;
 
-    public List<String> getPersonRoles() {
-        return PersonRoles;
-    }
 }

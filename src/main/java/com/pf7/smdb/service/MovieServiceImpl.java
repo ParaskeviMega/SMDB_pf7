@@ -15,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -25,6 +26,7 @@ import static com.pf7.smdb.helper.HelperFunctions.randomRole;
 public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieService {
     private final MovieRepository movieRepository;
     private final PersonRepository personRepository;
+    private final PersonService personService;
 
     @Override
     public JpaRepository<Movie, Long> getRepository() {
@@ -51,10 +53,10 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
                 List<String> genres = new ArrayList<>();
 
                 tmdbMovies.getGenres().forEach(genre ->
-                        genres.add(genre.getName()));
+                        genres.add(genre.getName().replace("&","-")));
 
                 Movie movie = Movie.builder()
-                        .movieTitle(movieTmdb.getOriginalTitle())
+                        .movieTitle(new String(movieTmdb.getOriginalTitle().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8))
                         .movieGenre(genres)
                         .movieDescription(movieTmdb.getOverview())
                         .movieYear(year)

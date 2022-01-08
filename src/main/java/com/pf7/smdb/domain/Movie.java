@@ -42,6 +42,18 @@ public class Movie extends BaseModel {
     @OneToMany(targetEntity = PersonRole.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private final Set<PersonRole> moviePersonRoles = new HashSet<>();
 
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "Title='" + movieTitle + '\'' +
+                ", Description='" + movieDescription + '\'' +
+                ", Year=" + movieYear +
+                ", Genre=" + movieGenre +
+                ", Rating='" + movieRating + '\'' +
+                ", PersonRoles=" + moviePersonRoles +
+                '}';
+    }
 }
 
 

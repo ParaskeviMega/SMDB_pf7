@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static com.pf7.smdb.helper.HelperFunctions.*;
@@ -49,10 +50,10 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                 List<String> genres = new ArrayList<>();
 
                 tvSeries.getGenres().forEach(genre ->
-                        genres.add(genre.getName()));
+                        genres.add(genre.getName().replace("&","-")));
 
                 Show show = Show.builder()
-                        .showTitle(tvSerie.getOriginalName())
+                        .showTitle(new String(tvSerie.getOriginalName().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8))
                         .showGenre(genres)
                         .showDescription(tvSerie.getOverview())
                         .showYear(year)

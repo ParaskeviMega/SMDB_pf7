@@ -11,7 +11,8 @@ import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -60,7 +61,7 @@ public class MovieController extends AbstractController<Movie> {
     }
 
     @GetMapping("/export")
-    public String exportToCSV(HttpServletResponse response) throws IOException {
+    public void exportToCSV(HttpServletResponse response) throws IOException {
         response.setContentType("text/csv");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -71,7 +72,8 @@ public class MovieController extends AbstractController<Movie> {
 
         List<Movie> listMovies = movieService.findAll();
 
-        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE);
+
         String[] csvHeader = {"ID", "Title", "Description", "Year", "Genre", "Rating", "Roles"};
         String[] nameMapping = {"id", "movieTitle", "movieDescription", "movieYear", "movieGenre", "movieRating", "moviePersonRoles"};
 
@@ -81,8 +83,9 @@ public class MovieController extends AbstractController<Movie> {
             csvWriter.write(movie, nameMapping);
         }
 
-        csvWriter.close();
+        csvWriter.writeComment("\nMovie Domain Class " +
+                "\nRows Exported : " + listMovies.size());
 
-        return "Rows Exported: " + listMovies.size();
+        csvWriter.close();
     }
 }

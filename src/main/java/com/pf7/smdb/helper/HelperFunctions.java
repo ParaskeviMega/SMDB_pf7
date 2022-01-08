@@ -22,7 +22,8 @@ public abstract class HelperFunctions {
                 "DIRECTOR",
                 "PRODUCER",
                 "MANAGER",
-                "WRITER");
+                "WRITER",
+                "CONTRIBUTOR");
         Random r = new Random();
         int randomitem = r.nextInt(stringList.size());
 
