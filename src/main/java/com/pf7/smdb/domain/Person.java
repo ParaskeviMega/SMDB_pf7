@@ -22,5 +22,6 @@ public class Person extends BaseModel {
     @Column(length = 4)
     private Integer personBorn;
 
+
 }
 

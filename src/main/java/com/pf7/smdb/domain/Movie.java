@@ -3,11 +3,13 @@ package com.pf7.smdb.domain;
 import com.pf7.smdb.helper.PersonRole;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 @Data
@@ -31,15 +33,15 @@ public class Movie extends BaseModel {
     private Integer movieYear;
 
     @NotNull(message = "Genre cannot be null.")
-    @Column(length = 50,nullable = false)
+    @Column(length = 50, nullable = false)
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "movie_genres",joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "movie_genres", joinColumns = @JoinColumn(name = "id"))
     private List<String> movieGenre;
 
     @Column(length = 4)
     private String movieRating;
 
-    @OneToMany(targetEntity = PersonRole.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = PersonRole.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private final Set<PersonRole> moviePersonRoles = new HashSet<>();
 
 
@@ -53,6 +55,15 @@ public class Movie extends BaseModel {
                 ", Rating='" + movieRating + '\'' +
                 ", PersonRoles=" + moviePersonRoles +
                 '}';
+    }
+
+    public Boolean findIfPersonExistsInMovieByPersonName(String name) {
+        for (PersonRole personRole : moviePersonRoles) {
+            if (StringUtils.containsIgnoreCase(personRole.getPersonRolesPerson().getPersonName(), name)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

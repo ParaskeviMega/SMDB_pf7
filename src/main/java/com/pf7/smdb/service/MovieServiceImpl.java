@@ -37,7 +37,7 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
 
         TmdbMovies movies = new TmdbApi("690004238e130a8abc787e0ddb18a5d3").getMovies();
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 3; i++) {
             for (MovieDb movieTmdb : movies.getPopularMovies("en", i)) {
 
                 int year = 0;
@@ -155,8 +155,8 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
 
     @Override
     public List<Movie> findMoviesByMovieTitleContains(String title) {
-//        return movieRepository.findMoviesByMovieTitleContains(title);
         List<Movie> movies = new ArrayList<>();
+
         for (Movie movie : getRepository().findAll()) {
             String s = movie.getMovieTitle();
             if (StringUtils.containsIgnoreCase(s, title)) {

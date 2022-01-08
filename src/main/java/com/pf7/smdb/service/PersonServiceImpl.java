@@ -3,6 +3,7 @@ package com.pf7.smdb.service;
 import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Person;
 import com.pf7.smdb.domain.Show;
+import com.pf7.smdb.helper.PersonParticipation;
 import com.pf7.smdb.helper.PersonRole;
 import com.pf7.smdb.repository.MovieRepository;
 import com.pf7.smdb.repository.PersonRepository;
@@ -13,7 +14,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -83,5 +86,14 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
             }
         }
         return shows;
+    }
+
+    @Override
+    public PersonParticipation findAllParticipationsByPersonName(String name) {
+        PersonParticipation personParticipation = new PersonParticipation();
+        personParticipation.setMovieSet(new HashSet<>(findMoviesByPersonName(name)));
+        personParticipation.setShowSet(new HashSet<>(findShowsByPersonName(name)));
+
+        return personParticipation;
     }
 }

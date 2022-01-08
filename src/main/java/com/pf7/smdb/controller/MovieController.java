@@ -4,7 +4,9 @@ import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.MovieService;
 import com.pf7.smdb.service.PersonService;
+import com.pf7.smdb.transfer.ApiResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -31,37 +33,49 @@ public class MovieController extends AbstractController<Movie> {
     }
 
     @GetMapping(params = {"title"})
-    public List<Movie> getByMovieTitle(@RequestParam("title") String title) {
-        return movieService.findMoviesByMovieTitleContains(title);
+    public ResponseEntity<ApiResponse<List<Movie>>> getByMovieTitle(@RequestParam("title") String title) {
+        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+                .data(movieService.findMoviesByMovieTitleContains(title))
+                .build());
     }
 
     @GetMapping(params = {"year"})
-    public List<Movie> getMoviesByYear(@RequestParam("year") Integer year) {
-        return movieService.findMoviesByMovieYear(year);
+    public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByYear(@RequestParam("year") Integer year) {
+        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+                .data(movieService.findMoviesByMovieYear(year))
+                .build());
     }
 
     @GetMapping(params = {"genre"})
-    public List<Movie> getMoviesByGenre(@RequestParam("genre") String genre) {
-        return movieService.findMoviesByMovieGenreContains(genre);
+    public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByGenre(@RequestParam("genre") String genre) {
+        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+                .data(movieService.findMoviesByMovieGenreContains(genre))
+                .build());
     }
 
     @GetMapping(params = {"rating"})
-    public List<Movie> getMoviesByRating(@RequestParam("rating") String rating) {
-        return movieService.findMoviesByMovieRatingStartsWith(rating);
+    public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByRating(@RequestParam("rating") String rating) {
+        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+                .data(movieService.findMoviesByMovieRatingStartsWith(rating))
+                .build());
     }
 
     @GetMapping(params = {"personName"})
-    public List<Movie> getMoviesByPersonName(@RequestParam("personName") String name){
-        return personService.findMoviesByPersonName(name);
+    public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByPersonName(@RequestParam("personName") String name) {
+        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+                .data(personService.findMoviesByPersonName(name))
+                .build());
     }
 
-    @GetMapping(params = {"year","rating"})
-    public List<Movie> getMoviesByPersonName(@RequestParam("year") Integer year,@RequestParam("rating") String rating){
-        return movieService.findMoviesByMovieYearAndMovieRatingStartsWith(year,rating);
+    @GetMapping(params = {"year", "rating"})
+    public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByYearAndRatingStartsWith(@RequestParam("year") Integer year, @RequestParam("rating") String rating) {
+        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+                .data(movieService.findMoviesByMovieYearAndMovieRatingStartsWith(year, rating))
+                .build());
     }
 
     @GetMapping("/export")
-    public void exportToCSV(HttpServletResponse response) throws IOException {
+    public String exportToCSV(HttpServletResponse response) throws IOException {
         response.setContentType("text/csv");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -72,20 +86,24 @@ public class MovieController extends AbstractController<Movie> {
 
         List<Movie> listMovies = movieService.findAll();
 
-        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE);
+        try (ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE)) {
 
-        String[] csvHeader = {"ID", "Title", "Description", "Year", "Genre", "Rating", "Roles"};
-        String[] nameMapping = {"id", "movieTitle", "movieDescription", "movieYear", "movieGenre", "movieRating", "moviePersonRoles"};
+            String[] csvHeader = {"ID", "Title", "Description", "Year", "Genre", "Rating", "Roles"};
+            String[] nameMapping = {"id", "movieTitle", "movieDescription", "movieYear", "movieGenre", "movieRating", "moviePersonRoles"};
 
-        csvWriter.writeHeader(csvHeader);
+            csvWriter.writeHeader(csvHeader);
 
-        for (Movie movie : listMovies) {
-            csvWriter.write(movie, nameMapping);
+            for (Movie movie : listMovies) {
+                csvWriter.write(movie, nameMapping);
+            }
+
+            csvWriter.writeComment("\nMovie Domain Class " +
+                    "\nRows Exported : " + listMovies.size());
+
+        } catch (Exception e) {
+            logger.info("{}", e.getMessage());
+        } finally {
+            return "Rows Exported : " + listMovies.size();
         }
-
-        csvWriter.writeComment("\nMovie Domain Class " +
-                "\nRows Exported : " + listMovies.size());
-
-        csvWriter.close();
     }
 }

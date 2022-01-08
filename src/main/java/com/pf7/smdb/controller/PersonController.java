@@ -2,9 +2,13 @@ package com.pf7.smdb.controller;
 
 import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Person;
+import com.pf7.smdb.domain.Show;
+import com.pf7.smdb.helper.PersonParticipation;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.PersonService;
+import com.pf7.smdb.transfer.ApiResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -30,27 +34,37 @@ public class PersonController extends AbstractController<Person> {
     }
 
     @GetMapping(params = {"id"})
-    public Person getPersonById(@RequestParam("id") Long id) {
-        return personService.findPersonById(id);
+    public ResponseEntity<ApiResponse<Person>> getPersonById(@RequestParam("id") Long id) {
+        return ResponseEntity.ok(ApiResponse.<Person>builder()
+                .data(personService.findPersonById(id))
+                .build());
     }
 
-//    @GetMapping(params = {"name"})
-//    public Person getPersonByName(@RequestParam("name") String name) {
-//        return personService.findPersonByPersonNameContains(name);
-//    }
 
     @GetMapping(params = {"name"})
-    public List<Person> getPeopleByName(@RequestParam("name") String name) {
-        return personService.findPeopleByPersonNameContains(name);
+    public ResponseEntity<ApiResponse<List<Person>>> getPeopleByName(@RequestParam("name") String name) {
+        return ResponseEntity.ok(ApiResponse.<List<Person>>builder()
+                .data(personService.findPeopleByPersonNameContains(name))
+                .build());
     }
 
     @GetMapping(params = {"born"})
-    public List<Person> getPeopleByBorn(@RequestParam("born") Integer born) {
-        return personService.findPeopleByPersonBorn(born);
+    public ResponseEntity<ApiResponse<List<Person>>> getPeopleByBorn(@RequestParam("born") Integer born) {
+        return ResponseEntity.ok(ApiResponse.<List<Person>>builder()
+                .data(personService.findPeopleByPersonBorn(born))
+                .build());
     }
 
+    @GetMapping(path = "/participation", params = {"name"})
+    public ResponseEntity<ApiResponse<PersonParticipation>> getAllParticipationsByPersonName(@RequestParam("name") String name) {
+        return ResponseEntity.ok(ApiResponse.<PersonParticipation>builder()
+                .data(personService.findAllParticipationsByPersonName(name))
+                .build());
+    }
+
+
     @GetMapping("/export")
-    public void exportToCSV(HttpServletResponse response) throws IOException {
+    public String exportToCSV(HttpServletResponse response) throws IOException {
         response.setContentType("text/csv");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -61,22 +75,25 @@ public class PersonController extends AbstractController<Person> {
 
         List<Person> personList = personService.findAll();
 
-        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE);
+        try (ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE)) {
 
-        String[] csvHeader = {"ID", "Name", "Born"};
-        String[] nameMapping = {"id", "personName", "personBorn"};
+            String[] csvHeader = {"ID", "Name", "Born"};
+            String[] nameMapping = {"id", "personName", "personBorn"};
 
-        csvWriter.writeHeader(csvHeader);
+            csvWriter.writeHeader(csvHeader);
 
-        for (Person person : personList) {
-            csvWriter.write(person, nameMapping);
+            for (Person person : personList) {
+                csvWriter.write(person, nameMapping);
+            }
+
+            csvWriter.writeComment("\nPerson Domain Class " +
+                    "\nRows Exported : " + personList.size());
+
+        } catch (Exception e) {
+            logger.info("{}", e.getMessage());
+        }finally {
+            return "Rows Exported : " + personList.size();
         }
-
-        csvWriter.writeComment("\nPerson Domain Class " +
-                "\nRows Exported : " + personList.size());
-
-        csvWriter.close();
     }
-
 }
 

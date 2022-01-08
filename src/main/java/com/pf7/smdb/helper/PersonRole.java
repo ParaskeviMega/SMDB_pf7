@@ -22,7 +22,7 @@ public class PersonRole extends BaseModel {
 
     @ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "moviePersonId",referencedColumnName = "id")
-    private Person PersonRolesPerson;
+    private Person personRolesPerson;
 
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    @JoinTable(name = "personRole_persons",
@@ -32,6 +32,6 @@ public class PersonRole extends BaseModel {
 //    private Set<Person> PersonRolesPerson;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> PersonRoles;
+    private List<String> personRoles;
 
 }

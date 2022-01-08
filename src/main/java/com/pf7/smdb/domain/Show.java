@@ -19,7 +19,7 @@ import java.util.Set;
 @Entity
 @Table
 @SequenceGenerator(name = "idGenerator", sequenceName = "SHOWS_SEQ", allocationSize = 1)
-public class Show extends BaseModel{
+public class Show extends BaseModel {
 
     @NotNull(message = "Title cannot be null.")
     @Column(nullable = false)
@@ -33,7 +33,7 @@ public class Show extends BaseModel{
     private Integer showYear;
 
     @NotNull(message = "Genre cannot be null.")
-    @Column(length = 50,nullable = false)
+    @Column(length = 50, nullable = false)
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> showGenre;
 
@@ -44,10 +44,19 @@ public class Show extends BaseModel{
 
     private Integer showSeasons;
 
-    @OneToMany(targetEntity = PersonRole.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = PersonRole.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private final Set<PersonRole> showPersonRoles = new HashSet<>();
 
 //    public boolean existsPersonRoleInList(String role){
 //        return this.getShowPersonRoles().stream().anyMatch(s -> StringUtils.containsIgnoreCase(s, role));
 //    }
+
+    public Boolean findIfPersonExistsInShowByPersonName(String name) {
+        for (PersonRole personRole : showPersonRoles) {
+            if (StringUtils.containsIgnoreCase(personRole.getPersonRolesPerson().getPersonName(), name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

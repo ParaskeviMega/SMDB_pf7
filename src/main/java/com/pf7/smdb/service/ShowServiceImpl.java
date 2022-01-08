@@ -35,7 +35,7 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
 
         TmdbTV series = new TmdbApi("690004238e130a8abc787e0ddb18a5d3").getTvSeries();
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 3; i++) {
             for (TvSeries tvSerie : series.getPopular("en", i)) {
 
                 int year = 0;
