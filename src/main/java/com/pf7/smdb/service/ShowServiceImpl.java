@@ -23,7 +23,7 @@ import static com.pf7.smdb.helper.HelperFunctions.*;
 @RequiredArgsConstructor
 public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowService {
     private final ShowRepository showRepository;
-    private final PersonRepository personRepository;
+    private final PersonService personService;
 
     @Override
     public JpaRepository<Show, Long> getRepository() {
@@ -72,7 +72,7 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                 if (tvSeries != null) {
                     for (PersonCast cast : tvSeries.getCredits().getCast()) {
 
-                        var person2 = personRepository.findPeopleByPersonNameContains(cast.getName());
+                        var person2 = personService.findPeopleByPersonNameContains(cast.getName());
 
                         if (person2.size() > 0) {
                             continue;

@@ -25,7 +25,6 @@ import static com.pf7.smdb.helper.HelperFunctions.randomRole;
 @RequiredArgsConstructor
 public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieService {
     private final MovieRepository movieRepository;
-    private final PersonRepository personRepository;
     private final PersonService personService;
 
     @Override
@@ -72,7 +71,7 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
                 if (tmdbMovies != null) {
                     for (PersonCast cast : tmdbMovies.getCredits().getCast()) {
 
-                        var person2 = personRepository.findPeopleByPersonNameContains(cast.getName());
+                        var person2 = personService.findPeopleByPersonNameContains(cast.getName());
 
                         if (person2.size() > 0) {
                             continue;
