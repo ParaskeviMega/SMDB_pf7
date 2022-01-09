@@ -5,6 +5,7 @@ import com.pf7.smdb.transfer.KeyValue;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public interface ShowService extends BaseService<Show, Long> {
 
@@ -32,5 +33,5 @@ public interface ShowService extends BaseService<Show, Long> {
 
     List<Show> findXTopRatedShows(Integer x);
 
-    List<KeyValue<List<String>, Long>> findNumberOfShowsPerGenre();
+//    Map<String, Long> findNumberOfShowsPerGenre();
 }

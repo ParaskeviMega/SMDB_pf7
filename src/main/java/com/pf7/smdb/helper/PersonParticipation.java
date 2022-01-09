@@ -16,8 +16,6 @@ import java.util.Set;
 @SuperBuilder
 public class PersonParticipation {
 
-
-
     private Set<Movie> movieSet;
 
     private Set<Show> showSet;

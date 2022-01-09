@@ -4,7 +4,6 @@ import com.pf7.smdb.domain.*;
 import com.pf7.smdb.helper.PersonRole;
 import com.pf7.smdb.repository.PersonRepository;
 import com.pf7.smdb.repository.ShowRepository;
-import com.pf7.smdb.transfer.KeyValue;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbTV;
 import info.movito.themoviedbapi.model.people.PersonCast;
@@ -13,8 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -194,23 +191,17 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
 //        return showRepository.findNumberOfShowsPerGenre();
 //    }
 
-    @Override
-    public List<KeyValue<List<String>, Long>> findNumberOfShowsPerGenre() {
-
-
-        List<Show> shows = new ArrayList<>();
-        boolean exists;
-        for (Show show : getRepository().findAll()) {
-            exists = false;
-            for (String s : show.getShowGenre()) {
-                if (exists) continue;
-
-                shows.add(show);
-                exists = true;
-
-            }
-        }
-        return null;
-    }
+//    @Override
+//    public Map<String, Long> findNumberOfShowsPerGenre() {
+//
+//        Map<String, Long> shuffled = new LinkedHashMap<>();
+//
+//
+//        for (Show show : showRepository.findAll())
+//            for (String genre : show.getShowGenre())
+//                if(shuffled.containsKey(genre))
+//                    shuffled.
+//        return shuffled;
+//    }
 }
 
