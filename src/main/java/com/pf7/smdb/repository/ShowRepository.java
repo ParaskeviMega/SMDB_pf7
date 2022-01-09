@@ -1,17 +1,16 @@
 package com.pf7.smdb.repository;
 
-import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Show;
-import com.pf7.smdb.domain.Show;
+import com.pf7.smdb.transfer.KeyValue;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
 public interface ShowRepository extends JpaRepository<Show, Long> {
-
-
     Boolean existsShowByShowTitleContains(String title);
 
     List<Show> findShowsByShowTitleContains(String title);
@@ -27,4 +26,12 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
     List<Show> findShowByShowSeasonsEquals(Integer seasons);
 
     List<Show> findShowsByShowYearAndShowRatingStartsWith(Integer year, String rating);
-}
+
+    @Query(value = "select top ?1 * from Show s order by s.showRating desc", nativeQuery = true)
+    List<Show> findXTopRatedShows(Integer x);
+
+    @Query(value = "select new com.pf7.smdb.transfer.KeyValue(s.showGenre , count(s.showGenre)) " +
+            "from SHOW_SHOWGENRE s group by s.showGenre", nativeQuery = true)
+    List<KeyValue<List<String>, Long>> findNumberOfShowsPerGenre();
+
+ }

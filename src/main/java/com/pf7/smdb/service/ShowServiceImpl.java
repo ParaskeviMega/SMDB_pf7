@@ -4,6 +4,7 @@ import com.pf7.smdb.domain.*;
 import com.pf7.smdb.helper.PersonRole;
 import com.pf7.smdb.repository.PersonRepository;
 import com.pf7.smdb.repository.ShowRepository;
+import com.pf7.smdb.transfer.KeyValue;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbTV;
 import info.movito.themoviedbapi.model.people.PersonCast;
@@ -13,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -180,6 +182,35 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
     @Override
     public List<Show> findShowsByShowYearAndShowRatingStartsWith(Integer year, String rating) {
         return showRepository.findShowsByShowYearAndShowRatingStartsWith(year, rating);
+    }
+
+    @Override
+    public List<Show> findXTopRatedShows(Integer x) {
+        return showRepository.findXTopRatedShows(x);
+    }
+
+//    @Override
+//    public List<KeyValue<List<String>, Long>> findNumberOfShowsPerGenre() {
+//        return showRepository.findNumberOfShowsPerGenre();
+//    }
+
+    @Override
+    public List<KeyValue<List<String>, Long>> findNumberOfShowsPerGenre() {
+
+
+        List<Show> shows = new ArrayList<>();
+        boolean exists;
+        for (Show show : getRepository().findAll()) {
+            exists = false;
+            for (String s : show.getShowGenre()) {
+                if (exists) continue;
+
+                shows.add(show);
+                exists = true;
+
+            }
+        }
+        return null;
     }
 }
 

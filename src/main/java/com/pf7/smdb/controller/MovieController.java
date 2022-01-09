@@ -1,6 +1,7 @@
 package com.pf7.smdb.controller;
 
 import com.pf7.smdb.domain.Movie;
+import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.MovieService;
 import com.pf7.smdb.service.PersonService;
@@ -106,4 +107,18 @@ public class MovieController extends AbstractController<Movie> {
             return "Rows Exported : " + listMovies.size();
         }
     }
+
+    @GetMapping(params = {"topRatedMovies"})
+    public ResponseEntity<ApiResponse<List<Movie>>> getXTopRatedMovies(@RequestParam("topRatedMovies") Integer x) {
+        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+                .data(movieService.findXTopRatedMovies(x))
+                .build());
+    }
+
+//    @GetMapping(params = {"name", "role"})
+//    public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByPersonNameAndPersonRole(@RequestParam("name") String name, @RequestParam("role") String role) {
+//        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+//                .data(personService.findMoviesByPersonNameAndPersonRole(name, role))
+//                .build());
+//    }
 }

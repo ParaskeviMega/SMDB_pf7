@@ -1,25 +1,21 @@
 package com.pf7.smdb.controller;
 
-import com.pf7.smdb.domain.Movie;
-import com.pf7.smdb.domain.Person;
-import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.PersonService;
 import com.pf7.smdb.service.ShowService;
 import com.pf7.smdb.transfer.ApiResponse;
+import com.pf7.smdb.transfer.KeyValue;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -126,4 +122,39 @@ public class ShowController extends AbstractController<Show> {
         }
 
     }
+
+    @GetMapping(params = {"topRatedShows"})
+    public ResponseEntity<ApiResponse<List<Show>>> getXTopRatedShows(@RequestParam("topRatedShows") Integer x) {
+        return ResponseEntity.ok(ApiResponse.<List<Show>>builder()
+                .data(showService.findXTopRatedShows(x))
+                .build());
+    }
+
+    @GetMapping(path = {"numberofShowsPerGenre"})
+    public ResponseEntity<ApiResponse<List<KeyValue<List<String>, Long>>>> getNumberOfShowsPerGenre() {
+        return ResponseEntity.ok(ApiResponse.<List<KeyValue<List<String>, Long>>>builder()
+                .data(showService.findNumberOfShowsPerGenre())
+                .build());
+    }
+
+    //@GetMapping(headers = "action=findAverageOrderCostPerCustomer", produces = "application/vnd.app-v1+json")
+//    @GetMapping(path = "v1", headers = "action=findNumberOfShowsPerGenre")
+//    public ResponseEntity<ApiResponse<HashMap<String, Integer>>> findNumberOfShowsPerGenre() {
+//        return ResponseEntity.ok(ApiResponse.<HashMap<String, Integer>>builder()
+//                .data(showService.findNumberOfShowsPerGenre())
+//                .build());
+//    }
+//
+//    @GetMapping(headers = {"action=findNumberOfShowsPerGenre", "api-version"})
+//    public ResponseEntity<ApiResponse<HashMap<String, Integer>>> findNumberOfShowsPerGenreV1Header(
+//        @RequestHeader(value = "api-version", defaultValue = "1") Integer version) {
+//        if (version == 1) {
+//            return ResponseEntity.ok(ApiResponse.<HashMap<String, Integer>>builder()
+//                    .data(showService.findNumberOfShowsPerGenre()).build());
+//        }
+//
+//        return ResponseEntity.ok(ApiResponse.<HashMap<String, Integer>>builder()
+//                .data(null)
+//                .build());
+//    }
 }

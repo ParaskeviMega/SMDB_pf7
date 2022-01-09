@@ -96,4 +96,27 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
 
         return personParticipation;
     }
+
+//    @Override
+//    public List<Movie> findMoviesByPersonNameAndPersonRole(String name, String role) {
+//        List<Movie> movies = new ArrayList<>();
+//        for (Movie movie: movieRepository.findAll()) {
+//            if(movies.contains(movie)) continue;
+//            for (PersonRole personRole: movie.getMoviePersonRoles()){
+//                if(movies.contains(movie)) continue;
+//                if(StringUtils.containsIgnoreCase(
+//                        personRole.getPersonRolesPerson().getPersonName(),name)
+//                && StringUtils.containsIgnoreCase(
+//                        personRole.getPersonRoles(), role) {
+//                    movies.add(movie);
+//                }
+//            }
+//        }
+//        return movies;
+//    }
+
+//    @Override
+//    public List<Show> findShowsByPersonNameAndPersonRole(String name, String role) {
+//        return null;
+//    }
 }

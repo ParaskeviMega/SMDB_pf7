@@ -1,8 +1,9 @@
 package com.pf7.smdb.service;
 
-import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Show;
+import com.pf7.smdb.transfer.KeyValue;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ShowService extends BaseService<Show, Long> {
@@ -28,4 +29,8 @@ public interface ShowService extends BaseService<Show, Long> {
     List<Show> findShowByShowSeasonsEquals(Integer seasons);
 
     List<Show> findShowsByShowYearAndShowRatingStartsWith(Integer year, String rating);
+
+    List<Show> findXTopRatedShows(Integer x);
+
+    List<KeyValue<List<String>, Long>> findNumberOfShowsPerGenre();
 }

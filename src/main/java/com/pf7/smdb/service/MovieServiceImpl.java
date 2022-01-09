@@ -170,6 +170,11 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
     public List<Movie> findMoviesByMovieYearAndMovieRatingStartsWith(Integer year, String rating) {
         return movieRepository.findMoviesByMovieYearAndMovieRatingStartsWith(year, rating);
     }
+
+    @Override
+    public List<Movie> findXTopRatedMovies(Integer x) {
+        return movieRepository.findXTopRatedMovies(x);
+    }
 }
 
 

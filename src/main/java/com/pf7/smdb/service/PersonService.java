@@ -24,5 +24,9 @@ public interface PersonService extends BaseService<Person, Long> {
     List<Show> findShowsByPersonName(String name);
 
     PersonParticipation findAllParticipationsByPersonName(String name);
+
+    //List<Movie> findMoviesByPersonNameAndPersonRole(String name, String role);
+
+    //List<Show> findShowsByPersonNameAndPersonRole(String name, String role);
 }
 
