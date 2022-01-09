@@ -13,10 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @Service
@@ -73,6 +70,23 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     }
 
     @Override
+    public List<Movie> findMoviesByPersonNameAndPersonRole(String name, String role) {
+        List<Movie> movies = new ArrayList<>();
+        for (Movie movie: movieRepository.findAll()) {
+            if(movies.contains(movie)) continue;
+            for (PersonRole personRole: movie.getMoviePersonRoles()){
+                if(movies.contains(movie)) continue;
+                if(StringUtils.containsIgnoreCase(
+                        personRole.getPersonRolesPerson().getPersonName(),name) &&
+                        personRole.getPersonRoles().stream().anyMatch(role::equalsIgnoreCase)) {
+                    movies.add(movie);
+                }
+            }
+        }
+        return movies;
+    }
+
+    @Override
     public List<Show> findShowsByPersonName(String name) {
         List<Show> shows = new ArrayList<>();
         for (Show show: showRepository.findAll()) {
@@ -89,6 +103,23 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     }
 
     @Override
+    public List<Show> findShowsByPersonNameAndPersonRole(String name, String role) {
+        List<Show> shows = new ArrayList<>();
+        for (Show show: showRepository.findAll()) {
+            if(shows.contains(show)) continue;
+            for (PersonRole personRole: show.getShowPersonRoles()){
+                if(shows.contains(show)) continue;
+                if(StringUtils.containsIgnoreCase(
+                        personRole.getPersonRolesPerson().getPersonName(),name) &&
+                        personRole.getPersonRoles().stream().anyMatch(role::equalsIgnoreCase)) {
+                    shows.add(show);
+                }
+            }
+        }
+        return shows;
+    }
+
+    @Override
     public PersonParticipation findAllParticipationsByPersonName(String name) {
         PersonParticipation personParticipation = new PersonParticipation();
         personParticipation.setMovieSet(new HashSet<>(findMoviesByPersonName(name)));
@@ -97,26 +128,22 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         return personParticipation;
     }
 
-//    @Override
-//    public List<Movie> findMoviesByPersonNameAndPersonRole(String name, String role) {
-//        List<Movie> movies = new ArrayList<>();
-//        for (Movie movie: movieRepository.findAll()) {
-//            if(movies.contains(movie)) continue;
-//            for (PersonRole personRole: movie.getMoviePersonRoles()){
-//                if(movies.contains(movie)) continue;
-//                if(StringUtils.containsIgnoreCase(
-//                        personRole.getPersonRolesPerson().getPersonName(),name)
-//                && StringUtils.containsIgnoreCase(
-//                        personRole.getPersonRoles(), role) {
-//                    movies.add(movie);
-//                }
-//            }
-//        }
-//        return movies;
-//    }
+    @Override
+    public PersonParticipation findAllParticipationsByPersonNameAndByPersonRole(String name, String role) {
+        PersonParticipation personParticipation = new PersonParticipation();
+        personParticipation.setMovieSet(new HashSet<>(findMoviesByPersonNameAndPersonRole(name,role)));
+        personParticipation.setShowSet(new HashSet<>(findShowsByPersonNameAndPersonRole(name,role)));
+
+        return personParticipation;
+    }
 
 //    @Override
-//    public List<Show> findShowsByPersonNameAndPersonRole(String name, String role) {
-//        return null;
+//    public PersonParticipation findAllParticipationsByPersonNameAndPersonRole(String name, String role) {
+//        PersonParticipation personParticipation = new PersonParticipation();
+//        personParticipation.setMovieSet(new HashSet<>(findMoviesByPersonName(name)));
+//        personParticipation.setShowSet(new HashSet<>(findShowsByPersonName(name)));
+//
+//        return personParticipation;
 //    }
+
 }

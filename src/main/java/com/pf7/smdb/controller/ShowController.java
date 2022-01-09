@@ -80,6 +80,13 @@ public class ShowController extends AbstractController<Show> {
                 .build());
     }
 
+    @GetMapping(params = {"personName","personRole"})
+    public ResponseEntity<ApiResponse<List<Show>>> getShowsByPersonNameAndByPersonRole(@RequestParam("personName") String name, @RequestParam("personRole") String role) {
+        return ResponseEntity.ok(ApiResponse.<List<Show>>builder()
+                .data(personService.findShowsByPersonNameAndPersonRole(name,role))
+                .build());
+    }
+
     @GetMapping(params = {"year", "rating"})
     public ResponseEntity<ApiResponse<List<Show>>> getShowsByYearAndRatingStartsWith(@RequestParam("year") Integer year, @RequestParam("rating") String rating) {
         return ResponseEntity.ok(ApiResponse.<List<Show>>builder()

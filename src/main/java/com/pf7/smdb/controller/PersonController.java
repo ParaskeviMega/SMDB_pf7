@@ -1,8 +1,6 @@
 package com.pf7.smdb.controller;
 
-import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Person;
-import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.helper.PersonParticipation;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.PersonService;
@@ -16,7 +14,6 @@ import org.supercsv.prefs.CsvPreference;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -62,6 +59,12 @@ public class PersonController extends AbstractController<Person> {
                 .build());
     }
 
+    @GetMapping(path = "/participationByRole", params = {"name","role"})
+    public ResponseEntity<ApiResponse<PersonParticipation>> getAllParticipationsByPersonNameAndByPersonRole(@RequestParam("name") String name, @RequestParam("role") String role) {
+        return ResponseEntity.ok(ApiResponse.<PersonParticipation>builder()
+                .data(personService.findAllParticipationsByPersonNameAndByPersonRole(name,role))
+                .build());
+    }
 
     @GetMapping("/export")
     public String exportToCSV(HttpServletResponse response) throws IOException {

@@ -67,6 +67,13 @@ public class MovieController extends AbstractController<Movie> {
                 .build());
     }
 
+    @GetMapping(params = {"personName","personRole"})
+    public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByPersonNameAndByPersonRole(@RequestParam("personName") String name, @RequestParam("personRole") String role) {
+        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
+                .data(personService.findMoviesByPersonNameAndPersonRole(name,role))
+                .build());
+    }
+
     @GetMapping(params = {"year", "rating"})
     public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByYearAndRatingStartsWith(@RequestParam("year") Integer year, @RequestParam("rating") String rating) {
         return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()

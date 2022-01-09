@@ -28,4 +28,5 @@ public interface MovieService extends BaseService<Movie, Long> {
     List<Movie> findMoviesByMovieYearAndMovieRatingStartsWith(Integer year, String rating);
 
     List<Movie> findXTopRatedMovies(Integer x);
+
 }

@@ -23,4 +23,6 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @Query(value = "select top ?1 * from Movie s order by s.movieRating desc", nativeQuery = true)
     List<Movie> findXTopRatedMovies(Integer x);
+
+
 }
