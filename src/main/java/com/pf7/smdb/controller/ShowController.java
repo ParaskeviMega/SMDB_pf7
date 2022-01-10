@@ -137,16 +137,23 @@ public class ShowController extends AbstractController<Show> {
     }
 
     @GetMapping(path = {"numberofShowsPerGenre"})
-    public ResponseEntity<ApiResponse<List<CustomObject.KeyValueObj>>> getNumberOfShowsPerGenre() {
-        return ResponseEntity.ok(ApiResponse.<List<CustomObject.KeyValueObj>>builder()
+    public ResponseEntity<ApiResponse<List<CustomObject.GenreOccurrence>>> getNumberOfShowsPerGenre() {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.GenreOccurrence>>builder()
                 .data(showService.findNumberOfShowsPerGenre())
                 .build());
     }
 
     @GetMapping(path = {"numberofShowsPerYearPerGenre"})
-    public ResponseEntity<ApiResponse<List<CustomObject.KeyValueObj2>>> getNumberOfShowsPerYearPerGenre() {
-        return ResponseEntity.ok(ApiResponse.<List<CustomObject.KeyValueObj2>>builder()
+    public ResponseEntity<ApiResponse<List<CustomObject.GenreYearOccurence>>> getNumberOfShowsPerYearPerGenre() {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.GenreYearOccurence>>builder()
                 .data(showService.findNumberOfShowsPerYearPerGenre())
+                .build());
+    }
+
+    @GetMapping(path = "/individualParticipationPerGenre", params = "name")
+    public ResponseEntity<ApiResponse<List<CustomObject.IndividualPerGenre>>> getAllParticipationsByPersonNameAndByPersonRole(@RequestParam("name") String name) {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.IndividualPerGenre>>builder()
+                .data(personService.findAllParticipationsByIndividualPerGenre(name))
                 .build());
     }
 }

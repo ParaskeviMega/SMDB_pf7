@@ -137,13 +137,44 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         return personParticipation;
     }
 
-//    @Override
-//    public PersonParticipation findAllParticipationsByPersonNameAndPersonRole(String name, String role) {
-//        PersonParticipation personParticipation = new PersonParticipation();
-//        personParticipation.setMovieSet(new HashSet<>(findMoviesByPersonName(name)));
-//        personParticipation.setShowSet(new HashSet<>(findShowsByPersonName(name)));
-//
-//        return personParticipation;
-//    }
+    @Override
+    public List<CustomObject.IndividualPerGenre> findAllParticipationsByIndividualPerGenre(String name) {
 
+        List<CustomObject.IndividualPerGenre> individualPerGenres = new ArrayList<>();
+
+        for(Movie movie : movieRepository.findAll()){
+            movie.getMoviePersonRoles().clear();
+            for(String genre : movie.getMovieGenre()){
+                if(individualPerGenres.stream().anyMatch(individualPerGenre -> individualPerGenre.getGenre().equalsIgnoreCase(genre))){
+                    individualPerGenres.stream().filter(individualPerGenre -> individualPerGenre.getGenre().equalsIgnoreCase(genre)).
+                            forEach(individualPerGenre -> individualPerGenre.getMovieSet().add(movie));
+                }else{
+                    CustomObject.IndividualPerGenre iPerGenre = new CustomObject.IndividualPerGenre();
+                    iPerGenre.setGenre(genre);
+                    iPerGenre.getMovieSet().add(movie);
+
+                    individualPerGenres.add(iPerGenre);
+                }
+            }
+
+
+
+        }
+
+
+
+
+        return  individualPerGenres;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -27,16 +27,10 @@ public interface PersonService extends BaseService<Person, Long> {
 
     List<Show> findShowsByPersonNameAndPersonRole(String name, String role);
 
-//    List<Show> findShowsByPersonNameAndPersonRole(String name, String role);
-
     CustomObject.PersonParticipation findAllParticipationsByPersonName(String name);
 
     CustomObject.PersonParticipation findAllParticipationsByPersonNameAndByPersonRole(String name, String role);
 
-//    PersonParticipation findAllParticipationsByPersonNameAndPersonRole(String name,String role);
-
-    //List<Movie> findMoviesByPersonNameAndPersonRole(String name, String role);
-
-    //List<Show> findShowsByPersonNameAndPersonRole(String name, String role);
+    List<CustomObject.IndividualPerGenre> findAllParticipationsByIndividualPerGenre(String name);
 }
 

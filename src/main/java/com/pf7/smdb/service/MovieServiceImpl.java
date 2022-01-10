@@ -1,15 +1,14 @@
 package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.*;
+import com.pf7.smdb.helper.CustomObject;
 import com.pf7.smdb.helper.PersonRole;
 import com.pf7.smdb.repository.MovieRepository;
 import com.pf7.smdb.repository.PersonRepository;
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbMovies;
-import info.movito.themoviedbapi.TmdbTV;
 import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.model.people.PersonCast;
-import info.movito.themoviedbapi.model.tv.TvSeries;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -174,6 +173,53 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
     @Override
     public List<Movie> findXTopRatedMovies(Integer x) {
         return movieRepository.findXTopRatedMovies(x);
+    }
+
+
+    @Override
+    public List<CustomObject.GenreOccurrence> findNumberOfMoviesPerGenre() {
+
+        List<CustomObject.GenreOccurrence> shuffled = new ArrayList<>();
+
+        for (Movie movie : movieRepository.findAll())
+            for (String genre : movie.getMovieGenre())
+                if (shuffled.stream().map(CustomObject.GenreOccurrence::getGenre).anyMatch(s -> s.contains(genre))) {
+                    shuffled.stream().filter(obj -> obj.getGenre().contains(genre)).
+                            forEach(stringIntegerKeyValueObj -> stringIntegerKeyValueObj.setOccurrences(stringIntegerKeyValueObj.getOccurrences() + 1));
+                } else if (shuffled.stream().map(CustomObject.GenreOccurrence::getGenre).noneMatch(s -> s.contains(genre))) {
+                    CustomObject.GenreOccurrence newObj = new CustomObject.GenreOccurrence();
+                    newObj.setGenre(genre);
+                    newObj.setOccurrences(1);
+                    shuffled.add(newObj);
+                }
+        return shuffled;
+    }
+
+    @Override
+    public List<CustomObject.GenreYearOccurence> findNumberOfMoviesPerYearPerGenre() {
+
+        List<CustomObject.GenreYearOccurence> shuffled = new ArrayList<>();
+
+        for (Movie movie : movieRepository.findAll()) {
+            for (String genre : movie.getMovieGenre()) {
+
+                if (shuffled.stream().anyMatch(obj -> obj.getGenre().contains(genre) && obj.getYear().contains(movie.getMovieYear().toString()))) {
+
+                    shuffled.stream().filter(obj -> obj.getGenre().contains(genre) && obj.getYear().contains(movie.getMovieYear().toString())).
+                            forEach(stringIntegerKeyValueObj -> stringIntegerKeyValueObj.setOccurrences(stringIntegerKeyValueObj.getOccurrences() + 1));
+                } else {
+                    CustomObject.GenreYearOccurence newObj = new CustomObject.GenreYearOccurence();
+                    newObj.setGenre(genre);
+                    newObj.setYear(movie.getMovieYear().toString());
+                    newObj.setOccurrences(1);
+                    shuffled.add(newObj);
+                }
+            }
+        }
+
+        return shuffled.stream()
+                .sorted(Comparator.comparing(CustomObject.GenreYearOccurence::getGenre).thenComparing(CustomObject.GenreYearOccurence::getYear))
+                .collect(Collectors.toList());
     }
 }
 

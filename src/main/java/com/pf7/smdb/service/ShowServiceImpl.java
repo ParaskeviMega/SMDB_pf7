@@ -13,8 +13,10 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.pf7.smdb.helper.HelperFunctions.*;
 
@@ -50,7 +52,7 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                 List<String> genres = new ArrayList<>();
 
                 tvSeries.getGenres().forEach(genre ->
-                        genres.add(genre.getName().replace("&","-")));
+                        genres.add(genre.getName().replace("&", "-")));
 
                 Show show = Show.builder()
                         .showTitle(new String(tvSerie.getOriginalName().getBytes(StandardCharsets.UTF_16), StandardCharsets.UTF_16))
@@ -106,8 +108,8 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
                 show.getShowPersonRoles().addAll(personRoleSet);
                 try {
                     showRepository.save(show);
-                }catch (Exception e){
-                    logger.info("PROBLEM--------------> : {}",e.getMessage());
+                } catch (Exception e) {
+                    logger.info("PROBLEM--------------> : {}", e.getMessage());
                 }
             }
         }
@@ -123,7 +125,7 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
         List<Show> shows = new ArrayList<>();
         for (Show show : getRepository().findAll()) {
             String s = show.getShowTitle();
-            if (StringUtils.containsIgnoreCase(s,title)) {
+            if (StringUtils.containsIgnoreCase(s, title)) {
                 shows.add(show);
             }
         }
@@ -187,23 +189,18 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
         return showRepository.findXTopRatedShows(x);
     }
 
-//    @Override
-//    public List<KeyValue<List<String>, Long>> findNumberOfShowsPerGenre() {
-//        return showRepository.findNumberOfShowsPerGenre();
-//    }
-
     @Override
-    public List<CustomObject.KeyValueObj> findNumberOfShowsPerGenre() {
+    public List<CustomObject.GenreOccurrence> findNumberOfShowsPerGenre() {
 
-        List<CustomObject.KeyValueObj> shuffled = new ArrayList<>();
+        List<CustomObject.GenreOccurrence> shuffled = new ArrayList<>();
 
         for (Show show : showRepository.findAll())
             for (String genre : show.getShowGenre())
-                if(shuffled.stream().map(obj -> obj.getGenre()).anyMatch(s -> s.contains(genre))){
+                if (shuffled.stream().map(CustomObject.GenreOccurrence::getGenre).anyMatch(s -> s.contains(genre))) {
                     shuffled.stream().filter(obj -> obj.getGenre().contains(genre)).
-                            forEach(stringIntegerKeyValueObj -> stringIntegerKeyValueObj.setOccurrences(stringIntegerKeyValueObj.getOccurrences()+1));
-                }else if (!shuffled.stream().map(obj -> obj.getGenre()).anyMatch(s -> s.contains(genre))){
-                    CustomObject.KeyValueObj newObj = new CustomObject.KeyValueObj();
+                            forEach(stringIntegerKeyValueObj -> stringIntegerKeyValueObj.setOccurrences(stringIntegerKeyValueObj.getOccurrences() + 1));
+                } else if (shuffled.stream().map(CustomObject.GenreOccurrence::getGenre).noneMatch(s -> s.contains(genre))) {
+                    CustomObject.GenreOccurrence newObj = new CustomObject.GenreOccurrence();
                     newObj.setGenre(genre);
                     newObj.setOccurrences(1);
                     shuffled.add(newObj);
@@ -212,26 +209,31 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
     }
 
     @Override
-    public List<CustomObject.KeyValueObj2> findNumberOfShowsPerYearPerGenre() {
+    public List<CustomObject.GenreYearOccurence> findNumberOfShowsPerYearPerGenre() {
 
-        List<CustomObject.KeyValueObj2> shuffled = new ArrayList<>();
+        List<CustomObject.GenreYearOccurence> shuffled = new ArrayList<>();
 
-        for (Show show : showRepository.findAll())
-            for (String genre : show.getShowGenre())
-                if(shuffled.stream().anyMatch(keyValueObj2 -> keyValueObj2.getYear().equals(show.getShowYear().toString())) &&
-                        shuffled.stream().map(obj -> obj.getGenre()).anyMatch(s -> s.contains(genre))){
-                            shuffled.stream().filter(obj -> obj.getYear().equals(show.getShowYear().toString()) && obj.getGenre().contains(genre))
-                            .forEach(stringIntegerKeyValueObj -> stringIntegerKeyValueObj
-                            .setOccurrences(stringIntegerKeyValueObj.getOccurrences()+1));
-                }else{
-                    CustomObject.KeyValueObj2 newObj = new CustomObject.KeyValueObj2();
+        for (Show show : showRepository.findAll()) {
+            for (String genre : show.getShowGenre()) {
+
+                if (shuffled.stream().anyMatch(obj -> obj.getGenre().contains(genre) && obj.getYear().contains(show.getShowYear().toString()))) {
+
+                    shuffled.stream().filter(obj -> obj.getGenre().contains(genre) && obj.getYear().contains(show.getShowYear().toString())).
+                            forEach(stringIntegerKeyValueObj -> stringIntegerKeyValueObj.setOccurrences(stringIntegerKeyValueObj.getOccurrences() + 1));
+                } else {
+                    CustomObject.GenreYearOccurence newObj = new CustomObject.GenreYearOccurence();
                     newObj.setGenre(genre);
                     newObj.setYear(show.getShowYear().toString());
                     newObj.setOccurrences(1);
                     shuffled.add(newObj);
                 }
+            }
+        }
 
-        return shuffled;
+        return shuffled.stream()
+                .sorted(Comparator.comparing(CustomObject.GenreYearOccurence::getGenre).thenComparing(CustomObject.GenreYearOccurence::getYear))
+                .collect(Collectors.toList());
     }
 }
+
 

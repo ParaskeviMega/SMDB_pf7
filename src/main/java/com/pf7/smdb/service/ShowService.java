@@ -2,11 +2,8 @@ package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.helper.CustomObject;
-import com.pf7.smdb.transfer.KeyValue;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 
 public interface ShowService extends BaseService<Show, Long> {
 
@@ -34,7 +31,7 @@ public interface ShowService extends BaseService<Show, Long> {
 
     List<Show> findXTopRatedShows(Integer x);
 
-    List<CustomObject.KeyValueObj> findNumberOfShowsPerGenre();
+    List<CustomObject.GenreOccurrence> findNumberOfShowsPerGenre();
 
-    public List<CustomObject.KeyValueObj2> findNumberOfShowsPerYearPerGenre();
+    List<CustomObject.GenreYearOccurence> findNumberOfShowsPerYearPerGenre();
 }

@@ -1,7 +1,7 @@
 package com.pf7.smdb.controller;
 
 import com.pf7.smdb.domain.Movie;
-import com.pf7.smdb.domain.Show;
+import com.pf7.smdb.helper.CustomObject;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.MovieService;
 import com.pf7.smdb.service.PersonService;
@@ -121,10 +121,25 @@ public class MovieController extends AbstractController<Movie> {
                 .build());
     }
 
-//    @GetMapping(params = {"name", "role"})
-//    public ResponseEntity<ApiResponse<List<Movie>>> getMoviesByPersonNameAndPersonRole(@RequestParam("name") String name, @RequestParam("role") String role) {
-//        return ResponseEntity.ok(ApiResponse.<List<Movie>>builder()
-//                .data(personService.findMoviesByPersonNameAndPersonRole(name, role))
-//                .build());
-//    }
+    @GetMapping(path = {"numberofShowsPerGenre"})
+    public ResponseEntity<ApiResponse<List<CustomObject.GenreOccurrence>>> getNumberOfShowsPerGenre() {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.GenreOccurrence>>builder()
+                .data(movieService.findNumberOfMoviesPerGenre())
+                .build());
+    }
+
+    @GetMapping(path = {"numberofShowsPerYearPerGenre"})
+    public ResponseEntity<ApiResponse<List<CustomObject.GenreYearOccurence>>> getNumberOfShowsPerYearPerGenre() {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.GenreYearOccurence>>builder()
+                .data(movieService.findNumberOfMoviesPerYearPerGenre())
+                .build());
+    }
+
+    @GetMapping(path = "/individualParticipationPerGenre", params = "name")
+    public ResponseEntity<ApiResponse<List<CustomObject.IndividualPerGenre>>> getAllParticipationsByPersonNameAndByPersonRole(@RequestParam("name") String name) {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.IndividualPerGenre>>builder()
+                .data(personService.findAllParticipationsByIndividualPerGenre(name))
+                .build());
+    }
+
 }

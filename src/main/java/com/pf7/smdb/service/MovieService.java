@@ -1,8 +1,7 @@
 package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.Movie;
-import com.pf7.smdb.domain.Show;
-import org.springframework.data.jpa.repository.Query;
+import com.pf7.smdb.helper.CustomObject;
 
 import java.util.List;
 
@@ -29,4 +28,7 @@ public interface MovieService extends BaseService<Movie, Long> {
 
     List<Movie> findXTopRatedMovies(Integer x);
 
+    List<CustomObject.GenreOccurrence> findNumberOfMoviesPerGenre();
+
+    List<CustomObject.GenreYearOccurence> findNumberOfMoviesPerYearPerGenre();
 }

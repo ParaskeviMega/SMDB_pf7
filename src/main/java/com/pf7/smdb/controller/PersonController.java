@@ -66,6 +66,13 @@ public class PersonController extends AbstractController<Person> {
                 .build());
     }
 
+    @GetMapping(path = "/individualParticipationPerGenre", params = "name")
+    public ResponseEntity<ApiResponse<List<CustomObject.IndividualPerGenre>>> getAllParticipationsByPersonNameAndByPersonRole(@RequestParam("name") String name) {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.IndividualPerGenre>>builder()
+                .data(personService.findAllParticipationsByIndividualPerGenre(name))
+                .build());
+    }
+
     @GetMapping("/export")
     public String exportToCSV(HttpServletResponse response) throws IOException {
         response.setContentType("text/csv");
