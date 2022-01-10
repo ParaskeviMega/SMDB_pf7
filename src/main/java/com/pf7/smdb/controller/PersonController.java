@@ -1,7 +1,7 @@
 package com.pf7.smdb.controller;
 
 import com.pf7.smdb.domain.Person;
-import com.pf7.smdb.helper.PersonParticipation;
+import com.pf7.smdb.helper.CustomObject;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.PersonService;
 import com.pf7.smdb.transfer.ApiResponse;
@@ -53,15 +53,15 @@ public class PersonController extends AbstractController<Person> {
     }
 
     @GetMapping(path = "/participation", params = {"name"})
-    public ResponseEntity<ApiResponse<PersonParticipation>> getAllParticipationsByPersonName(@RequestParam("name") String name) {
-        return ResponseEntity.ok(ApiResponse.<PersonParticipation>builder()
+    public ResponseEntity<ApiResponse<CustomObject.PersonParticipation>> getAllParticipationsByPersonName(@RequestParam("name") String name) {
+        return ResponseEntity.ok(ApiResponse.<CustomObject.PersonParticipation>builder()
                 .data(personService.findAllParticipationsByPersonName(name))
                 .build());
     }
 
     @GetMapping(path = "/participationByRole", params = {"name","role"})
-    public ResponseEntity<ApiResponse<PersonParticipation>> getAllParticipationsByPersonNameAndByPersonRole(@RequestParam("name") String name, @RequestParam("role") String role) {
-        return ResponseEntity.ok(ApiResponse.<PersonParticipation>builder()
+    public ResponseEntity<ApiResponse<CustomObject.PersonParticipation>> getAllParticipationsByPersonNameAndByPersonRole(@RequestParam("name") String name, @RequestParam("role") String role) {
+        return ResponseEntity.ok(ApiResponse.<CustomObject.PersonParticipation>builder()
                 .data(personService.findAllParticipationsByPersonNameAndByPersonRole(name,role))
                 .build());
     }

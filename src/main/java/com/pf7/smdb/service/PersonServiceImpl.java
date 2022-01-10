@@ -3,7 +3,7 @@ package com.pf7.smdb.service;
 import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Person;
 import com.pf7.smdb.domain.Show;
-import com.pf7.smdb.helper.PersonParticipation;
+import com.pf7.smdb.helper.CustomObject;
 import com.pf7.smdb.helper.PersonRole;
 import com.pf7.smdb.repository.MovieRepository;
 import com.pf7.smdb.repository.PersonRepository;
@@ -120,8 +120,8 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     }
 
     @Override
-    public PersonParticipation findAllParticipationsByPersonName(String name) {
-        PersonParticipation personParticipation = new PersonParticipation();
+    public CustomObject.PersonParticipation findAllParticipationsByPersonName(String name) {
+        CustomObject.PersonParticipation personParticipation = new CustomObject.PersonParticipation();
         personParticipation.setMovieSet(new HashSet<>(findMoviesByPersonName(name)));
         personParticipation.setShowSet(new HashSet<>(findShowsByPersonName(name)));
 
@@ -129,8 +129,8 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     }
 
     @Override
-    public PersonParticipation findAllParticipationsByPersonNameAndByPersonRole(String name, String role) {
-        PersonParticipation personParticipation = new PersonParticipation();
+    public CustomObject.PersonParticipation findAllParticipationsByPersonNameAndByPersonRole(String name, String role) {
+        CustomObject.PersonParticipation personParticipation = new CustomObject.PersonParticipation();
         personParticipation.setMovieSet(new HashSet<>(findMoviesByPersonNameAndPersonRole(name,role)));
         personParticipation.setShowSet(new HashSet<>(findShowsByPersonNameAndPersonRole(name,role)));
 

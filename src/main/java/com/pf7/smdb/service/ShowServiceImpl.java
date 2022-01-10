@@ -1,6 +1,7 @@
 package com.pf7.smdb.service;
 
 import com.pf7.smdb.domain.*;
+import com.pf7.smdb.helper.CustomObject;
 import com.pf7.smdb.helper.PersonRole;
 import com.pf7.smdb.repository.PersonRepository;
 import com.pf7.smdb.repository.ShowRepository;
@@ -191,17 +192,46 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
 //        return showRepository.findNumberOfShowsPerGenre();
 //    }
 
-//    @Override
-//    public Map<String, Long> findNumberOfShowsPerGenre() {
-//
-//        Map<String, Long> shuffled = new LinkedHashMap<>();
-//
-//
-//        for (Show show : showRepository.findAll())
-//            for (String genre : show.getShowGenre())
-//                if(shuffled.containsKey(genre))
-//                    shuffled.
-//        return shuffled;
-//    }
+    @Override
+    public List<CustomObject.KeyValueObj> findNumberOfShowsPerGenre() {
+
+        List<CustomObject.KeyValueObj> shuffled = new ArrayList<>();
+
+        for (Show show : showRepository.findAll())
+            for (String genre : show.getShowGenre())
+                if(shuffled.stream().map(obj -> obj.getGenre()).anyMatch(s -> s.contains(genre))){
+                    shuffled.stream().filter(obj -> obj.getGenre().contains(genre)).
+                            forEach(stringIntegerKeyValueObj -> stringIntegerKeyValueObj.setOccurrences(stringIntegerKeyValueObj.getOccurrences()+1));
+                }else if (!shuffled.stream().map(obj -> obj.getGenre()).anyMatch(s -> s.contains(genre))){
+                    CustomObject.KeyValueObj newObj = new CustomObject.KeyValueObj();
+                    newObj.setGenre(genre);
+                    newObj.setOccurrences(1);
+                    shuffled.add(newObj);
+                }
+        return shuffled;
+    }
+
+    @Override
+    public List<CustomObject.KeyValueObj2> findNumberOfShowsPerYearPerGenre() {
+
+        List<CustomObject.KeyValueObj2> shuffled = new ArrayList<>();
+
+        for (Show show : showRepository.findAll())
+            for (String genre : show.getShowGenre())
+                if(shuffled.stream().anyMatch(keyValueObj2 -> keyValueObj2.getYear().equals(show.getShowYear().toString())) &&
+                        shuffled.stream().map(obj -> obj.getGenre()).anyMatch(s -> s.contains(genre))){
+                            shuffled.stream().filter(obj -> obj.getYear().equals(show.getShowYear().toString()) && obj.getGenre().contains(genre))
+                            .forEach(stringIntegerKeyValueObj -> stringIntegerKeyValueObj
+                            .setOccurrences(stringIntegerKeyValueObj.getOccurrences()+1));
+                }else{
+                    CustomObject.KeyValueObj2 newObj = new CustomObject.KeyValueObj2();
+                    newObj.setGenre(genre);
+                    newObj.setYear(show.getShowYear().toString());
+                    newObj.setOccurrences(1);
+                    shuffled.add(newObj);
+                }
+
+        return shuffled;
+    }
 }
 

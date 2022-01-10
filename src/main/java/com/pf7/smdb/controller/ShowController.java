@@ -1,6 +1,7 @@
 package com.pf7.smdb.controller;
 
 import com.pf7.smdb.domain.Show;
+import com.pf7.smdb.helper.CustomObject;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.PersonService;
 import com.pf7.smdb.service.ShowService;
@@ -135,10 +136,17 @@ public class ShowController extends AbstractController<Show> {
                 .build());
     }
 
-//    @GetMapping(path = {"numberofShowsPerGenre"})
-//    public ResponseEntity<ApiResponse<Map<String, Long>>> getNumberOfShowsPerGenre() {
-//        return ResponseEntity.ok(ApiResponse.<Map<String, Long>>builder()
-//                .data(showService.findNumberOfShowsPerGenre())
-//                .build());
-//    }
+    @GetMapping(path = {"numberofShowsPerGenre"})
+    public ResponseEntity<ApiResponse<List<CustomObject.KeyValueObj>>> getNumberOfShowsPerGenre() {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.KeyValueObj>>builder()
+                .data(showService.findNumberOfShowsPerGenre())
+                .build());
+    }
+
+    @GetMapping(path = {"numberofShowsPerYearPerGenre"})
+    public ResponseEntity<ApiResponse<List<CustomObject.KeyValueObj2>>> getNumberOfShowsPerYearPerGenre() {
+        return ResponseEntity.ok(ApiResponse.<List<CustomObject.KeyValueObj2>>builder()
+                .data(showService.findNumberOfShowsPerYearPerGenre())
+                .build());
+    }
 }
