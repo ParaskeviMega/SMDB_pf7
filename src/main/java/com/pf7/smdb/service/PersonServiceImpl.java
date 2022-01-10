@@ -143,26 +143,54 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         List<CustomObject.IndividualPerGenre> individualPerGenres = new ArrayList<>();
 
         for(Movie movie : movieRepository.findAll()){
-            movie.getMoviePersonRoles().clear();
-            for(String genre : movie.getMovieGenre()){
-                if(individualPerGenres.stream().anyMatch(individualPerGenre -> individualPerGenre.getGenre().equalsIgnoreCase(genre))){
-                    individualPerGenres.stream().filter(individualPerGenre -> individualPerGenre.getGenre().equalsIgnoreCase(genre)).
-                            forEach(individualPerGenre -> individualPerGenre.getMovieSet().add(movie));
-                }else{
-                    CustomObject.IndividualPerGenre iPerGenre = new CustomObject.IndividualPerGenre();
-                    iPerGenre.setGenre(genre);
-                    iPerGenre.getMovieSet().add(movie);
+            for (PersonRole personRole : movie.getMoviePersonRoles()) {
+                if (individualPerGenres.stream().anyMatch(individualPerGenre -> individualPerGenre.getMovieSet().contains(movie))){
+                    continue;
+                }
+                if (personRole.getPersonRolesPerson().getPersonName().equalsIgnoreCase(name)) {
+                    for (String genre : movie.getMovieGenre()) {
+                        if (individualPerGenres.stream().anyMatch(individualPerGenre -> individualPerGenre.getGenre().equalsIgnoreCase(genre))) {
+                            if (individualPerGenres.stream().anyMatch(individualPerGenre -> individualPerGenre.getMovieSet().contains(movie))){
+                                continue;
+                            }
+                            individualPerGenres.stream().filter(individualPerGenre -> individualPerGenre.getGenre().equalsIgnoreCase(genre)).
+                                    forEach(individualPerGenre -> individualPerGenre.getMovieSet().add(movie));
+                        } else {
+                            CustomObject.IndividualPerGenre iPerGenre = new CustomObject.IndividualPerGenre();
+                            iPerGenre.setGenre(genre);
+                            iPerGenre.getMovieSet().add(movie);
 
-                    individualPerGenres.add(iPerGenre);
+                            individualPerGenres.add(iPerGenre);
+                        }
+                    }
                 }
             }
-
-
-
         }
 
+        for(Show show : showRepository.findAll()){
+            for (PersonRole personRole : show.getShowPersonRoles()) {
+                if (individualPerGenres.stream().anyMatch(individualPerGenre -> individualPerGenre.getShowSet().contains(show))){
+                    continue;
+                }
+                if (personRole.getPersonRolesPerson().getPersonName().equalsIgnoreCase(name)) {
+                    for (String genre : show.getShowGenre()) {
+                        if (individualPerGenres.stream().anyMatch(individualPerGenre -> individualPerGenre.getGenre().equalsIgnoreCase(genre))) {
+                            if (individualPerGenres.stream().anyMatch(individualPerGenre -> individualPerGenre.getShowSet().contains(show))){
+                                continue;
+                            }
+                            individualPerGenres.stream().filter(individualPerGenre -> individualPerGenre.getGenre().equalsIgnoreCase(genre)).
+                                    forEach(individualPerGenre -> individualPerGenre.getShowSet().add(show));
+                        } else {
+                            CustomObject.IndividualPerGenre iPerGenre = new CustomObject.IndividualPerGenre();
+                            iPerGenre.setGenre(genre);
+                            iPerGenre.getShowSet().add(show);
 
-
+                            individualPerGenres.add(iPerGenre);
+                        }
+                    }
+                }
+            }
+        }
 
         return  individualPerGenres;
     }
