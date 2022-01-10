@@ -3,8 +3,8 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
 @SuperBuilder
@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 @SequenceGenerator(name = "idGenerator", sequenceName = "PEOPLE_SEQ", allocationSize = 1)
 public class Person extends BaseModel {
 
-    //NotNull(message = "Person Name cannot be null.")
     @Column(name = "personName",length = 100)
     private String personName;
 

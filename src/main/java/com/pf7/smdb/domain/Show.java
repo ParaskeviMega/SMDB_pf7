@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
 @SuperBuilder
@@ -46,10 +47,6 @@ public class Show extends BaseModel {
 
     @OneToMany(targetEntity = PersonRole.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private final Set<PersonRole> showPersonRoles = new HashSet<>();
-
-//    public boolean existsPersonRoleInList(String role){
-//        return this.getShowPersonRoles().stream().anyMatch(s -> StringUtils.containsIgnoreCase(s, role));
-//    }
 
     public Boolean findIfPersonExistsInShowByPersonName(String name) {
         for (PersonRole personRole : showPersonRoles) {

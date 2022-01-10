@@ -13,6 +13,5 @@ public class SmdbPf7Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SmdbPf7Application.class, args);
-		//logger.info("Hello");
 	}
 }

@@ -9,9 +9,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
 @SuperBuilder
