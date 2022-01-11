@@ -121,14 +121,14 @@ public class MovieController extends AbstractController<Movie> {
                 .build());
     }
 
-    @GetMapping(path = {"numberofShowsPerGenre"})
+    @GetMapping(path = {"numberofMoviesPerGenre"})
     public ResponseEntity<ApiResponse<List<CustomObject.GenreOccurrence>>> getNumberOfShowsPerGenre() {
         return ResponseEntity.ok(ApiResponse.<List<CustomObject.GenreOccurrence>>builder()
                 .data(movieService.findNumberOfMoviesPerGenre())
                 .build());
     }
 
-    @GetMapping(path = {"numberofShowsPerYearPerGenre"})
+    @GetMapping(path = {"numberofMoviesPerYearPerGenre"})
     public ResponseEntity<ApiResponse<List<CustomObject.GenreYearOccurence>>> getNumberOfShowsPerYearPerGenre() {
         return ResponseEntity.ok(ApiResponse.<List<CustomObject.GenreYearOccurence>>builder()
                 .data(movieService.findNumberOfMoviesPerYearPerGenre())

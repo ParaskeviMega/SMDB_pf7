@@ -67,7 +67,7 @@ public class PersonController extends AbstractController<Person> {
     }
 
     @GetMapping(path = "/individualParticipationPerGenre", params = "name")
-    public ResponseEntity<ApiResponse<List<CustomObject.IndividualPerGenre>>> getAllParticipationsByPersonNameAndByPersonRole(@RequestParam("name") String name) {
+    public ResponseEntity<ApiResponse<List<CustomObject.IndividualPerGenre>>> getAllParticipationsByPersonNamePerGenre(@RequestParam("name") String name) {
         return ResponseEntity.ok(ApiResponse.<List<CustomObject.IndividualPerGenre>>builder()
                 .data(personService.findAllParticipationsByIndividualPerGenre(name))
                 .build());
