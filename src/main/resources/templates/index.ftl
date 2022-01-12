@@ -1,12 +1,13 @@
+<#--noinspection ALL-->
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css' rel='stylesheet'>
 
-    <style type="text/css">
+    <style>
         <#include "style.css">
     </style>
 </head>
@@ -24,7 +25,7 @@
 <hr class="mt-5">
 <br><br><br>
 
-<div class="d-grid gap-3" align="center">
+<div class="d-grid gap-3">
     <a style="padding:40px;margin: 40px;" class="btn btn-lg btn-primary"
        href="/movie"
        target="_self" role="button">Search Movies<i

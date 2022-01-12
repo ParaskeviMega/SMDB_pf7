@@ -1,12 +1,13 @@
+<#--noinspection ALL-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Shows</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css' rel='stylesheet'>
 
-    <style type="text/css">
+    <style>
         <#include "style.css">
     </style>
 </head>
@@ -21,7 +22,7 @@
 </div>
 <hr class="mt-5">
 
-<div class="container" align="left">
+<div class="container">
 
     <form action="/">
         <button class="btn btn-sm btn-primary" type="submit">Back</button>
