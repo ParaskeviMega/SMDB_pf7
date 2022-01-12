@@ -13,6 +13,8 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
 
     List<Show> findShowsByShowTitleContains(String title);
 
+    Show findShowById(Long id);
+
     Show findShowByShowTitle(String title);
 
     List<Show> findShowsByShowYear(Integer year);

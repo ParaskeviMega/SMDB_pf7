@@ -176,7 +176,7 @@ public class ShowServiceImpl extends BaseServiceImpl<Show> implements ShowServic
 
     @Override
     public Show findShowById(Long id) {
-        return find(id);
+        return showRepository.findShowById(id);
     }
 
     @Override

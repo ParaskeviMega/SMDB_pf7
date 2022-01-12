@@ -1,16 +1,14 @@
 package com.pf7.smdb.controller;
 
 import com.pf7.smdb.domain.Movie;
+import com.pf7.smdb.domain.Person;
 import com.pf7.smdb.helper.CustomObject;
 import com.pf7.smdb.service.BaseService;
 import com.pf7.smdb.service.MovieService;
 import com.pf7.smdb.service.PersonService;
 import com.pf7.smdb.transfer.ApiResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -34,6 +32,13 @@ public class MovieController extends AbstractController<Movie> {
     @Override
     protected BaseService<Movie, Long> getBaseService() {
         return movieService;
+    }
+
+    @GetMapping(params = {"id"})
+    public ResponseEntity<ApiResponse<Movie>> getMovieById(@RequestParam("id") Long id) {
+        return ResponseEntity.ok(ApiResponse.<Movie>builder()
+                .data(movieService.findMovieById(id))
+                .build());
     }
 
     @GetMapping(params = {"title"})

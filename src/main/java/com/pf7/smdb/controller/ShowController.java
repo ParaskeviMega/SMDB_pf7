@@ -9,8 +9,6 @@ import com.pf7.smdb.service.ShowService;
 import com.pf7.smdb.transfer.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -33,6 +31,13 @@ public class ShowController extends AbstractController<Show> {
     @Override
     protected BaseService<Show, Long> getBaseService() {
         return showService;
+    }
+
+    @GetMapping(params = {"id"})
+    public ResponseEntity<ApiResponse<Show>> getShowById(@RequestParam("id") Long id) {
+        return ResponseEntity.ok(ApiResponse.<Show>builder()
+                .data(showService.findShowById(id))
+                .build());
     }
 
     @GetMapping(params = {"title"})

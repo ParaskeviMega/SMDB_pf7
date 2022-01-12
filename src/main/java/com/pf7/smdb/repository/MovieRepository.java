@@ -20,6 +20,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     List<Movie> findMoviesByMovieYearAndMovieRatingStartsWith(Integer year, String rating);
 
+    Movie findMovieById(Long id);
+
     @Query(value = "select top ?1 * from Movie s order by s.movieRating desc", nativeQuery = true)
     List<Movie> findXTopRatedMovies(Integer x);
 

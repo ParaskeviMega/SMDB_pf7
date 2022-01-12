@@ -149,7 +149,7 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
 
     @Override
     public Movie findMovieById(Long id) {
-        return find(id);
+        return movieRepository.findMovieById(id);
     }
 
     @Override
