@@ -32,7 +32,7 @@
     <h5 style="color: whitesmoke">Find Shows By Title</h5>
     <form action="/show/search">
         <input style="width:30%;" type="text" placeholder="{Show Title}" name="title"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -40,7 +40,7 @@
     <h5 style="color: whitesmoke">Find Shows By Year</h5>
     <form action="/show/search">
         <input style="width:30%;" type="number" min="1900" max="2022" placeholder="{Show Year}" name="year"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -48,7 +48,7 @@
     <h5 style="color: whitesmoke">Find Shows By Genre</h5>
     <form action="/show/search">
         <input style="width:30%;" type="text" placeholder="{Show Genre}" name="genre"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -57,7 +57,7 @@
     <form action="/show/search">
         <input style="width:30%;" type="number" min="1" max="10" step="0.1" placeholder="{Show Rating}"
                name="rating"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -66,7 +66,7 @@
     <form action="/show/search">
         <input style="width:30%;" type="number" min="1" max="5000" step="1" placeholder="{Show Episodes}"
                name="numberOfEpisodes"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -75,7 +75,7 @@
     <form action="/show/search">
         <input style="width:30%;" type="number" min="1" max="5000" step="1" placeholder="{Show Seasons}"
                name="numberOfSeasons"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -83,7 +83,7 @@
     <h5 style="color: whitesmoke">Find Shows By Person Name</h5>
     <form action="/show/search">
         <input style="width:30%;" type="text" placeholder="{Person Name}" name="personName"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -92,7 +92,7 @@
     <form action="/show/search">
         <input style="width:30%;" type="text" placeholder="{Person Name}" name="personName"/>
         <input style="width:30%;" type="text" placeholder="{Person Role}" name="personRole"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -102,7 +102,7 @@
         <input style="width:30%;" type="number" min="1900" max="2022" placeholder="{Show Year}" name="year"/>
         <input style="width:30%;" type="number" min="1" max="10" step="0.1" placeholder="{Show Rating}"
                name="rating"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -110,7 +110,7 @@
     <h5 style="color: whitesmoke">Find All Participation For Individual Person Per Genre</h5>
     <form action="/show/search/individualParticipationPerGenre">
         <input style="width:30%;" type="text" placeholder="{Person Name}" name="name"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -118,7 +118,7 @@
     <h5 style="color: whitesmoke">Find Top Rated Movies</h5>
     <form action="/show/search">
         <input style="width:30%;" type="number" min="1" max="50000" placeholder="{Number Of Shows}" name="topRatedShows"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/><br/>

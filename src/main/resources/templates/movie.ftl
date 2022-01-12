@@ -32,7 +32,7 @@
         <h5 style="color: whitesmoke">Find Movies By Title</h5>
         <form action="/movie/search">
             <input style="width:30%;" type="text" placeholder="{Movie Title}" name="title"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/>
@@ -40,7 +40,7 @@
         <h5 style="color: whitesmoke">Find Movies By Year</h5>
         <form action="/movie/search">
             <input style="width:30%;" type="number" min="1900" max="2022" placeholder="{Movie Year}" name="year"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/>
@@ -48,7 +48,7 @@
         <h5 style="color: whitesmoke">Find Movies By Genre</h5>
         <form action="/movie/search">
             <input style="width:30%;" type="text" placeholder="{Movie Genre}" name="genre"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/>
@@ -57,7 +57,7 @@
         <form action="/movie/search">
             <input style="width:30%;" type="number" min="1" max="10" step="0.1" placeholder="{Movie Rating}"
                    name="rating"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/>
@@ -65,7 +65,7 @@
         <h5 style="color: whitesmoke">Find Movies By Person Name</h5>
         <form action="/movie/search">
             <input style="width:30%;" type="text" placeholder="{Person Name}" name="personName"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/>
@@ -74,7 +74,7 @@
         <form action="/movie/search">
             <input style="width:30%;" type="text" placeholder="{Person Name}" name="personName"/>
             <input style="width:30%;" type="text" placeholder="{Person Role}" name="personRole"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/>
@@ -84,7 +84,7 @@
             <input style="width:30%;" type="number" min="1900" max="2022" placeholder="{Movie Year}" name="year"/>
             <input style="width:30%;" type="number" min="1" max="10" step="0.1" placeholder="{Movie Rating}"
                    name="rating"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/>
@@ -92,7 +92,7 @@
         <h5 style="color: whitesmoke">Find All Participation For Individual Person Per Genre</h5>
         <form action="/movie/search/individualParticipationPerGenre">
             <input style="width:30%;" type="text" placeholder="{Person Name}" name="name"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/>
@@ -100,7 +100,7 @@
         <h5 style="color: whitesmoke">Find Top Rated Movies</h5>
         <form action="/movie/search">
             <input style="width:30%;" type="number" min="1" max="50000" placeholder="{Number Of Movies}" name="topRatedMovies"/>
-            <input class="btn btn-sm btn-primary" type="submit"/>
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
 
         <br/><br/>

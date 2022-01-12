@@ -32,7 +32,7 @@
     <h5 style="color: whitesmoke">Find People By Name</h5>
     <form action="/person/search">
         <input style="width:30%;" type="text" placeholder="{Name}" name="name"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -40,7 +40,7 @@
     <h5 style="color: whitesmoke">Find People By Born</h5>
     <form action="/person/search">
         <input style="width:30%;" type="number" min="1500" max="2022" placeholder="{Person Born}" name="born"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -48,7 +48,7 @@
     <h5 style="color: whitesmoke">Find All Participations By Person Name</h5>
     <form action="/person/search/participation">
         <input style="width:30%;" type="text" placeholder="{Name}" name="name"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -57,7 +57,7 @@
     <form action="/person/search/participationByRole">
         <input style="width:30%;" type="text" placeholder="{Name}" name="name"/>
         <input style="width:30%;" type="text" placeholder="{Role}" name="role"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/>
@@ -66,7 +66,7 @@
     <h5 style="color: whitesmoke">Find All Participation For Individual Person Per Genre</h5>
     <form action="/person/search/individualParticipationPerGenre">
         <input style="width:30%;" type="text" placeholder="{Name}" name="name"/>
-        <input class="btn btn-sm btn-primary" type="submit"/>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <br/><br/>
