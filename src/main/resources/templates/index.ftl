@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Regeneration SMDB Api</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css' rel='stylesheet'>
@@ -11,9 +11,9 @@
         <#include "style.css">
     </style>
 </head>
-<body>
+<body style="align-items: center">
 
-<div class=" container h-100">
+<div class=" container h-100" style="text-align: center" >
     <div class="d-flex text-center h-100">
         <div class="my-auto w-100 text-white">
             <h1 style="color: whitesmoke" class="display-3">Java Spring Boot - Regeneration</h1>
@@ -25,7 +25,7 @@
 <hr class="mt-5">
 <br><br><br>
 
-<div class="d-grid gap-3">
+<div class="d-grid gap-3" style="text-align: center">
     <a style="padding:40px;margin: 40px;" class="btn btn-lg btn-primary"
        href="/movie"
        target="_self" role="button">Search Movies<i
