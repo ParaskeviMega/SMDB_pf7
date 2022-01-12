@@ -1,5 +1,6 @@
 package com.pf7.smdb.controller;
 
+import com.pf7.smdb.domain.Movie;
 import com.pf7.smdb.domain.Show;
 import com.pf7.smdb.helper.CustomObject;
 import com.pf7.smdb.service.BaseService;
@@ -8,6 +9,8 @@ import com.pf7.smdb.service.ShowService;
 import com.pf7.smdb.transfer.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -22,7 +25,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/search/show")
+@RequestMapping("/show/search")
 public class ShowController extends AbstractController<Show> {
     private final ShowService showService;
     private final PersonService personService;

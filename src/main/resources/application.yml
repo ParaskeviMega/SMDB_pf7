@@ -66,3 +66,7 @@ spring:
       platform: h2
 server:
   port: 8081
+  servlet:
+    session:
+      cookie:
+        max-age:

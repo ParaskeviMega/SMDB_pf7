@@ -7,6 +7,8 @@ import com.pf7.smdb.service.PersonService;
 import com.pf7.smdb.transfer.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -21,7 +23,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/search/person")
+@RequestMapping("/person/search")
 public class PersonController extends AbstractController<Person> {
     private final PersonService personService;
 
@@ -29,6 +31,7 @@ public class PersonController extends AbstractController<Person> {
     protected BaseService<Person, Long> getBaseService() {
         return personService;
     }
+
 
     @GetMapping(params = {"id"})
     public ResponseEntity<ApiResponse<Person>> getPersonById(@RequestParam("id") Long id) {

@@ -36,7 +36,7 @@ public class MovieServiceImpl extends BaseServiceImpl<Movie> implements MovieSer
 
         TmdbMovies movies = new TmdbApi("690004238e130a8abc787e0ddb18a5d3").getMovies();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 1; i++) {
             for (MovieDb movieTmdb : movies.getPopularMovies("en", i)) {
 
                 int year = 0;

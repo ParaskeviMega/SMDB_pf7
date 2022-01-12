@@ -11,7 +11,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class SmdbPf7Application {
 	private static final Logger logger = LoggerFactory.getLogger(SmdbPf7Application.class);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		System.setProperty("spring.jackson.serialization.INDENT_OUTPUT","true");
 		SpringApplication.run(SmdbPf7Application.class, args);
+
+
 	}
 }

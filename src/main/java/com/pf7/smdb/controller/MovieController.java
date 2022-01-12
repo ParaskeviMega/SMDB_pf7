@@ -7,7 +7,10 @@ import com.pf7.smdb.service.MovieService;
 import com.pf7.smdb.service.PersonService;
 import com.pf7.smdb.transfer.ApiResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -22,10 +25,11 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/search/movie")
+@RequestMapping("/movie/search")
 public class MovieController extends AbstractController<Movie> {
     private final MovieService movieService;
     private final PersonService personService;
+
 
     @Override
     protected BaseService<Movie, Long> getBaseService() {
@@ -122,14 +126,14 @@ public class MovieController extends AbstractController<Movie> {
     }
 
     @GetMapping(path = {"numberofMoviesPerGenre"})
-    public ResponseEntity<ApiResponse<List<CustomObject.GenreOccurrence>>> getNumberOfShowsPerGenre() {
+    public ResponseEntity<ApiResponse<List<CustomObject.GenreOccurrence>>> getNumberOfMoviesPerGenre() {
         return ResponseEntity.ok(ApiResponse.<List<CustomObject.GenreOccurrence>>builder()
                 .data(movieService.findNumberOfMoviesPerGenre())
                 .build());
     }
 
     @GetMapping(path = {"numberofMoviesPerYearPerGenre"})
-    public ResponseEntity<ApiResponse<List<CustomObject.GenreYearOccurence>>> getNumberOfShowsPerYearPerGenre() {
+    public ResponseEntity<ApiResponse<List<CustomObject.GenreYearOccurence>>> getNumberOfMoviesPerYearPerGenre() {
         return ResponseEntity.ok(ApiResponse.<List<CustomObject.GenreYearOccurence>>builder()
                 .data(movieService.findNumberOfMoviesPerYearPerGenre())
                 .build());
